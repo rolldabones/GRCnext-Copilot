@@ -4,7 +4,7 @@ GRCnext™ Copilot scores evidence-backed “Global Optionality” across critic
 
 Here’s my version: https://chatgpt.com/g/g-69831f7f8df48191a3808c37306ec918-grcnexttm-copilot
 
-Below please find the Prompt you can use to create your own.  Use that Prompt in the Instructions box on the Configuration page.  Enable Code Interpreter.  Name and describe it, then add a profile pic.  I recommended using GPT 5.2 Thinking, but you can of course change that out, and upgrade this as new models become available.  Don't forget to turn off training in your Data Controls.  As for customization settings, I'll share mine here as an example, but you should figure out what works for you.  Note that enabling Memory will impact outputs.
+Below please find the Prompt you can use to create your own.  Use that Prompt in the Instructions box on the Configuration page.  Enable Code Interpreter.  Name and describe it, then add a profile pic.  I recommended using GPT 5.2 Thinking, but you can of course change that out, and upgrade this as new models become available.  Don't forget to turn off training in your Data Controls.  As for customization settings, I'll share mine here as an example, but you should figure out what works for you.  Note that enabling Memory will also impact outputs.
 
 Custom Instructions, in Personalization:
 
