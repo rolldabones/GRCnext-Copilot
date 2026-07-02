@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rolldabones/GRCnext-Copilot/schemas/assessment-result.schema.json",
+  "title": "GRCnext™ Assessment Result",
+  "description": "The scored result for one critical service. Reports the four results plus the tolerance result and gate classifications. Capability, confidence and constraint are kept separate and never averaged.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "service_name",
+    "capability_profile",
+    "constraint_level",
+    "evidence_confidence",
+    "readiness_decision",
+    "tolerance_result",
+    "gates"
+  ],
+  "properties": {
+    "service_name": { "type": "string" },
+    "assessment_date": { "type": "string" },
+    "evidence_cutoff_date": { "type": "string" },
+    "capability_profile": {
+      "type": "object",
+      "description": "Six domain scores, each 0 to 4. Reported individually, never averaged.",
+      "additionalProperties": false,
+      "required": [
+        "services_and_tolerances",
+        "pipes",
+        "switches",
+        "exits",
+        "exercises",
+        "evidence_and_improvement"
+      ],
+      "properties": {
+        "services_and_tolerances": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "pipes": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "switches": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "exits": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "exercises": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "evidence_and_improvement": { "type": "integer", "minimum": 0, "maximum": 4 }
+      }
+    },
+    "constraint_level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4,
+      "description": "Minimum of pipes, switches and exits."
+    },
+    "evidence_confidence": {
+      "type": "string",
+      "enum": ["High", "Moderate", "Low", "Indeterminate"]
+    },
+    "readiness_decision": {
+      "type": "string",
+      "enum": ["Demonstrated", "Conditionally Demonstrated", "Not Demonstrated"]
+    },
+    "tolerance_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["result"],
+      "properties": {
+        "result": {
+          "type": "string",
+          "enum": ["Met", "Not Met", "Not Tested", "Cannot Determine"]
+        },
+        "clock_start_event": { "type": "string" },
+        "clock_stop_event": { "type": "string" }
+      }
+    },
+    "gates": {
+      "type": "array",
+      "description": "Eight core readiness gates.",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["gate", "status"],
+        "properties": {
+          "gate": {
+            "type": "string",
+            "enum": [
+              "service_and_owner_defined",
+              "tolerance_approved_and_measurable",
+              "dependencies_mapped",
+              "switch_authority_available",
+              "executable_exit_for_leading_concentration",
+              "severe_but_plausible_exercise_completed",
+              "evidence_shows_tolerance_result",
+              "corrective_actions_have_owners_and_dates"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": ["Pass", "Provisional Pass", "Fail", "Unknown", "Not Applicable"]
+          },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "top_breakpoints": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "evidence_ledger_ref": { "type": "string" },
+    "escalation_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["issue"],
+        "properties": {
+          "issue": { "type": "string" },
+          "operational_consequence": { "type": "string" },
+          "facts_required": { "type": "string" },
+          "decision_owner": { "type": "string" }
+        }
+      }
+    },
+    "ai_overlay_applied": { "type": "boolean" }
+  }
+}
