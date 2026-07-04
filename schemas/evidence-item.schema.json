@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rolldabones/GRCnext-Copilot/schemas/evidence-item.schema.json",
+  "title": "GRCnext™ Evidence Item",
+  "description": "A single item in the GRCnext™ evidence ledger. Credit is earned by evidence, not description. No verified evidence, no verified credit.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_id",
+    "claim_tested",
+    "evidence_type",
+    "verification_status",
+    "applicable_service"
+  ],
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "description": "Stable identifier, for example E-001."
+    },
+    "claim_tested": {
+      "type": "string",
+      "description": "The specific claim this evidence supports."
+    },
+    "artifact_or_observation": {
+      "type": "string",
+      "description": "What was reviewed or observed."
+    },
+    "evidence_type": {
+      "type": "string",
+      "enum": [
+        "interview representation",
+        "controlled document",
+        "configuration",
+        "contract",
+        "system record",
+        "log",
+        "ticket",
+        "observed test",
+        "exercise record",
+        "production event",
+        "independent assurance result"
+      ]
+    },
+    "owner": {
+      "type": "string",
+      "description": "Role accountable for the evidence."
+    },
+    "date_or_period_covered": {
+      "type": "string",
+      "description": "Date or period the evidence covers. ISO 8601 date or a period description."
+    },
+    "source_location": {
+      "type": "string",
+      "description": "Where the evidence is held. Do not embed secrets."
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "Verified",
+        "Provisional",
+        "Not demonstrated",
+        "Contradicted",
+        "Refuted",
+        "Not applicable"
+      ]
+    },
+    "applicable_service": {
+      "type": "string",
+      "description": "The critical service the evidence applies to."
+    },
+    "freshness_assessment": {
+      "type": "string",
+      "description": "Whether the evidence is current for what it proves."
+    },
+    "contradictions_or_limitations": {
+      "type": "string"
+    },
+    "resulting_credit": {
+      "type": "string",
+      "description": "The credit this evidence supports, if any."
+    },
+    "evidence_conversion_action": {
+      "type": "string",
+      "description": "For provisional items, the action that would make the claim verified. Required when verification_status is Provisional."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "verification_status": { "const": "Provisional" }
+        }
+      },
+      "then": {
+        "required": ["evidence_conversion_action"]
+      }
+    }
+  ]
+}
