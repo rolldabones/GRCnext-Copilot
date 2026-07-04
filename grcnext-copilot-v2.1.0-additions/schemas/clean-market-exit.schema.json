@@ -1,0 +1,245 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rolldabones/GRCnext-Copilot/schemas/clean-market-exit.schema.json",
+  "title": "GRCnext™ Clean Market Exit Master Plan",
+  "description": "Terminal artifact of the Advisory Tools Suite, emitted by the Clean Market Exit Kit. Merges all upstream tool outputs into one T0 to T+72h master playbook. Verdict is capped at PROVISIONAL in degraded standalone mode.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tool",
+    "plan_version",
+    "market",
+    "verdict",
+    "inputs_present",
+    "inputs_absent",
+    "timeline",
+    "gaps",
+    "72h_feasible",
+    "status",
+    "drill"
+  ],
+  "properties": {
+    "tool": {
+      "type": "string",
+      "const": "clean_market_exit_kit",
+      "description": "Emitting tool identifier."
+    },
+    "plan_version": {
+      "type": "string",
+      "description": "ISO 8601 timestamp, Asia/Seoul unless stated otherwise."
+    },
+    "market": {
+      "type": "string"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "READY",
+        "PROVISIONAL",
+        "NOT READY"
+      ]
+    },
+    "inputs_present": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "pipes_mapper",
+          "switch_registry",
+          "exit_prover",
+          "treasury_reroute_planner",
+          "data_switchboard_planner"
+        ]
+      }
+    },
+    "inputs_absent": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "pipes_mapper",
+          "switch_registry",
+          "exit_prover",
+          "treasury_reroute_planner",
+          "data_switchboard_planner"
+        ]
+      }
+    },
+    "systems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "vendors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "finance_plan": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "treasury_reroute_planner payload or empty object."
+    },
+    "data_plan": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "data_switchboard_planner payload or empty object."
+    },
+    "switch_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "switch",
+          "when"
+        ],
+        "properties": {
+          "switch": {
+            "type": "string"
+          },
+          "when": {
+            "type": "string",
+            "description": "Relative to T0."
+          },
+          "end_state": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "notifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "to",
+          "owner",
+          "status"
+        ],
+        "properties": {
+          "to": {
+            "type": "string"
+          },
+          "by": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "authority": {
+            "type": "string",
+            "description": "User-supplied authority only; jurisdiction-specific items default to external counsel."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Verified",
+              "Provisional",
+              "Not demonstrated",
+              "Contradicted",
+              "Refuted",
+              "Not applicable"
+            ],
+            "description": "GRCnext™ evidence classification."
+          }
+        }
+      }
+    },
+    "extended_tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "task",
+          "status"
+        ],
+        "properties": {
+          "domain": {
+            "type": "string",
+            "enum": [
+              "Legal",
+              "Regulatory",
+              "Contracts",
+              "Communications",
+              "HR",
+              "Facilities",
+              "Other"
+            ]
+          },
+          "task": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Verified",
+              "Provisional",
+              "Not demonstrated",
+              "Contradicted",
+              "Refuted",
+              "Not applicable"
+            ],
+            "description": "GRCnext™ evidence classification."
+          }
+        }
+      }
+    },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "t",
+          "step"
+        ],
+        "properties": {
+          "t": {
+            "type": "string",
+            "description": "T0, T+4h, T+72h."
+          },
+          "step": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "72h_feasible": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "executed"
+      ]
+    },
+    "drill": {
+      "type": "boolean"
+    }
+  }
+}
