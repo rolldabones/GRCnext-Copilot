@@ -1,5 +1,0 @@
-capa_id,finding,service,action,owner,target_date,status,closure_verification,escalated
-CA-001,"Exit from Vendor A not rehearsed end to end",Service B real-time payments,"Design and run a T3 exit rehearsal including data migration",Vendor management lead,2026-09-30,Open,"Closure requires exercise record and timing within tolerance",No
-CA-002,"Authorization step for degrade switch was simulated, not performed",Service B real-time payments,"Re-run T2 test with live authorization from head of payments",Payments resilience lead,2026-08-15,Open,"Closure requires evidence of live authorization within clock",No
-CA-003,"Dependency map last verified over 12 months ago",Service B real-time payments,"Re-verify end-to-end dependency map and fourth-party list",Service owner,2026-07-31,Overdue,"Closure requires dated, verified map",Yes
-CA-004,"Rehearsal stabilized at 9 hours against the 4-hour internal target for SW-001",Service B real-time payments,"Close the gap between the 9-hour rehearsal result and the 4-hour internal target for SW-001",Payments duty manager,2026-08-31,Open,"Closure requires a rehearsal record showing stabilization within the 4-hour target",No
