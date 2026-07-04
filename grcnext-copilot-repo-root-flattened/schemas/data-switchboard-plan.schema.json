@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rolldabones/GRCnext-Copilot/schemas/data-switchboard-plan.schema.json",
+  "title": "GRCnext™ Data Switchboard Plan",
+  "description": "Plan emission from the Data Switchboard Planner advisory tool. Verification steps are tasks for named humans; the tool does not verify live systems. Consumed by Exit Prover and Clean Market Exit Kit.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tool",
+    "plan_version",
+    "scenario",
+    "affected_flows",
+    "steps",
+    "72h_feasible",
+    "drill"
+  ],
+  "properties": {
+    "tool": {
+      "type": "string",
+      "const": "data_switchboard_planner",
+      "description": "Emitting tool identifier."
+    },
+    "plan_version": {
+      "type": "string",
+      "description": "ISO 8601 timestamp, Asia/Seoul unless stated otherwise."
+    },
+    "scenario": {
+      "type": "string"
+    },
+    "affected_flows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "dest",
+          "action"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "dest": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "stop",
+              "block",
+              "reroute",
+              "duplicate",
+              "delete-after-export",
+              "isolate"
+            ]
+          },
+          "new_dest": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "order",
+          "action",
+          "owner",
+          "evidence_status"
+        ],
+        "properties": {
+          "order": {
+            "type": "integer"
+          },
+          "action": {
+            "type": "string"
+          },
+          "mechanism": {
+            "type": "string",
+            "description": "Switch Registry entry, mechanisms-library entry or generic Provisional mechanism, in that priority."
+          },
+          "owner": {
+            "type": "string"
+          },
+          "evidence_status": {
+            "type": "string",
+            "enum": [
+              "Verified",
+              "Provisional",
+              "Not demonstrated",
+              "Contradicted",
+              "Refuted",
+              "Not applicable"
+            ],
+            "description": "GRCnext™ evidence classification."
+          }
+        }
+      }
+    },
+    "switches_used": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fallback": {
+      "type": "string",
+      "description": "Reversal path, or an explicit statement that the change cannot be reversed."
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "impacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "compliance_notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "requirement",
+          "status"
+        ],
+        "properties": {
+          "requirement": {
+            "type": "string",
+            "description": "User-supplied authority only."
+          },
+          "addressed_by": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "Step order numbers."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Verified",
+              "Provisional",
+              "Not demonstrated",
+              "Contradicted",
+              "Refuted",
+              "Not applicable"
+            ],
+            "description": "GRCnext™ evidence classification."
+          }
+        }
+      }
+    },
+    "72h_feasible": {
+      "type": "boolean"
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "drill": {
+      "type": "boolean"
+    }
+  }
+}

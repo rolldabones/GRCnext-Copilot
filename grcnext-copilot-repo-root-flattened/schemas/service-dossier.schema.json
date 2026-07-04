@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/rolldabones/GRCnext-Copilot/schemas/service-dossier.schema.json",
+  "title": "GRCnext™ Service Dossier",
+  "description": "A Service Dossier for one critical service. Exactly six core sections. Detailed tables belong in appendices.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "service_definition",
+    "impact_tolerance",
+    "dependency_map",
+    "switch_catalog",
+    "priority_exit_plan",
+    "exercise_and_evidence_record"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["draft", "pending review", "final"]
+    },
+    "assessment_date": { "type": "string" },
+    "evidence_cutoff_date": { "type": "string" },
+    "service_definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["service_name", "service_outcome", "accountable_owner"],
+      "properties": {
+        "service_name": { "type": "string" },
+        "service_outcome": { "type": "string" },
+        "accountable_owner": { "type": "string" },
+        "customers_and_stakeholders": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "material_jurisdictions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "material_harms": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "scope_boundaries": { "type": "string" }
+      }
+    },
+    "impact_tolerance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tolerance_statement", "clock_start", "clock_stop", "approving_authority"],
+      "properties": {
+        "tolerance_statement": { "type": "string" },
+        "measurement_method": { "type": "string" },
+        "clock_start": { "type": "string" },
+        "clock_stop": { "type": "string" },
+        "approving_authority": { "type": "string" },
+        "assumptions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "latest_result": {
+          "type": "string",
+          "enum": ["Met", "Not Met", "Not Tested", "Cannot Determine"]
+        }
+      }
+    },
+    "dependency_map": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "people": { "type": "array", "items": { "type": "string" } },
+        "process": { "type": "array", "items": { "type": "string" } },
+        "technology": { "type": "array", "items": { "type": "string" } },
+        "data": { "type": "array", "items": { "type": "string" } },
+        "facilities": { "type": "array", "items": { "type": "string" } },
+        "third_parties": { "type": "array", "items": { "type": "string" } },
+        "fourth_parties": { "type": "array", "items": { "type": "string" } },
+        "jurisdictions": { "type": "array", "items": { "type": "string" } },
+        "recovery_dependencies": { "type": "array", "items": { "type": "string" } },
+        "concentrations": { "type": "array", "items": { "type": "string" } },
+        "manual_alternatives": { "type": "array", "items": { "type": "string" } },
+        "last_verified_date": { "type": "string" }
+      }
+    },
+    "switch_catalog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["trigger", "action", "authorized_decision_maker"],
+        "properties": {
+          "switch_id": { "type": "string" },
+          "trigger": { "type": "string" },
+          "action": { "type": "string" },
+          "authorized_decision_maker": { "type": "string" },
+          "operator": { "type": "string" },
+          "prerequisites": { "type": "string" },
+          "execution_time_full_clock": { "type": "string" },
+          "communications": { "type": "string" },
+          "rollback_or_stabilization": { "type": "string" },
+          "evidence_generated": { "type": "string" },
+          "latest_test_result": { "type": "string" }
+        }
+      }
+    },
+    "priority_exit_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dependency_being_exited"],
+      "properties": {
+        "dependency_being_exited": { "type": "string" },
+        "exit_triggers": { "type": "array", "items": { "type": "string" } },
+        "legal_and_contractual_rights": { "type": "string" },
+        "notice_requirements": { "type": "string" },
+        "data_actions": { "type": "string" },
+        "transition_steps": { "type": "array", "items": { "type": "string" } },
+        "substitute_arrangement": { "type": "string" },
+        "substitute_capacity_confirmed": { "type": "boolean" },
+        "resource_and_cost_assumptions": { "type": "string" },
+        "residual_risks": { "type": "array", "items": { "type": "string" } },
+        "target_execution_time": { "type": "string" },
+        "evidence_requirements": { "type": "string" },
+        "latest_rehearsal_result": { "type": "string" }
+      }
+    },
+    "exercise_and_evidence_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exercise_tier", "tolerance_result"],
+      "properties": {
+        "latest_scenario": { "type": "string" },
+        "exercise_tier": {
+          "type": "string",
+          "enum": ["T0", "T1", "T2", "T3", "T4", "None"],
+          "description": "None means no exercise on record; pair with a tolerance_result of Not Tested or Cannot Determine."
+        },
+        "date": { "type": "string" },
+        "participants": { "type": "array", "items": { "type": "string" } },
+        "actions_simulated": { "type": "array", "items": { "type": "string" } },
+        "actions_performed": { "type": "array", "items": { "type": "string" } },
+        "elapsed_times": {
+          "type": "object",
+          "description": "Elapsed time per execution-clock phase.",
+          "additionalProperties": false,
+          "properties": {
+            "detect": { "type": "string" },
+            "interpret": { "type": "string" },
+            "decide": { "type": "string" },
+            "authorize": { "type": "string" },
+            "execute": { "type": "string" },
+            "verify": { "type": "string" },
+            "communicate": { "type": "string" },
+            "stabilize": { "type": "string" }
+          }
+        },
+        "tolerance_result": {
+          "type": "string",
+          "enum": ["Met", "Not Met", "Not Tested", "Cannot Determine"]
+        },
+        "evidence_pack_ref": { "type": "string" },
+        "findings": { "type": "array", "items": { "type": "string" } },
+        "corrective_actions": { "type": "array", "items": { "type": "string" } },
+        "retest_status": { "type": "string" }
+      }
+    },
+    "appendices": {
+      "type": "object",
+      "description": "Optional. Evidence tables, legal issue lists, diagrams."
+    }
+  }
+}
