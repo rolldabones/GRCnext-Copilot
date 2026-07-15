@@ -3,6 +3,37 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.2.0 (2026-07-15)
+
+A documentation and classification release. No change to the method,
+scoring or prompts.
+
+### Added
+
+- Deployed production instance paragraph in the README: the live custom
+  GPT at chatgpt.com currently runs the v1 single-prompt configuration.
+  The v2 configuration this repository ships has not yet been deployed
+  to that instance; the README now states this plainly so the repository
+  never describes a deployment that does not exist.
+- `prompt/v1-production-deployment.md`: the deployed v1 production
+  configuration captured verbatim (name, description, instruction,
+  capabilities) as the system of record for what is live, with a pointer
+  to the v2 upgrade path.
+- Part of the ecosystem section in the README: classified Layer 2 in
+  the canonical map at rolldabones/rolldabones with five nearest
+  neighbors.
+
+### Notes
+
+- The deployed v1 instruction references NIST AI RMF-aligned controls
+  in its AI overlay. As of this release NIST AI RMF means version 1.0
+  (January 2023) with the Generative AI Profile (NIST AI 600-1, July
+  2024).
+- Open item: redeploying the production GPT to v2 per the README's
+  ChatGPT pattern remains available at any time; on redeployment,
+  `prompt/v1-production-deployment.md` is re-marked superseded and the
+  repository re-versions.
+
 ## v2.1.0 (2026-07-04)
 
 A capability release adding the Advisory Tools Suite. No change to the

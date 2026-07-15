@@ -123,6 +123,8 @@ Full instructions with data-control and memory caveats are in [`prompt/model-con
 
 **ChatGPT Custom GPT.** The instructions field caps at 8,000 characters, so paste [`prompt/compact-custom-gpt-version.md`](prompt/compact-custom-gpt-version.md) there and attach [`prompt/GRCnext-Copilot-v2.md`](prompt/GRCnext-Copilot-v2.md) as a Knowledge file. Enable Code Interpreter so the GPT can read the Knowledge and the templates. Turn training off in Data Controls. Note that enabling Memory changes outputs.
 
+**Deployed production instance (as of 15 July 2026).** The author's deployed custom GPT is at https://chatgpt.com/g/g-69831f7f8df48191a3808c37306ec918-grcnexttm-copilot and currently runs the **v1 single-prompt configuration**, documented verbatim in [`prompt/v1-production-deployment.md`](prompt/v1-production-deployment.md): the v1 instruction in the Instruction field, no Knowledge files, no conversation starters, and Web Search, Canvas, Image Generation and Code Interpreter & Data Analysis enabled. The v2 configuration this repository ships (compact edition as Instruction plus the modular v2 prompt as Knowledge, per the pattern above) has not yet been deployed to that instance. When production changes, this paragraph and that file change and the repository version bumps.
+
 **Any strong model, standalone.** For a self-contained deployment that needs no attached files, paste [`prompt/GRCnext-Copilot-long-form.md`](prompt/GRCnext-Copilot-long-form.md) as the entire system prompt. It carries the methodology reasoning inline, so it suits stronger reasoning models with large context windows and platforms that cannot read attachments.
 
 **Model.** Select the strongest available reasoning model on your platform. The method is model-neutral. Do not hardcode a model name into the prompt.
@@ -134,6 +136,18 @@ Full instructions with data-control and memory caveats are in [`prompt/model-con
 It will not invent evidence, contractual language, legal authority, test results, owners, dates or scores. It will not assert legal or regulatory compliance without supporting evidence and authority. It treats "not supplied" as unknown, never as "does not exist." It warns against pasting secrets or personal data and redacts to neutral labels. For issues touching governing law, live disputes, sanctions, national security, regulated data, safety-critical services or criminal exposure it escalates and stops short of a jurisdiction-specific legal conclusion.
 
 GRCnext™ Copilot is a decision-support and assurance-design tool. It is not legal advice and it is not a compliance certification.
+
+---
+
+## Part of the ecosystem
+
+This repository is part of the [rolldabones governance ecosystem](https://github.com/rolldabones/rolldabones/blob/main/ECOSYSTEM.md), classified in Layer 2 (assessment and decision tools). Nearest neighbors:
+
+- [grc](https://github.com/rolldabones/grc) - the GRC next framework whose five primitives this Copilot runs as a scoring engine
+- [RedCap-00](https://github.com/rolldabones/RedCap-00) - the 72-hour operational-optionality self-check this method generalizes
+- [RedCap-01](https://github.com/rolldabones/RedCap-01) - the objective-to-risk alignment diagnostic upstream of optionality design
+- [Contract-Mechanism-Review-Assistant](https://github.com/rolldabones/Contract-Mechanism-Review-Assistant) - the contract reader that feeds the Contract Exit Review mode
+- [AI-Impact-Assessment-Tool](https://github.com/rolldabones/AI-Impact-Assessment-Tool) - the pre-deployment gate whose kill-switch and decommission requirements are Switches and Exits here
 
 ---
 
