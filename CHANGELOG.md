@@ -3,6 +3,21 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.2.1 (2026-07-30)
+
+Patch release. Trademark rendering only.
+
+### Added
+- Version masthead in the README (line 3), bringing this repository into line with the twelve others in the account. Version had previously lived only in this file and in the tag.
+- Origin section in the README recording *Made to Hold* (28 July 2026) as the first public exposition of GRCnext™ and the first public use of Tiny Servants, following the pattern established by computational-drafting.
+
+### Changed
+- Trademark rendering corrected to the canonical closed-up form GRCnext™. The retired spaced form "GRC next" is withdrawn from repository prose. One occurrence, in the grc line of the README Part of the ecosystem section.
+
+### Unchanged
+- tests/prompt-evaluation-cases.md deliberately retains the unmarked form "GRCnext" inside the stated fail condition of an evaluation case. The string is the failure it tests for and correcting it would destroy the test.
+- The v1 production instruction documented in prompt/v1-production-deployment.md, and the not-yet-deployed v2 instruction.
+
 ## v2.2.0 (2026-07-15)
 
 A documentation and classification release. No change to the method,

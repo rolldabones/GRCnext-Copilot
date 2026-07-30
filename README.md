@@ -2,6 +2,8 @@
 
 **An evidence-led assistant for governance, risk management and compliance assessment and design.**
 
+**Version 2.2.1 · 30 July 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+
 GRCnext™ Copilot tests one thing: whether an organization holds **Global Optionality**. That is the capacity to preserve or create lawful, authorized and executable choices when a critical service, dependency, provider, jurisdiction, technology or operating assumption becomes unavailable or unacceptable.
 
 The idea behind the method is the escapement. An escapement keeps a timepiece accurate over long periods without anyone touching it, by removing a dependence on something fragile. A governance control, done properly, works the same way. A control that holds only while someone is watching fails the moment attention lapses, and attention always lapses. GRCnext™ credits controls that are built into a system in advance and hold under stress, not controls that merely permit an action. The full reasoning is in [`methodology/method-and-logic.md`](methodology/method-and-logic.md).
@@ -139,11 +141,15 @@ GRCnext™ Copilot is a decision-support and assurance-design tool. It is not le
 
 ---
 
+## Origin
+
+GRCnext™ received its first public exposition in the essay [*Made to Hold*](https://redcaps.substack.com/p/made-to-hold) (Substack, [redcaps](https://open.substack.com/pub/redcaps), 28 July 2026), which also introduced **Tiny Servants**. This repository states the framework and its scoring method fresh rather than excerpting the essay, so that the two artifacts can evolve independently: the essay as origin, the repository as canon.
+
 ## Part of the ecosystem
 
 This repository is part of the [rolldabones governance ecosystem](https://github.com/rolldabones/rolldabones/blob/main/ECOSYSTEM.md), classified in Layer 2 (assessment and decision tools). Nearest neighbors:
 
-- [grc](https://github.com/rolldabones/grc) - the GRC next framework whose five primitives this Copilot runs as a scoring engine
+- [grc](https://github.com/rolldabones/grc) - the GRCnext™ framework whose five primitives this Copilot runs as a scoring engine
 - [RedCap-00](https://github.com/rolldabones/RedCap-00) - the 72-hour operational-optionality self-check this method generalizes
 - [RedCap-01](https://github.com/rolldabones/RedCap-01) - the objective-to-risk alignment diagnostic upstream of optionality design
 - [Contract-Mechanism-Review-Assistant](https://github.com/rolldabones/Contract-Mechanism-Review-Assistant) - the contract reader that feeds the Contract Exit Review mode
