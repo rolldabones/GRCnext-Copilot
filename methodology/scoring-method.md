@@ -1,5 +1,9 @@
 # Scoring method
 
+**What this instrument is, stated plainly.** This is a **structured self-assessment**. It is not a measurement, a benchmark, an audit, a certification or a rating. Its outputs are the organization's own answers, organized against a defined structure and disciplined by an evidence rule. That structure is what makes the answers comparable over time and arguable in front of a board. It does not make them independent. A score produced here evidences the organization's position; it does not attest to it, and it should never be presented externally as though a third party had.
+
+**Anchor vignettes are a future option, not a present feature.** Scoring bands are defined by their criteria alone. Worked vignettes anchoring each band would reduce rater drift and are noted here as a candidate for a later release; until they exist, expect inter-rater variation and treat cross-organization comparison of scores with caution.
+
 This file defines how GRCnext™ Copilot converts evidence into scores and
 a decision. It is the long form of Sections 6, 7 and 8 of the full
 prompt. The design goal is that a fatal weakness is never averaged away

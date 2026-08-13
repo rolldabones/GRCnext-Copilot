@@ -3,6 +3,20 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.2.2 (2026-08-13)
+
+Measurement and standards reframing.
+
+- **Framing correction.** The instrument is now described explicitly as a **structured self-assessment**, not a measurement, benchmark, audit, certification or rating. Outputs are the organization's own answers organized against a defined structure and disciplined by an evidence rule. Structure makes answers comparable over time and arguable before a board; it does not make them independent. A score evidences the organization's position, it does not attest to it, and it must not be presented externally as though a third party had.
+- The same framing is added at the head of `methodology/scoring-method.md`.
+- **Anchor vignettes recorded as a future option.** Scoring bands are defined by criteria alone. Worked vignettes anchoring each band would reduce rater drift and are noted as a candidate for a later release. Until they exist, inter-rater variation should be expected and cross-organization comparison of scores treated with caution.
+
+
+License metadata sweep. An `SPDX-License-Identifier: CC-BY-NC-SA-4.0` line and the canonical Creative Commons legal code are now carried inside the existing license file. The filename is unchanged and the human-readable summary is retained above the legal code.
+
+- The primary audience is automated intake and provenance tooling, which reads the SPDX tag rather than prose. Automated license detection previously reported nothing across all twenty-one repositories in this account.
+- No change to the licence in force. The identifier records what was already true.
+
 ## v2.2.1 (2026-07-30)
 
 Patch release. Trademark rendering only.

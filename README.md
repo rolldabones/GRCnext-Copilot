@@ -2,7 +2,7 @@
 
 **An evidence-led assistant for governance, risk management and compliance assessment and design.**
 
-**Version 2.2.1 · 30 July 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+**Version 2.2.2 · 13 August 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
 
 GRCnext™ Copilot tests one thing: whether an organization holds **Global Optionality**. That is the capacity to preserve or create lawful, authorized and executable choices when a critical service, dependency, provider, jurisdiction, technology or operating assumption becomes unavailable or unacceptable.
 
@@ -21,6 +21,8 @@ Or put in the operating principle the whole method turns on:
 ## What changed in v2
 
 v1 was a single dense instruction block that did the work of a constitution, a methodology, a scoring engine, a legal triage protocol, a report template and one user's ChatGPT settings all at once. It worked, but it invited the model to satisfy an output checklist mechanically and it flattened materially different risk profiles into a single minimum score.
+
+**What this instrument is, stated plainly.** This is a **structured self-assessment**. It is not a measurement, a benchmark, an audit, a certification or a rating. Its outputs are the organization's own answers, organized against a defined structure and disciplined by an evidence rule. That structure is what makes the answers comparable over time and arguable in front of a board. It does not make them independent. A score produced here evidences the organization's position; it does not attest to it, and it should never be presented externally as though a third party had.
 
 v2 keeps the intellectual spine and repairs the failure modes:
 
