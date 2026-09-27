@@ -3,6 +3,15 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.2.4 (2026-09-28)
+
+Retirement notice for the deployed custom GPT. OpenAI's Custom GPT retirement and migration FAQ, read on 28 September 2026, states that custom GPTs and their GPT pages become inaccessible on 11 December 2026. On Michael's ruling of 28 September 2026 the GPT is retired on that date and not migrated to a plugin; the instructions stay published so readers can build their own.
+
+- **`README.md`**: retirement notice added below the deployed production instance paragraph. The notice cites both OpenAI help articles with the date each was read. The version moved to this release at every occurrence.
+- **`CITATION.cff`**: `version` and `date-released` in lockstep.
+- **The link is kept.** It is live until 11 December 2026. Striking it and updating the production-status line in `prompt/v1-production-deployment.md`, and recasting the present-tense deployment wording, is `account-maintenance` RUNBOOK §8 item 28, due on the first sweep after that date.
+- All other files in this repository are unchanged byte for byte.
+
 ## v2.2.3 (2026-09-06)
 
 Citation infrastructure, doctrine citation line and lockstep maintenance. Session C of the September 2026 improvement pack, one patch release per repository across all 21 public repositories.

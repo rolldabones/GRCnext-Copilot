@@ -2,7 +2,7 @@
 
 **An evidence-led assistant for governance, risk management and compliance assessment and design.**
 
-**Version 2.2.3 · 6 September 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+**Version 2.2.4 · 28 September 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
 
 GRCnext™ Copilot tests one thing: whether an organization holds **Global Optionality**. That is the capacity to preserve or create lawful, authorized and executable choices when a critical service, dependency, provider, jurisdiction, technology or operating assumption becomes unavailable or unacceptable.
 
@@ -129,6 +129,10 @@ Full instructions with data-control and memory caveats are in [`prompt/model-con
 
 **Deployed production instance (as of 15 July 2026).** The author's deployed custom GPT is at https://chatgpt.com/g/g-69831f7f8df48191a3808c37306ec918-grcnexttm-copilot and currently runs the **v1 single-prompt configuration**, documented verbatim in [`prompt/v1-production-deployment.md`](prompt/v1-production-deployment.md): the v1 instruction in the Instruction field, no Knowledge files, no conversation starters, and Web Search, Canvas, Image Generation and Code Interpreter & Data Analysis enabled. The v2 configuration this repository ships (compact edition as Instruction plus the modular v2 prompt as Knowledge, per the pattern above) has not yet been deployed to that instance. When production changes, this paragraph and that file change and the repository version bumps.
 
+> **Retirement notice, 28 September 2026 (KST).** OpenAI is retiring custom GPTs. Its [Custom GPT retirement and migration FAQ](https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq), read on 28 September 2026, states that custom GPTs and their GPT pages become inaccessible on **11 December 2026**, or 11 February 2027 for Enterprise workspaces with an approved deferral. The deployed GRCnext™ Copilot custom GPT will be retired on that date and will not be migrated. The link above stops working then, and the ChatGPT Custom GPT route above closes with it.
+>
+> Everything needed to build your own stays published here: the instruction block and the configuration, including any knowledge files. OpenAI's replacement is the ChatGPT plugin, in which a GPT's instructions become a Skill and its knowledge files become reference files. Its [Plugins in ChatGPT and Codex](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt-and-codex) article, read the same day, offers plugin creation in supported ChatGPT Business and Enterprise workspaces, so check what your plan allows. The instruction block is not tied to ChatGPT and also serves as the custom instructions of any assistant that accepts them. A plugin does not inherit a GPT's selected model and custom actions do not transfer, so choose the model yourself and test before you rely on the output.
+
 **Any strong model, standalone.** For a self-contained deployment that needs no attached files, paste [`prompt/GRCnext-Copilot-long-form.md`](prompt/GRCnext-Copilot-long-form.md) as the entire system prompt. It carries the methodology reasoning inline, so it suits stronger reasoning models with large context windows and platforms that cannot read attachments.
 
 **Model.** Select the strongest available reasoning model on your platform. The method is model-neutral. Do not hardcode a model name into the prompt.
@@ -165,7 +169,7 @@ GRCnext™ and the associated doctrine vocabulary (Slow AI, Informed Intent, Fin
 
 ## How to Cite
 
-> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.2.3. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
+> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.2.4. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
 
 A machine-readable citation is in [CITATION.cff](CITATION.cff).
 
