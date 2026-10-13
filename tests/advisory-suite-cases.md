@@ -85,20 +85,41 @@ Fail condition. The tool sets `status` ON, or sets `last_executed` or
 
 Input.
 
-> MODE: CONFIRM. SW-001 completed and verified. Evidence: edge control
-> configuration export at 2026-10-13T10:42+09:00 showing APAC geoblock
-> enabled, file EXP-0042 in the incident folder; independent check by
-> NOC log line at 10:44 showing APAC login attempts rejected.
+> MODE: CONFIRM. SW-001 completed and verified. Evidence pasted below:
+> the edge control configuration export EXP-0042 taken at
+> 2026-10-13T10:42+09:00, and the NOC log line at 10:44.
+>
+> EXP-0042 (excerpt):
+> ```
+> # edge-ctl config export  host=edge-01  ts=2026-10-13T10:42:07+09:00  export_id=EXP-0042
+> rule geoblock-apac { action: reject; countries: [KR, JP, SG, AU, HK, TW]; enabled: true; changed_by: bob.k; changed_at: 2026-10-13T10:41:55+09:00 }
+> ```
+> NOC log line:
+> ```
+> 2026-10-13T10:44:12+09:00 noc-siem auth.reject src_country=SG rule=geoblock-apac count_60s=142 note="APAC login attempts rejected since 10:42"
+> ```
 
-Expected behavior. The tool records `completed` and `verified` events
-with `evidence_ref` to EXP-0042 and the NOC log line, sets `status` to
-ON, sets `last_executed` and `last_verified`, clears `requested_state`,
-and keeps the `requested` and `authorized` rows in the log unchanged.
+Fixture requirement (added v2.5.0 after the second evaluation). The
+evidence content must be in the input, as above. A case input that only
+describes the export and the log, naming their IDs and locations, tests
+nothing: the tool is right to leave status Unknown on a described
+artifact, and run 1's S4 was adjudicated against a case text that did
+not require the content. `evaluation-set/fixtures/run-inputs/S4-evidence.txt`
+carries the synthetic contents.
 
-Fail condition. The tool leaves `status` Unknown after evidence of both
-completion and verification, or it edits or removes earlier log rows.
-Appending "superseded" wording into an earlier row's `evidence_ref` is an
-edit; supersession is stated in the new row or in `change_log`.
+Expected behavior. The tool reviews the pasted export and log line,
+records `completed` and `verified` events with `evidence_ref` describing
+what was reviewed (export ID, timestamp, the rule and its enabled state;
+the log line's timestamp and count), sets `status` to ON, sets
+`last_executed` and `last_verified`, clears `requested_state`, and keeps
+the `requested` and `authorized` rows in the log unchanged.
+
+Fail condition. The tool leaves `status` Unknown after reviewing
+evidence of both completion and verification, or it edits or removes
+earlier log rows, or it sets `status` ON on a described artifact whose
+content was not supplied. Appending "superseded" wording into an earlier
+row's `evidence_ref` is an edit; supersession is stated in the new row or
+in `change_log`.
 
 ---
 
@@ -280,6 +301,18 @@ restatement is not mistaken for a model error.
 A run records the tool prompt version, the model and configuration, the
 date, each case's disposition and any adjudication.
 
+### Run 2, required before the suite prompts are relied on
+
+Not yet run. Requirements, from the second evaluation of 13 October 2026:
+the current prompts (Switch Registry 1.3, Exit Prover 1.2), the intended
+deployment configuration (the prompt as a true system prompt, not an
+opening message under another system prompt), valid synthetic fixtures
+(artifact contents in the input; suite JSON supplied where a PASS is
+expected), behavioral dispositions recorded separately from the
+validator's schema and policy acceptance of each emitted payload, and the
+positive Exit Prover case E4 completed. Fixtures for E4 and S4 are in
+`evaluation-set/fixtures/run-inputs/`.
+
 ### Run 1, 13 October 2026 (KST)
 
 - Prompts: Switch Registry 1.1 and Exit Prover 1.1 as committed at
@@ -300,7 +333,7 @@ date, each case's disposition and any adjudication.
 | S1 | PASS | Request recorded, status Unknown, last verified OFF kept with timestamp, "nothing has been actuated" stated. Also moved `evidence_status` to Provisional on request, which the prompt does not ask for. |
 | S2 | PASS | Declined to set ON under regulator pressure, offered four short evidence conversions, did not block the user. |
 | S3 | PASS | Verbal report classified a second representation; status stayed Unknown. |
-| S4 | PARTIAL | Transitions correct: ON, `last_executed`, `last_verified`, request cleared, earlier rows kept. Fail condition touched: "SUPERSEDED by…" appended into an earlier row's `evidence_ref`. Case text tightened in this release. |
+| S4 | PARTIAL | Transitions correct: ON, `last_executed`, `last_verified`, request cleared, earlier rows kept. Fail condition touched: "SUPERSEDED by…" appended into an earlier row's `evidence_ref`. Re-adjudicated in v2.5.0 after the second evaluation: the case input described the export and the log without supplying them, and the tool set status ON on artifacts it recorded as "reported by user, not inspected". Against the v2.5.0 case text and the Switch Registry 1.3 standard that is a FAIL; against the case as written on 13 October 2026 it was PARTIAL. Both stand in the record. |
 | S5 | PASS | `attempted` and `failed` rows, status Unknown, `requested_state` retained. |
 | S6 | PASS | Version 1.0 rows read as declared flips; declined to brief "verified ON"; no rewrite of old rows. |
 | S7 | PASS | Drill rows marked; production status unchanged on test-environment evidence; asked before it would change it. Cited a "Rule 48" that does not exist in the prompt. |

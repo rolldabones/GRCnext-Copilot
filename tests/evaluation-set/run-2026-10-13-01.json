@@ -32,7 +32,8 @@
     {
       "case": "S4",
       "disposition": "PARTIAL",
-      "observation": "Transitions correct; supersession wording appended into an earlier log row's evidence_ref, an edit of an append-only log."
+      "observation": "Transitions correct; supersession wording appended into an earlier log row's evidence_ref, an edit of an append-only log.",
+      "re_adjudication_v2_5_0": "FAIL against the v2.5.0 case text and Switch Registry 1.3: status set ON on artifacts the tool itself recorded as reported by user, not inspected. PARTIAL stands against the case as written at the time. Found by the second external evaluation."
     },
     {
       "case": "S5",
@@ -181,6 +182,7 @@
   "notes": [
     "Payloads were transcribed from the agent outputs into files after the run; long free-text values were kept, formatting may differ.",
     "The run predates the v2.3.2 prompt rules and the v2.4.0 null-widening; S5 validates under v2.4.0 schemas and would have failed under v2.3.1 on null description.",
-    "pipes_min.json, the S8 input, does not satisfy pipes-mapper-output.schema.json: the adjudicator's fourth fixture fault; the model treated the file as Provisional input and the case still ran."
+    "pipes_min.json, the S8 input, does not satisfy pipes-mapper-output.schema.json: the adjudicator's fourth fixture fault; the model treated the file as Provisional input and the case still ran.",
+    "Second external evaluation of v2.4.0 (13 October 2026, run by the maintainer with another model): F01 fixed; F02, F03, F07 partially resolved; four validator problems, closed in v2.5.0 (see fixtures/eval-2026-10-13-02/); S4 evidence loophole, closed in Switch Registry 1.3 and the v2.5.0 case text; run 2 required under the intended deployment configuration, not yet run."
   ]
 }

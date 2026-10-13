@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 """validate.py: structural and policy validation of GRCnext(TM) interchange payloads.
 
+STATUS: INCOMPLETE. This validator is a control on the interchange layer, not a
+readiness decision. An ACCEPT means the payload follows the repository's own
+written rules as far as they are stated mechanically; it does not mean the
+service is ready, the evidence is true or the conclusion is right. Human
+review of every readiness decision and every PASS is retained. Known gaps are
+listed under KNOWN GAPS at the end of this docstring.
+
 Usage:
   python3 tools/validate.py PAYLOAD.json [PAYLOAD.json ...]
   python3 tools/validate.py --schemas DIR PAYLOAD.json
@@ -25,8 +32,21 @@ Dependencies: Python 3.8+, jsonschema (3.2 or 4.x). Reads files only; no network
 
 Added in GRCnext(TM) Copilot v2.4.0 on the maintainer's ruling of 13 October
 2026, after run 1 of tests/advisory-suite-cases.md found that every payload
-the advisory prompts emitted failed the schemas. Final Liability rests with the
-Human.
+the advisory prompts emitted failed the schemas. v2.5.0 (same day): malformed
+payloads no longer crash the policy step; six false acceptances closed (A9,
+A10, R5, R6, E4 widened, E5, E6); two warnings added (A11, E7). Two of the
+six were found by the maintainer's second external evaluation of v2.4.0
+(status against the log's own execution evidence; an open request under
+PASS with no recorded history); the crash was found by both.
+
+KNOWN GAPS (v2.5.0). Freshness is free text, so a Verified item whose
+freshness_assessment says it is stale is not caught. "Material" (gates, items)
+is not machine-readable, so A5 and E3 warn where the text would cap or fail.
+Evidence confidence has no stated thresholds, so A7 warns. The validator reads
+one payload at a time and does not cross-check a proof against the registry it
+cites. None of these is a reason to skip human review; all of them are.
+
+Final Liability rests with the Human.
 """
 import argparse, json, os, sys
 
@@ -55,6 +75,15 @@ GATES = [
     "severe_but_plausible_exercise_completed", "evidence_shows_tolerance_result",
     "corrective_actions_have_owners_and_dates",
 ]
+
+
+def dicts(seq):
+    """Items of seq that are objects. Non-object items are the structural step's to report."""
+    return [x for x in (seq or []) if isinstance(x, dict)] if isinstance(seq, list) else []
+
+
+def obj(x):
+    return x if isinstance(x, dict) else {}
 
 
 class Findings:
@@ -126,33 +155,62 @@ def policy_evidence_item(item, where, fx, ev_schema):
 
 def policy_exit_prover(p, fx, schemas):
     ev = load_schema(schemas, "evidence-item.schema.json")
-    for i, item in enumerate(p.get("evidence_items", []) or []):
+    items = dicts(p.get("evidence_items"))
+    for i, item in enumerate(items):
         policy_evidence_item(item, "$.evidence_items[%d]" % i, fx, ev)
     verdict = p.get("verdict")
     if verdict == "PASS":
         # Source: 03-exit-prover.md s5 CHECKPOINT: 'PASS - no critical gaps, every material
         # item Verified under the Phase 4 rule. A PASS cannot rest on a representation.'
-        for i, item in enumerate(p.get("evidence_items", []) or []):
+        for i, item in enumerate(items):
             if item.get("verification_status") == "Verified" and item.get("evidence_type") == "interview representation":
                 fx.reject("E2 PASS on representation", "$.evidence_items[%d]" % i,
                           "a Verified interview representation cannot support PASS",
                           "03-exit-prover.md s5: a PASS cannot rest on a representation, including a detailed one")
-        for i, g in enumerate(p.get("gaps", []) or []):
+        for i, g in enumerate(dicts(p.get("gaps"))):
             if not g.get("owner") or not g.get("due"):
                 fx.warn("E3 PASS gap without owner or due", "$.gaps[%d]" % i,
                         "a PASS carries no critical gaps; an unowned or undated gap is not shown to be non-critical",
                         "03-exit-prover.md s5: FAIL - one or more critical gaps. List each gap with owner and due date")
-    for i, s in enumerate(p.get("switches", []) or []):
+        for i, o in enumerate(dicts(p.get("obligations"))):
+            owner, deadline = (o.get("owner") or "").strip(), (o.get("deadline") or "").strip()
+            if not owner or owner.lower() == "unknown" or not deadline or deadline.lower() == "unknown":
+                fx.reject("E5 PASS with unowned or undated obligation", "$.obligations[%d]" % i,
+                          "obligation owner or deadline missing or Unknown under PASS",
+                          "03-exit-prover.md s5 CHECKPOINT: every obligation has an owner and deadline")
+        for i, s in enumerate(dicts(p.get("switches"))):
+            if s.get("status") == "missing":
+                fx.reject("E6 PASS with missing switch", "$.switches[%d]" % i,
+                          "a needed switch not found in the registry is a MISSING SWITCH finding, a gap under PASS",
+                          "03-exit-prover.md s5: where a needed switch does not exist, record a MISSING SWITCH finding; CHECKPOINT: every action has a switch or a documented manual step")
+        if p.get("feasible_72h") is False:
+            fx.warn("E7 PASS not feasible in window", "$.feasible_72h",
+                    "PASS with feasible_72h false; the text ties PASS to gaps, not to the window, so this is a warning",
+                    "03-exit-prover.md s5: state clearly whether execution fits the window")
+    for i, s in enumerate(dicts(p.get("switches"))):
         rs, lvs = s.get("requested_state"), s.get("last_verified_state")
-        if rs and lvs and rs != lvs and verdict == "PASS":
-            fx.reject("E4 open request counted in PASS", "$.switches[%d]" % i,
-                      "switch has an open request (requested_state differs from last_verified_state); it is a gap, not a flipped switch",
-                      "03-exit-prover.md s6: an entry with requested_state set and last_verified_state different from it is an open request and is reported as a gap")
+        if rs and verdict == "PASS":
+            if lvs == rs:
+                fx.warn("E4 request matching verified state under PASS", "$.switches[%d]" % i,
+                        "requested_state equals last_verified_state; a no-op request, but still open until closed in the registry",
+                        "02-switch-registry.md s5 MODE: FLIP (b): if identical, report no-op")
+            else:
+                fx.reject("E4 open request counted in PASS", "$.switches[%d]" % i,
+                          "switch has an open request (requested_state %s, last verified state %s); an active request is unresolved and is a gap, not a flipped switch" % (rs, lvs or "not recorded"),
+                          "03-exit-prover.md s6: an entry with requested_state set ... is an open request and is reported as a gap; 02-switch-registry.md s7: a request is never consumed as an executed flip")
 
 
 def policy_switch_registry(p, fx, schemas):
-    log = p.get("log", []) or []
-    evidenced = {}
+    log = dicts(p.get("log"))
+    evidenced, derived = {}, {}
+    for i, row in enumerate(log):
+        ev = row.get("event")
+        if ev in ("completed", "verified") and row.get("evidence_ref") and row.get("action") in ("ON->OFF", "OFF->ON"):
+            # newest evidenced execution event per switch, by timestamp string order then log order
+            key = (str(row.get("timestamp") or ""), i)
+            prev = derived.get(row.get("switch_id"))
+            if prev is None or key >= prev[0]:
+                derived[row.get("switch_id")] = (key, row["action"].split("->")[1], i)
     for i, row in enumerate(log):
         ev = row.get("event")
         if ev in ("completed", "failed", "verified") and not row.get("evidence_ref"):
@@ -162,8 +220,17 @@ def policy_switch_registry(p, fx, schemas):
         if ev in ("completed", "verified") and row.get("evidence_ref"):
             evidenced.setdefault(row.get("switch_id"), 0)
             evidenced[row.get("switch_id")] += 1
-    for i, s in enumerate(p.get("switches", []) or []):
-        sid, st, rs = s.get("id"), s.get("status"), s.get("requested_state")
+    for i, s in enumerate(dicts(p.get("switches"))):
+        sid, st, rs, lvs = s.get("id"), s.get("status"), s.get("requested_state"), s.get("last_verified_state")
+        if st in ("ON", "OFF") and lvs in ("ON", "OFF") and st != lvs and not rs:
+            fx.reject("R5 status contradicts last verified state", "$.switches[%d]" % i,
+                      "status %s against last_verified_state %s with no open request" % (st, lvs),
+                      "02-switch-registry.md s4: status is the last verified actual state; last_verified_state is the state established by the newest verified or completed event with evidence")
+        d = derived.get(sid)
+        if d and st in ("ON", "OFF") and st != d[1] and not rs:
+            fx.reject("R6 status contradicts execution evidence", "$.switches[%d]" % i,
+                      "status %s but the newest evidenced execution event (log[%d]) establishes %s" % (st, d[2], d[1]),
+                      "02-switch-registry.md s4: status is the last verified actual state ... only a completed or verified event supported by a named evidence item sets status")
         if rs and st != "Unknown":
             fx.reject("R2 open request with asserted state", "$.switches[%d]" % i,
                       "requested_state is set but status is %s; status is Unknown while a request is open" % st,
@@ -179,7 +246,7 @@ def policy_switch_registry(p, fx, schemas):
 
 
 def policy_assessment_result(p, fx, schemas):
-    gates = p.get("gates", []) or []
+    gates = dicts(p.get("gates"))
     names = [g.get("gate") for g in gates]
     # Source: scoring-method.md, Readiness gates: 'Eight core gates ... Classify each gate exactly
     # once per service ... do not issue split or hybrid gate states.'
@@ -190,7 +257,7 @@ def policy_assessment_result(p, fx, schemas):
             fx.reject("A1 gate missing", "$.gates", "gate %s absent" % g, src_gates)
         elif c > 1:
             fx.reject("A1 gate duplicated", "$.gates", "gate %s appears %d times" % (g, c), src_gates)
-    cp = p.get("capability_profile", {}) or {}
+    cp = obj(p.get("capability_profile"))
     try:
         m = min(int(cp["pipes"]), int(cp["switches"]), int(cp["exits"]))
         if int(p.get("constraint_level")) != m:
@@ -219,7 +286,7 @@ def policy_assessment_result(p, fx, schemas):
                 fx.warn("A5 Demonstrated with Provisional Pass", "$.readiness_decision",
                         "gate %s is Provisional Pass; the cap applies to a material gate, which the text does not define mechanically" % g,
                         "scoring-method.md Gate effect: a Provisional Pass on a material gate caps the decision at Conditionally Demonstrated")
-        tr = (p.get("tolerance_result") or {}).get("result")
+        tr = obj(p.get("tolerance_result")).get("result")
         if tr != "Met":
             fx.reject("A6 Demonstrated without tolerance met", "$.tolerance_result.result",
                       "tolerance result is %s" % tr,
@@ -228,7 +295,22 @@ def policy_assessment_result(p, fx, schemas):
             fx.warn("A7 Demonstrated on low confidence", "$.evidence_confidence",
                     "evidence_confidence %s with a Demonstrated decision" % p.get("evidence_confidence"),
                     "evidence-standard.md: Low signals heavy reliance on drafts, representations, assumptions or stale evidence")
-    tr = p.get("tolerance_result") or {}
+        for dom in ("pipes", "switches", "exits"):
+            if cp.get(dom) == 0:
+                fx.warn("A11 Demonstrated with a core domain at level 0", "$.capability_profile.%s" % dom,
+                        "%s is at level 0 under a Demonstrated decision; the text does not state a floor mechanically" % dom,
+                        "scoring-method.md B: optionality requires all three; a mapped dependency you cannot switch or exit is not optionality")
+    if decision == "Conditionally Demonstrated":
+        for g, st in effective.items():
+            if st == "Fail":
+                fx.reject("A9 Conditionally Demonstrated with failed gate", "$.readiness_decision",
+                          "gate %s is Fail; a failed core gate is Not Demonstrated" % g,
+                          "scoring-method.md D: Not Demonstrated. A core gate fails, critical evidence is absent, or execution has not been shown within tolerance")
+        if obj(p.get("tolerance_result")).get("result") == "Not Met":
+            fx.reject("A10 Conditionally Demonstrated with tolerance not met", "$.tolerance_result.result",
+                      "tolerance Not Met; execution not shown within tolerance is Not Demonstrated",
+                      "scoring-method.md D: Not Demonstrated ... execution has not been shown within tolerance")
+    tr = obj(p.get("tolerance_result"))
     if tr.get("result") in ("Met", "Not Met") and not (tr.get("clock_start_event") and tr.get("clock_stop_event")):
         fx.reject("A8 tolerance result without clock events", "$.tolerance_result",
                   "result %s without clock_start_event and clock_stop_event" % tr.get("result"),
@@ -258,7 +340,12 @@ def validate_file(path, schemas_dir):
     structural(payload, schema, fx)
     rule = POLICY.get(kind)
     if rule:
-        rule(payload, fx, schemas_dir)
+        try:
+            rule(payload, fx, schemas_dir)
+        except Exception as e:  # a malformed payload must report, never crash
+            fx.reject("S0 malformed, policy rules not applied", "$",
+                      "%s: %s" % (type(e).__name__, str(e)[:120]),
+                      "validate.py: the structural findings above describe the malformation")
     return fx, kind
 
 

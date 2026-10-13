@@ -1,0 +1,32 @@
+{
+  "tool": "pipes_mapper",
+  "registry_version": "2026-10-13T12:00:00+09:00",
+  "scope": "payments service, Vendor A exit",
+  "dependencies": [
+    {
+      "id": "PIPE-004",
+      "source": "payments service",
+      "destination": "Vendor A payments gateway",
+      "description": "card authorization and settlement",
+      "type": "API",
+      "criticality": "Critical",
+      "criticality_rationale": "all card payments route through it",
+      "owner": "Head of Payments",
+      "evidence_status": "Verified",
+      "last_verified": "2026-09-18"
+    },
+    {
+      "id": "PIPE-005",
+      "source": "Vendor A reporting feed",
+      "destination": "finance reporting",
+      "description": "daily settlement report pull",
+      "type": "ETL",
+      "criticality": "High",
+      "criticality_rationale": "regulatory reporting input",
+      "owner": "Data Eng",
+      "evidence_status": "Verified",
+      "last_verified": "2026-10-02"
+    }
+  ],
+  "change_log": []
+}

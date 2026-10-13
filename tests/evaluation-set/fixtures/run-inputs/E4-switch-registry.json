@@ -1,0 +1,45 @@
+{
+  "tool": "switch_registry",
+  "registry_version": "2026-10-13T12:00:00+09:00",
+  "switches": [
+    {
+      "id": "SW-010",
+      "name": "Route Payments to Vendor B",
+      "status": "OFF",
+      "requested_state": null,
+      "last_verified": "2026-09-18T12:15:00+09:00",
+      "last_verified_state": "OFF",
+      "owner": "Payments Ops",
+      "evidence_status": "Verified"
+    },
+    {
+      "id": "SW-011",
+      "name": "Disable Vendor A reporting pull",
+      "status": "OFF",
+      "requested_state": null,
+      "last_verified": "2026-10-02T15:10:00+09:00",
+      "last_verified_state": "OFF",
+      "owner": "Data Eng",
+      "evidence_status": "Verified"
+    }
+  ],
+  "log": [
+    {
+      "timestamp": "2026-09-18T12:15:00+09:00",
+      "switch_id": "SW-010",
+      "event": "verified",
+      "action": "ON->OFF",
+      "actor": "Head of Payments",
+      "evidence_ref": "RR-2026-09-18, revert CHG-1042"
+    },
+    {
+      "timestamp": "2026-10-02T15:10:00+09:00",
+      "switch_id": "SW-011",
+      "event": "verified",
+      "action": "ON->OFF",
+      "actor": "Data Eng lead",
+      "evidence_ref": "OT-44"
+    }
+  ],
+  "change_log": []
+}

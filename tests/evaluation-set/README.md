@@ -1,6 +1,8 @@
 # Evaluation set
 
-**Version 2.4.0 · 13 October 2026 · Status: [⇥ pending review]**
+**Version 2.5.0 · 13 October 2026 · Status: [⇥ pending review]**
+
+**The validator is INCOMPLETE and its ACCEPT is not a readiness conclusion.** Human review of every readiness decision and every PASS is retained; the tool checks a record against the repository's own written rules and nothing else. Its known gaps are in its docstring and in `validator-proof-2026-10-13-02.md`.
 
 The versioned record of what the GRCnext™ Copilot instruments were tested
 against, what came back and who judged it. Added on the maintainer's ruling
@@ -20,9 +22,15 @@ changelog entry.
   (assessment result, Exit Prover proof, Switch Registry snapshot). Every
   policy rule in `tools/validate.py` was proved against these: the rule is
   quiet on the clean base, fires on a constructed defect, and the exit code
-  matches the finding level. The proof is in `validator-proof-2026-10-13.md`.
+  matches the finding level. The proofs are in `validator-proof-2026-10-13.md` (v2.4.0, twenty) and
+  `validator-proof-2026-10-13-02.md` (v2.5.0, forty-four).
 - `fixtures/run-inputs/` · the registries and dependency file handed to the
-  models in run 1, as used, faults included.
+  models in run 1, as used, faults included; and, from v2.5.0, the valid
+  fixtures run 2 needs: `S4-evidence.txt` (synthetic export and log line
+  contents), `E4-artifact-pack.md`, `E4-pipes.json`, `E4-switch-registry.json`.
+- `fixtures/eval-2026-10-13-02/` · the four counterexamples from the second
+  external evaluation of v2.4.0, with `index.json` carrying the v2.4.0
+  result and the rule that now catches each.
 - `payloads/<run>/` · what the models emitted, transcribed from their
   output. These are evidence of model behavior, not examples to follow;
   most of them fail the schemas, which is the point of keeping them.

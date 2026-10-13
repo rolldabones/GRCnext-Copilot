@@ -1,0 +1,30 @@
+[
+  {
+    "case": "X1",
+    "file": "fixtures/eval-2026-10-13-02/X1-registry-on-against-verified-off.json",
+    "expected": "REJECT",
+    "rule": "R6",
+    "v2.4.0_result": "ACCEPT"
+  },
+  {
+    "case": "X2",
+    "file": "fixtures/eval-2026-10-13-02/X2-pass-open-request-no-history.json",
+    "expected": "REJECT",
+    "rule": "E4",
+    "v2.4.0_result": "ACCEPT"
+  },
+  {
+    "case": "X3",
+    "file": "fixtures/eval-2026-10-13-02/X3-conditionally-demonstrated-failed-gate.json",
+    "expected": "REJECT",
+    "rule": "A9",
+    "v2.4.0_result": "ACCEPT"
+  },
+  {
+    "case": "X4",
+    "file": "fixtures/eval-2026-10-13-02/X4-null-gate-entry.json",
+    "expected": "REJECT",
+    "rule": "S0 malformed",
+    "v2.4.0_result": "crash"
+  }
+]
