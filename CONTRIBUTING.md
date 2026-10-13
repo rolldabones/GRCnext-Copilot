@@ -64,7 +64,9 @@ Before opening a pull request, run the scoring cases in
 [`tests/scoring-cases.md`](tests/scoring-cases.md) and the behavioral
 checks in
 [`tests/prompt-evaluation-cases.md`](tests/prompt-evaluation-cases.md)
-against the prompt you changed. If your change adds a behavior, add a
+against the prompt you changed, and the schema policy cases in
+[`tests/schema-policy-cases.md`](tests/schema-policy-cases.md) against any
+schema you changed. If your change adds a behavior, add a
 case. If your change fixes a bug, add a regression case that would have
 caught it.
 

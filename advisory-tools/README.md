@@ -1,13 +1,13 @@
 # GRCnext™ Advisory Tools Suite - Model-Agnostic Prompts
 
-**Suite version:** 1.0 [↻ draft] · **Repo:** GRCnext™ Copilot v2.1.0 · **Source design:** MindStudio design brief (rolldabones/wip)
+**Suite version:** 1.1 [↻ draft] · **Repo:** GRCnext™ Copilot v2.3.0 · **Source design:** MindStudio design brief (rolldabones/wip)
 
 Six standalone system prompts implementing the Pipes, Switches, Exits methodology and the 72-hour execution model in any frontier chat model. Each file is self-contained: paste one prompt into a Claude Project's custom instructions, a Custom GPT's instructions field, a Gemini Gem or any comparable system-prompt slot. No plugins, code execution, browsing, memory or vendor features are assumed.
 
 | File | Tool | Function |
 |---|---|---|
 | [01-pipes-mapper.md](01-pipes-mapper.md) | Pipes Mapper | Dependency Registry: maps critical processes, data flows and dependency chains |
-| [02-switch-registry.md](02-switch-registry.md) | Switch Registry | Registry and append-only log of switches; VIEW / FLIP / NEW / ADVISE / EXPORT modes |
+| [02-switch-registry.md](02-switch-registry.md) | Switch Registry | Registry and append-only log of switches; VIEW / FLIP / CONFIRM / NEW / ADVISE / EXPORT modes; desired state kept apart from verified actual state |
 | [03-exit-prover.md](03-exit-prover.md) | Exit Prover | Tests exit readiness; PASS / PROVISIONAL PASS / FAIL proof with gap analysis |
 | [04-treasury-reroute-planner.md](04-treasury-reroute-planner.md) | Treasury Reroute Planner | Plan B for financial pipes; masked identifiers; plans only, never executes |
 | [05-data-switchboard-planner.md](05-data-switchboard-planner.md) | Data Switchboard Planner | Reroute, isolate or sever data flows; compliance checklist mapping |

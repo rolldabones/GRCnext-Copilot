@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/rolldabones/GRCnext-Copilot/schemas/exit-prover-output.schema.json",
   "title": "GRCnext™ Exit Prover Proof",
-  "description": "Proof emission from the Exit Prover advisory tool. A proof with gaps reported honestly is a valid FAIL. Consumed by Clean Market Exit Kit.",
+  "description": "Proof emission from the Exit Prover advisory tool. A proof with gaps reported honestly is a valid FAIL. Consumed by Clean Market Exit Kit. A PASS requires at least one dependency, at least one Verified evidence item and no material item below Verified; otherwise the verdict is PROVISIONAL PASS or FAIL.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -164,7 +164,24 @@
       "type": "array",
       "items": {
         "type": "object",
-        "additionalProperties": true
+        "additionalProperties": true,
+        "required": [
+          "verification_status"
+        ],
+        "properties": {
+          "verification_status": {
+            "type": "string",
+            "enum": [
+              "Verified",
+              "Provisional",
+              "Not demonstrated",
+              "Contradicted",
+              "Refuted",
+              "Not applicable"
+            ],
+            "description": "GRCnext™ evidence classification, per methodology/evidence-standard.md."
+          }
+        }
       }
     },
     "feasible_72h": {
@@ -176,5 +193,61 @@
         "type": "string"
       }
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "verdict": {
+            "const": "PASS"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "dependencies": {
+            "minItems": 1,
+            "items": {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "Verified",
+                    "Not applicable"
+                  ]
+                }
+              }
+            }
+          },
+          "obligations": {
+            "items": {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "Verified",
+                    "Not applicable"
+                  ]
+                }
+              }
+            }
+          },
+          "evidence_items": {
+            "minItems": 1,
+            "contains": {
+              "properties": {
+                "verification_status": {
+                  "const": "Verified"
+                }
+              },
+              "required": [
+                "verification_status"
+              ]
+            }
+          }
+        },
+        "required": [
+          "evidence_items"
+        ]
+      }
+    }
+  ]
 }

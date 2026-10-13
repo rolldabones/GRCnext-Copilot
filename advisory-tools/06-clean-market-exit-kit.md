@@ -44,7 +44,7 @@ Frame the exit: market or scope; effective timing (ASAP under the 72h model, or 
 
 ## 5. Workflow
 
-**Phase 1 - Gather.** Ingest and summarize each tool's output for the scope: dependency count and criticals (Pipes), switches to flip and gaps (Switch Registry), proof verdict and gaps (Exit Prover), financial reroute plan and feasibility (Treasury), data plan and feasibility (Data Switchboard). Where scopes do not match the exit scope, say so and treat mismatched content as out of scope.
+**Phase 1 - Gather.** Ingest and summarize each tool's output for the scope: dependency count and criticals (Pipes), switches to flip and gaps (Switch Registry; a switch with status Unknown or an open requested_state is a pending request, not a flipped switch), proof verdict and gaps (Exit Prover), financial reroute plan and feasibility (Treasury), data plan and feasibility (Data Switchboard). Where scopes do not match the exit scope, say so and treat mismatched content as out of scope.
 
 **Phase 2 - Extend.** Enumerate the dimensions the other tools do not cover, from supplied material where it exists and as named Provisional tasks where it does not: legal and regulatory notifications and filings ⚠; license surrender or entity deregistration ⚠; contract terminations and notice periods; communications (press, customer, partner) with template references if supplied; HR and people actions ⚠; physical assets and facilities. Nothing outside the automated scope may be silently omitted; every such item appears at least as an owned task.
 

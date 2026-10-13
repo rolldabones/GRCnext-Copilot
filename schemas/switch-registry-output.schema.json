@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/rolldabones/GRCnext-Copilot/schemas/switch-registry-output.schema.json",
   "title": "GRCnext™ Switch Registry Output",
-  "description": "Registry and append-only log emission from the Switch Registry advisory tool. Flips record intent and evidence; actuation is human and out of scope. Consumed by Exit Prover, Treasury Reroute Planner, Data Switchboard Planner and Clean Market Exit Kit.",
+  "description": "Registry and append-only log emission from the Switch Registry advisory tool. A flip is requested here and recorded as an event; actuation is human and out of scope, and status is the last verified actual state, Unknown while a request is open or an actuation is unconfirmed. Consumed by Exit Prover, Treasury Reroute Planner, Data Switchboard Planner and Clean Market Exit Kit.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -44,12 +44,61 @@
           "description": {
             "type": "string"
           },
+          "on_means": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "What ON means for this switch, in operational terms."
+          },
+          "off_means": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "What OFF means for this switch, in operational terms."
+          },
           "status": {
             "type": "string",
             "enum": [
               "ON",
-              "OFF"
-            ]
+              "OFF",
+              "Unknown"
+            ],
+            "description": "Last verified actual state. Unknown while a request is open or after a failed, partial or unconfirmed actuation."
+          },
+          "requested_state": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "ON",
+              "OFF",
+              null
+            ],
+            "description": "Desired state of the open request, if any. A request is not an executed flip."
+          },
+          "last_requested": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "ISO 8601 timestamp of the newest requested event."
+          },
+          "last_executed": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "ISO 8601 timestamp of the newest completed event supported by evidence."
+          },
+          "last_verified": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "ISO 8601 timestamp of the newest verified event."
           },
           "owner": {
             "type": [
@@ -92,7 +141,12 @@
             "type": [
               "string",
               "null"
-            ]
+            ],
+            "description": "Historical declared field written by tool version 1.0. Not evidence of execution."
+          },
+          "drill": {
+            "type": "boolean",
+            "description": "True while the open request is a drill."
           },
           "evidence_status": {
             "type": "string",
@@ -128,12 +182,25 @@
           "switch_id": {
             "type": "string"
           },
+          "event": {
+            "type": "string",
+            "enum": [
+              "requested",
+              "authorized",
+              "attempted",
+              "completed",
+              "failed",
+              "verified"
+            ],
+            "description": "Event type. A row without this field was written by tool version 1.0 and is a declared flip, not evidence of execution."
+          },
           "action": {
             "type": "string",
             "enum": [
               "ON->OFF",
               "OFF->ON"
-            ]
+            ],
+            "description": "Direction requested or executed."
           },
           "actor": {
             "type": "string"
@@ -147,6 +214,13 @@
               "type": "string"
             },
             "description": "Recorded verbatim; validity not asserted by the tool."
+          },
+          "evidence_ref": {
+            "type": "string",
+            "description": "Evidence item establishing the result; expected on completed, failed and verified events."
+          },
+          "drill": {
+            "type": "boolean"
           }
         }
       }

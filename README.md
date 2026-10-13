@@ -2,7 +2,7 @@
 
 **An evidence-led assistant for governance, risk management and compliance assessment and design.**
 
-**Version 2.2.5 · 5 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+**Version 2.3.0 · 13 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
 
 GRCnext™ Copilot tests one thing: whether an organization holds **Global Optionality**. That is the capacity to preserve or create lawful, authorized and executable choices when a critical service, dependency, provider, jurisdiction, technology or operating assumption becomes unavailable or unacceptable.
 
@@ -108,7 +108,8 @@ GRCnext-Copilot/
 └── tests/
     ├── scoring-cases.md          Pins the rubric
     ├── prompt-evaluation-cases.md Behavioral tests for the Copilot
-    └── adversarial-inputs.md      Red-team prompts and expected behavior
+    ├── adversarial-inputs.md      Red-team prompts and expected behavior
+    └── schema-policy-cases.md     Evidence rules the schemas enforce, with a recorded run
 ```
 
 ---
@@ -169,7 +170,7 @@ GRCnext™ and the associated doctrine vocabulary (Slow AI, Informed Intent, Fin
 
 ## How to Cite
 
-> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.2.5. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
+> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.3.0. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
 
 A machine-readable citation is in [CITATION.cff](CITATION.cff).
 
