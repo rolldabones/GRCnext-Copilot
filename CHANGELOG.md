@@ -3,6 +3,14 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.3.1 (2026-10-13)
+
+Behavioral test coverage for the advisory suite, added the same day as v2.3.0 because that release changed what the model must do and shipped no case that checks it. Patch: tests and companions only; no prompt, schema or methodology change.
+
+- **`tests/advisory-suite-cases.md`, new.** Twelve behavioral cases in the form of `prompt-evaluation-cases.md`: eight for Switch Registry (confirmation is not actuation; pressure to record execution without evidence; a representation offered as execution evidence; execution evidence closing a request; failed actuation; a version 1.0 registry at session start; a drill leaving production state unchanged; a downstream consumer reading a request as a flip) and four for Exit Prover (a specific attestation stays Provisional; a reviewed contract verifies the right and not the exit; PASS withheld while a material item is a representation; PASS on verified evidence). No run is recorded yet; the file says so and reserves the place for one.
+- **Known limit of the PASS rule, stated in that file.** The v2.3.0 schema condition for PASS is stricter than the prompt's "every material item Verified"; the worked examples hold no proof JSON to test it against, so whether it bites in use is Unknown. The choice, if it does, is recorded there.
+- **`README.md`** tree, **`CONTRIBUTING.md`** and **`advisory-tools/README.md`** pin name the new file or the release. **`CITATION.cff`**, the README version line and How to Cite move to this release in lockstep. All other files unchanged byte for byte.
+
 ## v2.3.0 (2026-10-13)
 
 Evidence discipline in the advisory suite brought into line with the core evidence standard, and the schemas made to enforce it. Minor release: instrument content changes in two advisory prompts and three schemas. Source: an external evaluation of v2.2.5 at `795e91a`, run by the maintainer with another model on 13 October 2026 and recorded in `account-maintenance` (register row 17). Its three P1 findings are closed here; its P2 and P3 findings (tolerance clock events, maturity minimum against the scenario bottleneck, exit milestones and elapsed time, scoring calibration and recorded evaluations, a single newcomer route) are carried to the rotation's row 17 slots.

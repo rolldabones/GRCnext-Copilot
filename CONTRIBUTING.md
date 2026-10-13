@@ -66,7 +66,9 @@ checks in
 [`tests/prompt-evaluation-cases.md`](tests/prompt-evaluation-cases.md)
 against the prompt you changed, and the schema policy cases in
 [`tests/schema-policy-cases.md`](tests/schema-policy-cases.md) against any
-schema you changed. If your change adds a behavior, add a
+schema you changed, and the behavioral cases in
+[`tests/advisory-suite-cases.md`](tests/advisory-suite-cases.md) against
+any advisory tool prompt you changed. If your change adds a behavior, add a
 case. If your change fixes a bug, add a regression case that would have
 caught it.
 
