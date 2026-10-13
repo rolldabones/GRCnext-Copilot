@@ -92,6 +92,44 @@
           },
           "flipped": {
             "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "owner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "requested_state": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "ON",
+              "OFF",
+              null
+            ],
+            "description": "Open request from the Switch Registry, if any. A request is not a flipped switch."
+          },
+          "last_verified": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "last_verified_state": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "ON",
+              "OFF",
+              null
+            ]
           }
         }
       }

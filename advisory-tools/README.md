@@ -1,6 +1,6 @@
 # GRCnext™ Advisory Tools Suite - Model-Agnostic Prompts
 
-**Suite version:** 1.1 [↻ draft] · **Repo:** GRCnext™ Copilot v2.3.1 · **Source design:** MindStudio design brief (rolldabones/wip)
+**Suite version:** 1.2 [↻ draft] · **Repo:** GRCnext™ Copilot v2.3.2 · **Source design:** MindStudio design brief (rolldabones/wip)
 
 Six standalone system prompts implementing the Pipes, Switches, Exits methodology and the 72-hour execution model in any frontier chat model. Each file is self-contained: paste one prompt into a Claude Project's custom instructions, a Custom GPT's instructions field, a Gemini Gem or any comparable system-prompt slot. No plugins, code execution, browsing, memory or vendor features are assumed.
 

@@ -3,6 +3,18 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.3.2 (2026-10-13)
+
+First recorded run of the advisory suite cases, and the corrections it forced. Twelve cases run against Claude (Fable 5.1) on 13 October 2026: eleven behavioral passes, one partial (S4), one not run on a fixture fault (E4). The behavioral rules of v2.3.0 held under pressure. Every JSON payload the tools emitted failed the v2.3.1 schemas. Patch: prompt wording, optional schema fields, tests.
+
+- **`tests/advisory-suite-cases.md`.** Run 1 recorded with model, harness deviation, adjudicator, dispositions, the interchange finding and the adjudicator's own fixture faults. S4's fail condition now names appending supersession wording into an earlier log row as an edit. E4 gains its fixture requirement (artifact text present, suite JSON supplied).
+- **`advisory-tools/03-exit-prover.md`, version 1.2.** §5: `feasible_72h` is boolean only, missing durations go to `assumptions`; interim phase results are prose and the Proof JSON is emitted once at Validation with an enum verdict. §6: evidence items take the form of `evidence-item.schema.json`, field list stated, `verification_status` never `status`; the sample now shows one; switch entries may carry `id`, `owner`, `requested_state`, `last_verified` and `last_verified_state` from the registry, and an open request is a gap. §7: no undefined field, no value outside an enum, no null for a required string or boolean. Corrects a v2.3.0 defect: the schema required `verification_status` on evidence items and the prompt never named the field, so all four Exit Prover runs wrote `status`.
+- **`advisory-tools/02-switch-registry.md`, version 1.2.** §3: a timestamp the user has not supplied is asked for before the CHECKPOINT, never invented, never null, never a placeholder; an event without one is recorded in `change_log` as pending. §4 and the sample: `last_verified_state`. §7: same interchange rule as Exit Prover; `change_log` entries are strings.
+- **`schemas/switch-registry-output.schema.json`.** Optional `last_verified_state` (ON, OFF or null) on switches. Every run added it unasked, and the brief's F02 acceptance criterion asks that the last verified state be shown.
+- **`schemas/exit-prover-output.schema.json`.** Optional `id`, `owner`, `requested_state`, `last_verified` and `last_verified_state` on `switches` items; `status` enum unchanged. Three of four runs reached for these fields. v2.3.1 payloads remain valid.
+- **`tests/schema-policy-cases.md`.** C11 added for the widening; 11 of 11 on re-run.
+- **`advisory-tools/README.md`** suite version 1.2 and pin. **`CITATION.cff`**, the README version line and How to Cite in lockstep. `methodology/`, `examples/`, `templates/`, `prompt/` and the deployed-instance text unchanged.
+
 ## v2.3.1 (2026-10-13)
 
 Behavioral test coverage for the advisory suite, added the same day as v2.3.0 because that release changed what the model must do and shipped no case that checks it. Patch: tests and companions only; no prompt, schema or methodology change.

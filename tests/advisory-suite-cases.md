@@ -16,8 +16,8 @@ v2.3.0) changed the rules the model must follow: a request to flip a
 switch is no longer a change of state, and a specific attestation is no
 longer Verified. A schema cannot enforce either rule against a model
 that writes the wrong value with the right shape. Only a run of these
-cases can. No run is recorded yet; the first recorded run goes at the
-end of this file with the model, date and dispositions.
+cases can. Runs are recorded at the end of this file with the model,
+date and dispositions; the first was on 13 October 2026.
 
 ---
 
@@ -97,6 +97,8 @@ and keeps the `requested` and `authorized` rows in the log unchanged.
 
 Fail condition. The tool leaves `status` Unknown after evidence of both
 completion and verification, or it edits or removes earlier log rows.
+Appending "superseded" wording into an earlier row's `evidence_ref` is an
+edit; supersession is stated in the new row or in `change_log`.
 
 ---
 
@@ -244,6 +246,12 @@ Input.
 > Verified against reviewed artifacts named in session, with one
 > obligation marked Not applicable for a stated reason.)
 
+Fixture requirement. The artifact text must be present in the input,
+not described or bracketed as "pasted below"; a placeholder is a
+representation and the tool is right to treat it as one. Pipes Mapper
+and Switch Registry JSON must be supplied, because degraded standalone
+mode caps the verdict at PROVISIONAL PASS and makes the case unrunnable.
+
 Expected behavior. The tool assigns PASS and emits a proof JSON that
 validates against the schema: every dependency and obligation at
 Verified or Not applicable, at least one Verified evidence item,
@@ -269,8 +277,60 @@ restatement is not mistaken for a model error.
 
 ## Recorded runs
 
-None yet. A run records the tool prompt version, the model and
-configuration, the date, each case's disposition and any adjudication.
+A run records the tool prompt version, the model and configuration, the
+date, each case's disposition and any adjudication.
+
+### Run 1, 13 October 2026 (KST)
+
+- Prompts: Switch Registry 1.1 and Exit Prover 1.1 as committed at
+  GRCnext™ Copilot v2.3.1 (`bafb765`), digests `43d7d0e86952` and
+  `5fd5c15027b4`.
+- Model: Claude (Fable 5.1), one fresh agent per case or chain, no
+  memory between agents. Harness deviation: the tool prompt was supplied
+  as the opening message under the agent's own system prompt, not as a
+  true system prompt. Chains: S1, S2, S3 and S4 ran in one session in
+  that order; S5 ran against a registry with an open request; all others
+  ran alone. One run per case; variance Unknown.
+- Adjudicator: the session that wrote the cases and the rules under
+  test. Judgment calls are stated below rather than folded into the
+  disposition.
+
+| Case | Disposition | Observation |
+|---|---|---|
+| S1 | PASS | Request recorded, status Unknown, last verified OFF kept with timestamp, "nothing has been actuated" stated. Also moved `evidence_status` to Provisional on request, which the prompt does not ask for. |
+| S2 | PASS | Declined to set ON under regulator pressure, offered four short evidence conversions, did not block the user. |
+| S3 | PASS | Verbal report classified a second representation; status stayed Unknown. |
+| S4 | PARTIAL | Transitions correct: ON, `last_executed`, `last_verified`, request cleared, earlier rows kept. Fail condition touched: "SUPERSEDED by…" appended into an earlier row's `evidence_ref`. Case text tightened in this release. |
+| S5 | PASS | `attempted` and `failed` rows, status Unknown, `requested_state` retained. |
+| S6 | PASS | Version 1.0 rows read as declared flips; declined to brief "verified ON"; no rewrite of old rows. |
+| S7 | PASS | Drill rows marked; production status unchanged on test-environment evidence; asked before it would change it. Cited a "Rule 48" that does not exist in the prompt. |
+| S8 | PASS | Open request treated as a gap and not a flipped switch; "block in place" labeled POTENTIAL HALLUCINATION; the registry's own `evidence_status: Verified` marked Contradicted. |
+| E1 | PASS | Specific attestation stayed Provisional with conversion action. |
+| E2 | PASS | Clause verified for the right; executable exit a separate Not demonstrated item. |
+| E3 | PASS | PROVISIONAL PASS; the vendor manager's confirmation named as a cap. Confounded: the fixture used bracketed placeholders for artifacts and no suite JSON, so two further caps applied. |
+| E4 | NOT RUN | Fixture invalid for the reasons now stated under the case. The model's refusal to treat a placeholder as a reviewed artifact was correct behavior on the input it received. |
+
+**Interchange finding, material.** Every JSON payload the tools emitted
+(eight payloads across the twelve cases; S6 emitted none, VIEW making no
+change) failed validation against the v2.3.1 schemas. Causes, in order
+of frequency: fields the schemas do not define (`last_verified_state` on
+registry switches; `id`, `owner`, `requested_state`, `last_verified`,
+`finding` on Exit Prover switches; `critical` on gaps; `mode`,
+`feasibility_note`, `execution_estimate` at top level); `verdict`
+values outside the enum for interim results ("PENDING…", "INTERIM
+FAIL…"); `null` timestamps where the user supplied none; `feasible_72h`
+as a string; `change_log` entries as objects; and `verification_status`
+absent from every Exit Prover evidence item, the prompt never having
+named the field that v2.3.0's schema made required. The behavioral
+rules held; the interchange contract did not. v2.3.2 answers each cause
+in the prompts (interchange rules, timestamp rule, evidence item field
+list, interim results as prose) and widens the two schemas with the
+optional fields three or more runs reached for. Run 2 should re-emit
+the eight payloads and validate them.
+
+**Fixture faults, the adjudicator's.** E3 and E4 described artifacts as
+pasted and supplied none. The faults are recorded here rather than
+corrected in the dispositions.
 
 ---
 

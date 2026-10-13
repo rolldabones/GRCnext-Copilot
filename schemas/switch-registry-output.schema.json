@@ -100,6 +100,18 @@
             ],
             "description": "ISO 8601 timestamp of the newest verified event."
           },
+          "last_verified_state": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "ON",
+              "OFF",
+              null
+            ],
+            "description": "State established by the newest verified or completed event with evidence. Shown while status is Unknown."
+          },
           "owner": {
             "type": [
               "string",
