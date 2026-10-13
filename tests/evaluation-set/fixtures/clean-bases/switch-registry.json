@@ -1,0 +1,24 @@
+{
+  "tool": "switch_registry",
+  "registry_version": "2026-10-13T12:00:00+09:00",
+  "switches": [
+    {
+      "id": "SW-001",
+      "name": "Block APAC Logins",
+      "status": "OFF",
+      "requested_state": null,
+      "evidence_status": "Verified"
+    }
+  ],
+  "log": [
+    {
+      "timestamp": "2026-06-30T10:00:00+09:00",
+      "switch_id": "SW-001",
+      "event": "verified",
+      "action": "ON->OFF",
+      "actor": "Dana",
+      "evidence_ref": "EXP-0031"
+    }
+  ],
+  "change_log": []
+}

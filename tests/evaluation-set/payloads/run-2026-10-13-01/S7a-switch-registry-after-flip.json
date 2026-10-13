@@ -1,0 +1,104 @@
+{
+  "tool": "switch_registry",
+  "registry_version": "2026-10-13T11:02:00+09:00",
+  "switches": [
+    {
+      "id": "SW-001",
+      "name": "Block APAC Logins",
+      "on_means": "APAC login attempts are rejected at the edge",
+      "off_means": "APAC logins are accepted",
+      "status": "OFF",
+      "requested_state": null,
+      "last_requested": null,
+      "last_executed": "2026-06-30T09:55:00+09:00",
+      "last_verified": "2026-06-30T10:00:00+09:00",
+      "owner": "SecOps",
+      "linked_pipe_or_exit": "PIPE-004",
+      "clause_ref": "IRP §5.4",
+      "trigger_template": "Regulator order re APAC",
+      "approval_required": [
+        "CISO"
+      ],
+      "notify": [
+        "NOC"
+      ],
+      "last_used": null,
+      "drill": false,
+      "evidence_status": "Verified",
+      "description": null
+    },
+    {
+      "id": "SW-002",
+      "name": "Freeze Supplier Payments",
+      "on_means": "outbound supplier payments are held",
+      "off_means": "payments run",
+      "status": "Unknown",
+      "requested_state": "ON",
+      "last_requested": null,
+      "last_executed": null,
+      "last_verified": "2026-05-12T08:00:00+09:00",
+      "owner": "Treasury",
+      "linked_pipe_or_exit": "PIPE-011",
+      "clause_ref": "Treasury Policy §3.1",
+      "trigger_template": "Sanctions designation of a supplier bank",
+      "approval_required": [
+        "CFO"
+      ],
+      "notify": [
+        "AP team"
+      ],
+      "last_used": null,
+      "drill": true,
+      "evidence_status": "Provisional",
+      "description": null
+    }
+  ],
+  "log": [
+    {
+      "timestamp": "2026-06-30T10:00:00+09:00",
+      "switch_id": "SW-001",
+      "event": "verified",
+      "action": "ON->OFF",
+      "actor": "Dana",
+      "reason_or_incident_id": "post-incident reset",
+      "approvals_recorded": [],
+      "evidence_ref": "EXP-0031 edge config export",
+      "drill": false
+    },
+    {
+      "timestamp": null,
+      "switch_id": "SW-002",
+      "event": "requested",
+      "action": "OFF->ON",
+      "actor": "Alice",
+      "reason_or_incident_id": "drill-2026-Q4",
+      "approvals_recorded": [
+        "CFO: 'CFO approval recorded' (user statement)"
+      ],
+      "evidence_ref": null,
+      "drill": true
+    },
+    {
+      "timestamp": null,
+      "switch_id": "SW-002",
+      "event": "authorized",
+      "action": "OFF->ON",
+      "actor": "Alice",
+      "reason_or_incident_id": "drill-2026-Q4",
+      "approvals_recorded": [
+        "CFO: 'CFO approval recorded' (user statement)"
+      ],
+      "evidence_ref": null,
+      "drill": true
+    }
+  ],
+  "last_flip": {
+    "switch_id": "SW-002",
+    "timestamp": null
+  },
+  "change_log": [
+    "FLIP: SW-002 OFF->ON requested, drill-2026-Q4, actor Alice; status OFF->Unknown (last verified OFF 2026-05-12 retained); requested_state ON; drill true; evidence_status Verified->Provisional",
+    "LOG: appended requested and authorized rows for SW-002; timestamps null, not supplied by user (Provisional)",
+    "NOTE: last_requested null pending user-supplied request time"
+  ]
+}

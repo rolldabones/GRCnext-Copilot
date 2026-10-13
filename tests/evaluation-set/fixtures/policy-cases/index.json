@@ -1,0 +1,57 @@
+[
+  {
+    "case": "C01",
+    "file": "fixtures/policy-cases/C01.json",
+    "expected_schema_verdict": "REJECT"
+  },
+  {
+    "case": "C02",
+    "file": "fixtures/policy-cases/C02.json",
+    "expected_schema_verdict": "REJECT"
+  },
+  {
+    "case": "C03",
+    "file": "fixtures/policy-cases/C03.json",
+    "expected_schema_verdict": "REJECT"
+  },
+  {
+    "case": "C04",
+    "file": "fixtures/policy-cases/C04.json",
+    "expected_schema_verdict": "REJECT"
+  },
+  {
+    "case": "C05",
+    "file": "fixtures/policy-cases/C05.json",
+    "expected_schema_verdict": "REJECT"
+  },
+  {
+    "case": "C06",
+    "file": "fixtures/policy-cases/C06.json",
+    "expected_schema_verdict": "REJECT"
+  },
+  {
+    "case": "C07",
+    "file": "fixtures/policy-cases/C07.json",
+    "expected_schema_verdict": "ACCEPT"
+  },
+  {
+    "case": "C08",
+    "file": "fixtures/policy-cases/C08.json",
+    "expected_schema_verdict": "ACCEPT"
+  },
+  {
+    "case": "C09",
+    "file": "fixtures/policy-cases/C09.json",
+    "expected_schema_verdict": "ACCEPT"
+  },
+  {
+    "case": "C10",
+    "file": "fixtures/policy-cases/C10.json",
+    "expected_schema_verdict": "ACCEPT"
+  },
+  {
+    "case": "C11",
+    "file": "fixtures/policy-cases/C11.json",
+    "expected_schema_verdict": "ACCEPT"
+  }
+]

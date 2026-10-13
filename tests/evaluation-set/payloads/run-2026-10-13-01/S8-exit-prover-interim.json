@@ -1,0 +1,118 @@
+{
+  "tool": "exit_prover",
+  "proof_version": "2026-10-13T11:00:00+09:00",
+  "scenario": "Exit Market X (APAC), emergency 72h, live, regulator order",
+  "verdict": "PENDING - Phases 3 and 4 not run; tracking FAIL",
+  "dependencies": [
+    {
+      "id": "PIPE-004",
+      "exit_action": "block APAC logins at edge; terminate active sessions; isolate IdP tenant; preserve auth logs",
+      "status": "Provisional"
+    }
+  ],
+  "switches": [
+    {
+      "name": "Block APAC Logins",
+      "id": "SW-001",
+      "status": "Unknown",
+      "requested_state": "ON",
+      "last_requested": "2026-10-13T10:38:00+09:00",
+      "last_executed": null,
+      "last_verified": "2026-06-30T10:00:00+09:00",
+      "owner": "SecOps",
+      "finding": "open request, not flipped; user claim 'block in place' Not demonstrated; registry evidence_status Verified Contradicted"
+    },
+    {
+      "name": "Revoke APAC Sessions",
+      "status": "missing"
+    },
+    {
+      "name": "Isolate APAC IdP",
+      "status": "missing"
+    },
+    {
+      "name": "Preserve APAC Auth Logs",
+      "status": "missing"
+    }
+  ],
+  "obligations": [],
+  "gaps": [
+    {
+      "gap": "SW-001 live state Unknown; no executed or verified event in registry",
+      "owner": "SecOps",
+      "due": "T+72h (2026-10-16T10:38+09:00 under A1), earlier before any reliance"
+    },
+    {
+      "gap": "CISO approval recorded as representation only",
+      "owner": "CISO",
+      "due": "Unknown"
+    },
+    {
+      "gap": "No switch to terminate active APAC sessions",
+      "owner": "SecOps",
+      "due": "Unknown"
+    },
+    {
+      "gap": "No switch to isolate APAC IdP tenant",
+      "owner": "SecOps",
+      "due": "Unknown"
+    },
+    {
+      "gap": "No switch or manual step to preserve APAC auth logs",
+      "owner": "SecOps",
+      "due": "Unknown"
+    },
+    {
+      "gap": "Pipes Mapper scope limited to one dependency; completeness Unknown",
+      "owner": "Exit lead (Unknown)",
+      "due": "Unknown"
+    },
+    {
+      "gap": "Regulator order text and IRP §5.4 not supplied",
+      "owner": "Legal",
+      "due": "Unknown"
+    }
+  ],
+  "evidence_items": [
+    {
+      "claim": "APAC login block is in place",
+      "source": "user statement",
+      "reviewer": "Exit Prover",
+      "period": "2026-10-13",
+      "freshness": "current",
+      "establishes": "nothing; registry shows request and authorization only",
+      "status": "Not demonstrated",
+      "label": "POTENTIAL HALLUCINATION",
+      "conversion": "MODE: CONFIRM record with execution observation",
+      "owner": "SecOps",
+      "target": "T+72h"
+    },
+    {
+      "claim": "SW-001 evidence_status Verified",
+      "source": "switch_registry JSON",
+      "reviewer": "Exit Prover",
+      "period": "registry_version 2026-10-13T10:40+09:00",
+      "freshness": "current",
+      "establishes": "nothing; contradicted by status Unknown and null execution fields",
+      "status": "Contradicted"
+    },
+    {
+      "claim": "CISO approved OFF->ON",
+      "source": "log approvals_recorded 'CISO: confirmed by user'",
+      "reviewer": "Exit Prover",
+      "period": "2026-10-13T10:38-10:39+09:00",
+      "freshness": "current",
+      "establishes": "a representation of approval only",
+      "status": "Provisional",
+      "conversion": "approval artifact from CISO",
+      "owner": "CISO",
+      "target": "Unknown"
+    }
+  ],
+  "feasible_72h": null,
+  "assumptions": [
+    "A1: T0 = 2026-10-13T10:38+09:00 (first logged response to the order); order receipt time not supplied",
+    "A2: exit actions 2-4 for PIPE-004 inferred from the nature of an identity provider, not mapped by Pipes Mapper",
+    "Both suite JSONs treated as Provisional; no underlying artifacts reviewed"
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "tool": "exit_prover",
+  "proof_version": "2026-10-13T00:00:00+09:00",
+  "scenario": "Exit from Vendor A (payments gateway) - DRILL - degraded standalone mode",
+  "verdict": "PROVISIONAL PASS",
+  "dependencies": [
+    {
+      "id": "PIPE-004",
+      "exit_action": "reroute payments to Vendor B per RB-7 v3",
+      "status": "Provisional"
+    },
+    {
+      "id": "PIPE-005",
+      "exit_action": "switch to internal report per CFG-112",
+      "status": "Provisional"
+    },
+    {
+      "id": "UNLISTED-DATA",
+      "exit_action": "export Vendor A held data and confirm vendor deletion",
+      "status": "Not demonstrated"
+    }
+  ],
+  "switches": [
+    {
+      "name": "SW-010 Route Payments to Vendor B",
+      "owner": "Payments Ops",
+      "last_verified_state": "Unknown",
+      "timestamp": "Unknown",
+      "status": "Provisional - exists, state unknown"
+    },
+    {
+      "name": "SW-011 Disable Vendor A reporting pull",
+      "owner": "Data Eng",
+      "last_verified_state": "Unknown",
+      "timestamp": "Unknown",
+      "status": "Provisional - exists, state unknown"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation": "30 days written notice to Vendor A",
+      "authority": "MSA clause 12.2 (referenced by user, text not received)",
+      "owner": "Legal",
+      "deadline": "T0",
+      "evidence_required": "sent notice on NT-2 plus delivery receipt",
+      "status": "Not demonstrated"
+    },
+    {
+      "obligation": "Customer notification",
+      "authority": "MSA clause 12.4 (referenced by user, text not received) - user states not required",
+      "owner": "Legal",
+      "deadline": "N/A if confirmed",
+      "evidence_required": "clause text and counsel confirmation",
+      "status": "Provisional"
+    },
+    {
+      "obligation": "Fees or minimum commitments during notice period",
+      "authority": "Unknown / Insufficient data",
+      "owner": "Unknown",
+      "deadline": "Unknown",
+      "evidence_required": "MSA fee and termination schedule",
+      "status": "Not demonstrated"
+    },
+    {
+      "obligation": "Data return and deletion by Vendor A",
+      "authority": "Unknown / Insufficient data",
+      "owner": "Unknown",
+      "deadline": "Unknown",
+      "evidence_required": "MSA data clause and deletion certificate",
+      "status": "Not demonstrated"
+    },
+    {
+      "obligation": "Regulatory notice for change of payment processor, if applicable",
+      "authority": "Unknown / Insufficient data",
+      "owner": "Unknown",
+      "deadline": "Unknown",
+      "evidence_required": "counsel memo",
+      "status": "Not demonstrated"
+    }
+  ],
+  "gaps": [
+    {
+      "gap": "Referenced artifacts not received: RB-7 v3, CFG-112, registry extract, MSA 12.2/12.4, NT-2",
+      "owner": "Scenario owner",
+      "due": "Before next drill",
+      "critical": false
+    },
+    {
+      "gap": "SW-010 and SW-011 have no last verified state or timestamp",
+      "owner": "Payments Ops; Data Eng",
+      "due": "Before next drill",
+      "critical": false
+    },
+    {
+      "gap": "Data export test has no record",
+      "owner": "Vendor manager",
+      "due": "Before next drill",
+      "critical": false
+    },
+    {
+      "gap": "Vendor A data return and deletion obligation not mapped",
+      "owner": "Legal",
+      "due": "Unknown",
+      "critical": false
+    },
+    {
+      "gap": "Fee exposure during 30-day notice period unknown",
+      "owner": "Legal; Finance",
+      "due": "Unknown",
+      "critical": false
+    },
+    {
+      "gap": "Regulatory notice requirement for processor change not assessed",
+      "owner": "Legal",
+      "due": "Unknown",
+      "critical": false
+    },
+    {
+      "gap": "No Pipes Mapper or Switch Registry JSON supplied; degraded standalone mode",
+      "owner": "Scenario owner",
+      "due": "Before next drill",
+      "critical": false
+    }
+  ],
+  "evidence_items": [
+    {
+      "item": "RB-7 v3 reroute runbook",
+      "claim": "reroute path documented",
+      "source": "user reference",
+      "reviewer": "none",
+      "period": "Unknown",
+      "freshness": "Unknown",
+      "status": "Provisional",
+      "conversion_action": "paste full text; rehearse once and record",
+      "owner": "Payments Ops",
+      "target": "Before next drill"
+    },
+    {
+      "item": "CFG-112 internal report job config",
+      "claim": "internal report configured",
+      "source": "user reference",
+      "reviewer": "none",
+      "period": "Unknown",
+      "freshness": "Unknown",
+      "status": "Provisional",
+      "conversion_action": "paste export; run job once and record output",
+      "owner": "Data Eng",
+      "target": "Before next drill"
+    },
+    {
+      "item": "Switch registry extract SW-010/SW-011",
+      "claim": "switches exist",
+      "source": "user reference",
+      "reviewer": "none",
+      "period": "Unknown",
+      "freshness": "Unknown",
+      "status": "Provisional",
+      "conversion_action": "paste extract with state and timestamp; run CONFIRM",
+      "owner": "Payments Ops; Data Eng",
+      "target": "Before next drill"
+    },
+    {
+      "item": "MSA clause 12.2",
+      "claim": "30-day notice right",
+      "source": "user reference",
+      "reviewer": "none",
+      "period": "Unknown",
+      "freshness": "Unknown",
+      "status": "Provisional",
+      "conversion_action": "paste clause text",
+      "owner": "Legal",
+      "target": "Before next drill"
+    },
+    {
+      "item": "MSA clause 12.4",
+      "claim": "no customer notice required",
+      "source": "user reference",
+      "reviewer": "none",
+      "period": "Unknown",
+      "freshness": "Unknown",
+      "status": "Provisional",
+      "conversion_action": "paste clause text; counsel confirmation",
+      "owner": "Legal",
+      "target": "Before next drill"
+    },
+    {
+      "item": "NT-2 notice template",
+      "claim": "template exists and conforms to 12.2",
+      "source": "user reference",
+      "reviewer": "none",
+      "period": "Unknown",
+      "freshness": "Unknown",
+      "status": "Provisional",
+      "conversion_action": "paste template",
+      "owner": "Legal",
+      "target": "Before next drill"
+    },
+    {
+      "item": "Vendor A data export test",
+      "claim": "export works",
+      "source": "vendor manager verbal representation",
+      "reviewer": "vendor manager",
+      "period": "last month",
+      "freshness": "about one month",
+      "status": "Provisional",
+      "conversion_action": "produce test record with date, scope, row counts, observer",
+      "owner": "Vendor manager",
+      "target": "Before next drill"
+    }
+  ],
+  "feasible_72h": true,
+  "feasibility_note": "Operational cutover 7h serial (4h reroute, 2h reporting switch, 1h notice) fits 72h. Contractual termination completes at T0+30d under the 30-day notice period and is outside the 72h window by design.",
+  "mode": "degraded standalone; verdict ceiling PROVISIONAL PASS",
+  "assumptions": [
+    "Durations 4h, 2h, 1h are user-supplied estimates, not rehearsed timings",
+    "Scenario treated as unannounced; output stamped CONFIDENTIAL",
+    "Artifacts named by the user exist but were not received in this session",
+    "No regulatory notice obligation for processor change was supplied; none is asserted"
+  ]
+}

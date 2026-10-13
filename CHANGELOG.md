@@ -3,6 +3,19 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.4.0 (2026-10-13)
+
+Two new instruments on the maintainer's ruling of 13 October 2026, made after run 1 of the advisory suite cases: a validator that applies the schemas and the policy rules the schemas cannot express, and a versioned evaluation set that records what was run, against what, with what result. Minor release: new instruments, no methodology change. Closes the evaluation brief's F03 remedy and the mechanical half of F07.
+
+- **`tools/validate.py`, new.** Python 3.8+, `jsonschema` 3.2 or 4.x, files only, no network. Detects the payload kind (the `tool` field, or the field set for an assessment result, evidence item or service dossier), validates against the schema, then applies policy rules, each quoting the governing sentence of the methodology beside it: evidence items in evidence-item form (E1); no PASS on a representation (E2) or on an open switch request (E4); execution events need `evidence_ref` (R1); an open request means status Unknown (R2); eight gates each once (A1); constraint level is the minimum (A2); Fail, Unknown or unsupported Not Applicable blocks Demonstrated (A3, A4); Demonstrated needs tolerance Met (A6); Met or Not Met needs clock events (A8). Rules the text does not pin mechanically are WARN, never REJECT: unowned gaps under PASS (E3), declared states (R3), version 1.0 rows (R4), Provisional Pass under Demonstrated (A5), low confidence under Demonstrated (A7). Exit 0 clean, 1 on any REJECT, 2 on an unreadable or unrecognized payload. Twenty proofs, twenty passed, recorded in the evaluation set.
+- **`tests/evaluation-set/`, new.** `README.md` (what a run records); `run-2026-10-13-01.json` (run 1: twelve dispositions, the validator's verdict on all eight emitted payloads and the four inputs); `payloads/run-2026-10-13-01/` (the eight payloads as emitted); `fixtures/run-inputs/` (the inputs as used, one of them faulty and recorded as such); `fixtures/policy-cases/` (the eleven schema policy cases as JSON with an index of expected verdicts); `fixtures/clean-bases/` (one valid payload per validated kind); `validator-proof-2026-10-13.md`.
+- **Under the v2.4.0 schemas** 7 of 8 run 1 payloads still reject; S5 accepts, its only defects having been nulls on two optional fields.
+- **`schemas/switch-registry-output.schema.json`.** `description` and `evidence_ref` accept null, as `owner` and `clause_ref` already did; every model run wrote null for an absent optional value. Nothing else changes.
+- **`advisory-tools/02-switch-registry.md`.** Sample log gains the `verified` row that evidences SW-001's OFF, so the sample passes the validator without a declared-state warning. Prompt text otherwise unchanged; version stays 1.2.
+- **`tests/schema-policy-cases.md`.** C7's fixture enriched to a full Provisional evidence item in evidence-item form, which rule E1 requires; disposition unchanged.
+- **`tests/advisory-suite-cases.md`** points at the evaluation set. **`README.md`** tree, suite paragraph and **`CONTRIBUTING.md`** name the validator and the set; **`advisory-tools/README.md`** places the validator between emission and consumption. **`CITATION.cff`**, version line and How to Cite in lockstep.
+- **Not in this release.** Anchor vignettes at scoring boundaries (F07's second half); a CI workflow to run the validator; a second-model run. All carried in the maintenance register.
+
 ## v2.3.2 (2026-10-13)
 
 First recorded run of the advisory suite cases, and the corrections it forced. Twelve cases run against Claude (Fable 5.1) on 13 October 2026: eleven behavioral passes, one partial (S4), one not run on a fixture fault (E4). The behavioral rules of v2.3.0 held under pressure. Every JSON payload the tools emitted failed the v2.3.1 schemas. Patch: prompt wording, optional schema fields, tests.

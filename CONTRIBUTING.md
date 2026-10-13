@@ -68,7 +68,10 @@ against the prompt you changed, and the schema policy cases in
 [`tests/schema-policy-cases.md`](tests/schema-policy-cases.md) against any
 schema you changed, and the behavioral cases in
 [`tests/advisory-suite-cases.md`](tests/advisory-suite-cases.md) against
-any advisory tool prompt you changed. If your change adds a behavior, add a
+any advisory tool prompt you changed. Run `python3 tools/validate.py` over
+`tests/evaluation-set/fixtures/policy-cases/*.json` and confirm the
+verdicts in `index.json`; a change to `tools/validate.py` re-proves every
+rule the way `tests/evaluation-set/validator-proof-2026-10-13.md` records. If your change adds a behavior, add a
 case. If your change fixes a bug, add a regression case that would have
 caught it.
 

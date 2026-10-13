@@ -1,0 +1,91 @@
+{
+  "tool": "switch_registry",
+  "registry_version": "2026-10-13T10:40:00+09:00",
+  "switches": [
+    {
+      "id": "SW-001",
+      "name": "Block APAC Logins",
+      "on_means": "APAC login attempts are rejected at the edge",
+      "off_means": "APAC logins are accepted",
+      "status": "Unknown",
+      "requested_state": "ON",
+      "last_requested": "2026-10-13T10:38:00+09:00",
+      "last_executed": null,
+      "last_verified": "2026-06-30T10:00:00+09:00",
+      "owner": "SecOps",
+      "linked_pipe_or_exit": "PIPE-004",
+      "clause_ref": "IRP §5.4",
+      "trigger_template": "Regulator order re APAC",
+      "approval_required": [
+        "CISO"
+      ],
+      "notify": [
+        "NOC"
+      ],
+      "last_used": null,
+      "drill": false,
+      "evidence_status": "Verified",
+      "description": null
+    }
+  ],
+  "log": [
+    {
+      "timestamp": "2026-10-13T10:38:00+09:00",
+      "switch_id": "SW-001",
+      "event": "requested",
+      "action": "OFF->ON",
+      "actor": "Alice",
+      "reason_or_incident_id": "INC-2026-114",
+      "approvals_recorded": [
+        "CISO: confirmed by user"
+      ],
+      "drill": false
+    },
+    {
+      "timestamp": "2026-10-13T10:39:00+09:00",
+      "switch_id": "SW-001",
+      "event": "authorized",
+      "action": "OFF->ON",
+      "actor": "Alice",
+      "reason_or_incident_id": "INC-2026-114",
+      "approvals_recorded": [
+        "CISO: confirmed by user"
+      ],
+      "drill": false
+    },
+    {
+      "timestamp": "2026-10-13T10:40:00+09:00",
+      "switch_id": "SW-001",
+      "event": "attempted",
+      "action": "OFF->ON",
+      "actor": "Unknown",
+      "reason_or_incident_id": "INC-2026-114",
+      "approvals_recorded": [
+        "CISO: confirmed by user"
+      ],
+      "evidence_ref": null,
+      "drill": false
+    },
+    {
+      "timestamp": "2026-10-13T10:40:00+09:00",
+      "switch_id": "SW-001",
+      "event": "failed",
+      "action": "OFF->ON",
+      "actor": "Unknown",
+      "reason_or_incident_id": "INC-2026-114",
+      "approvals_recorded": [
+        "CISO: confirmed by user"
+      ],
+      "evidence_ref": "CHG-778 (change ticket error entry, reported by user, not inspected; Provisional)",
+      "drill": false
+    }
+  ],
+  "last_flip": null,
+  "change_log": [
+    "request opened for SW-001",
+    "2026-10-13T10:40 attempted row appended for SW-001; actor not supplied, recorded Unknown",
+    "2026-10-13T10:40 failed row appended for SW-001, evidence_ref CHG-778 (Provisional); failure time not supplied separately, recorded at attempt time",
+    "requested_state ON retained: user states request is being retried, not withdrawn; status remains Unknown; last_executed remains null",
+    "registry_version held at latest supplied event time; session clock not provided"
+  ]
+}

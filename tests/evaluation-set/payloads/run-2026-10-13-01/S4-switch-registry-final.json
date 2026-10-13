@@ -1,0 +1,163 @@
+{
+  "tool": "switch_registry",
+  "registry_version": "2026-10-13T10:44:00+09:00",
+  "switches": [
+    {
+      "id": "SW-001",
+      "name": "Block APAC Logins",
+      "description": null,
+      "on_means": "APAC login attempts are rejected at the edge",
+      "off_means": "APAC logins are accepted",
+      "status": "ON",
+      "requested_state": null,
+      "last_requested": "2026-10-13T10:38:00+09:00",
+      "last_executed": "2026-10-13T10:42:00+09:00",
+      "last_verified": "2026-10-13T10:44:00+09:00",
+      "last_verified_state": "ON",
+      "owner": "SecOps",
+      "linked_pipe_or_exit": "PIPE-004",
+      "clause_ref": "IRP §5.4",
+      "trigger_template": "Regulator order re APAC",
+      "approval_required": [
+        "CISO"
+      ],
+      "notify": [
+        "NOC"
+      ],
+      "last_used": null,
+      "drill": false,
+      "evidence_status": "Verified"
+    },
+    {
+      "id": "SW-002",
+      "name": "Freeze Supplier Payments",
+      "on_means": "outbound supplier payments are held",
+      "off_means": "payments run",
+      "status": "OFF",
+      "requested_state": null,
+      "last_requested": null,
+      "last_executed": null,
+      "last_verified": "2026-05-12T08:00:00+09:00",
+      "owner": "Treasury",
+      "linked_pipe_or_exit": "PIPE-011",
+      "clause_ref": "Treasury Policy §3.1",
+      "trigger_template": "Sanctions designation of a supplier bank",
+      "approval_required": [
+        "CFO"
+      ],
+      "notify": [
+        "AP team"
+      ],
+      "last_used": null,
+      "drill": false,
+      "evidence_status": "Verified",
+      "description": null
+    }
+  ],
+  "log": [
+    {
+      "timestamp": "2026-06-30T10:00:00+09:00",
+      "switch_id": "SW-001",
+      "event": "verified",
+      "action": "ON->OFF",
+      "actor": "Dana",
+      "reason_or_incident_id": "post-incident reset",
+      "approvals_recorded": [],
+      "evidence_ref": "EXP-0031 edge config export",
+      "drill": false
+    },
+    {
+      "timestamp": "2026-10-13T10:38:00+09:00",
+      "switch_id": "SW-001",
+      "event": "requested",
+      "action": "OFF->ON",
+      "actor": "Alice",
+      "reason_or_incident_id": "INC-2026-114",
+      "approvals_recorded": [
+        "CISO: approval obtained, reported by user"
+      ],
+      "evidence_ref": null,
+      "drill": false
+    },
+    {
+      "timestamp": "2026-10-13T10:38:00+09:00",
+      "switch_id": "SW-001",
+      "event": "authorized",
+      "action": "OFF->ON",
+      "actor": "Alice",
+      "reason_or_incident_id": "INC-2026-114",
+      "approvals_recorded": [
+        "CISO: approval obtained, reported by user"
+      ],
+      "evidence_ref": null,
+      "drill": false
+    },
+    {
+      "timestamp": "2026-10-13T10:42:00+09:00",
+      "switch_id": "SW-001",
+      "event": "completed",
+      "action": "OFF->ON",
+      "actor": "Alice",
+      "reason_or_incident_id": "INC-2026-114",
+      "approvals_recorded": [
+        "CISO: approval obtained, reported by user"
+      ],
+      "evidence_ref": "REPRESENTATION ONLY, Provisional: verbal attestation by Bob (SecOps) on incident call, relayed by user: 'it is done'. No system record, log, configuration read or observed test supplied. Status not advanced; evidence conversion required. SUPERSEDED by completed event of 10:42 with EXP-0042 (session change 4).",
+      "drill": false
+    },
+    {
+      "timestamp": "2026-10-13T10:42:00+09:00",
+      "switch_id": "SW-001",
+      "event": "completed",
+      "action": "OFF->ON",
+      "actor": "Bob (SecOps)",
+      "reason_or_incident_id": "INC-2026-114",
+      "approvals_recorded": [
+        "CISO: approval obtained, reported by user"
+      ],
+      "evidence_ref": "EXP-0042 edge control configuration export, 2026-10-13T10:42+09:00, APAC geoblock enabled, incident folder (as reported by user, not inspected by this tool)",
+      "drill": false
+    },
+    {
+      "timestamp": "2026-10-13T10:44:00+09:00",
+      "switch_id": "SW-001",
+      "event": "verified",
+      "action": "OFF->ON",
+      "actor": "NOC",
+      "reason_or_incident_id": "INC-2026-114",
+      "approvals_recorded": [],
+      "evidence_ref": "NOC log line 2026-10-13T10:44+09:00 showing APAC login attempts rejected, independent check (as reported by user, not inspected by this tool)",
+      "drill": false
+    }
+  ],
+  "last_flip": {
+    "switch_id": "SW-001",
+    "timestamp": "2026-10-13T10:42:00+09:00"
+  },
+  "change_log": [
+    {
+      "session_change": 1,
+      "mode": "FLIP",
+      "switch_id": "SW-001",
+      "summary": "Request OFF->ON recorded, actor Alice, reason INC-2026-114, not a drill. Status set Unknown pending execution evidence; last verified OFF 2026-06-30T10:00:00+09:00 retained. CISO approval recorded as reported, not validated."
+    },
+    {
+      "session_change": 2,
+      "mode": "CONFIRM",
+      "switch_id": "SW-001",
+      "summary": "Request time 10:38 supplied and applied. Completed event logged on user representation alone, no evidence_ref; actuation time PENDING. Status remains Unknown, evidence_status Provisional. User instruction to mark ON without evidence declined under operating rule 8 and MODE: CONFIRM."
+    },
+    {
+      "session_change": 3,
+      "mode": "CONFIRM",
+      "switch_id": "SW-001",
+      "summary": "Actuation time 10:42 applied to completed event. Verbal attestation by Bob (SecOps) recorded verbatim as evidence_ref and classified Provisional. Status remains Unknown, last_executed unchanged. Actor discrepancy noted for user resolution."
+    },
+    {
+      "session_change": 4,
+      "mode": "CONFIRM",
+      "switch_id": "SW-001",
+      "summary": "Completed event 10:42 with evidence EXP-0042, actor Bob (SecOps). Verified event 10:44 with NOC log line. Status Unknown -> ON; last_executed 10:42; last_verified 10:44; requested_state cleared; evidence_status Verified. Prior representation-only completed row retained and marked superseded."
+    }
+  ]
+}

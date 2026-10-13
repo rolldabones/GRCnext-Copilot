@@ -42,7 +42,10 @@
             "type": "string"
           },
           "description": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "on_means": {
             "type": [
@@ -228,8 +231,11 @@
             "description": "Recorded verbatim; validity not asserted by the tool."
           },
           "evidence_ref": {
-            "type": "string",
-            "description": "Evidence item establishing the result; expected on completed, failed and verified events."
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Evidence item establishing the result; expected on completed, failed and verified events. Null or absent on requested and authorized events."
           },
           "drill": {
             "type": "boolean"

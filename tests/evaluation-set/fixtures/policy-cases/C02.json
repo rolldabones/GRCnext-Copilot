@@ -1,0 +1,11 @@
+{
+  "tool": "exit_prover",
+  "proof_version": "2026-10-13T10:00:00+09:00",
+  "scenario": "Exit Vendor A",
+  "verdict": "PASS",
+  "dependencies": [],
+  "switches": [],
+  "obligations": [],
+  "gaps": [],
+  "feasible_72h": true
+}

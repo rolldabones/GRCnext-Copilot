@@ -16,7 +16,7 @@ A validator enforces the repository's own rules and required evidence references
 | C4 | F03 | `exit-prover-output` | PASS with one Provisional dependency and one Verified evidence item | REJECT | REJECT | match |
 | C5 | F03 | `exit-prover-output` | PASS with one Verified dependency and evidence items all Provisional | REJECT | REJECT | match |
 | C6 | F03 | `exit-prover-output` | PASS with evidence item lacking verification_status | REJECT | REJECT | match |
-| C7 | F01, legitimate low-evidence output | `exit-prover-output` | PROVISIONAL PASS with Provisional dependency and Provisional evidence item | ACCEPT | ACCEPT | match |
+| C7 | F01, legitimate low-evidence output | `exit-prover-output` | PROVISIONAL PASS with Provisional dependency and a Provisional evidence item in evidence-item form, with its conversion action (fixture enriched in v2.4.0 for `tools/validate.py` rule E1) | ACCEPT | ACCEPT | match |
 | C8 | F01, legitimate low-evidence output | `evidence-item` | Provisional interview representation with evidence_conversion_action | ACCEPT | ACCEPT | match |
 | C9 | F02, version 1.0 registry remains readable | `switch-registry-output` | Registry and log emitted by tool version 1.0 (status ON/OFF, no event field) | ACCEPT | ACCEPT | match |
 | C10 | F03, the full Verified item | `evidence-item` | Verified exercise record with artifact, owner, date, source and freshness | ACCEPT | ACCEPT | match |
@@ -31,6 +31,7 @@ Expected results follow the rules in `methodology/evidence-standard.md` and the 
 - Validator: Python `jsonschema` 3.2.0, `Draft7Validator`. The schemas declare draft 2020-12; every keyword they use is also a Draft 7 keyword, and a 2020-12 validator was not available on the machine that ran the cases. A run under a 2020-12 validator is open.
 - Result: 10 of 10 dispositions match. C11 added 13 October 2026 with the v2.3.2 schema widening; 11 of 11 on re-run the same day, same validator.
 - Adjudication: none required.
+- v2.4.0: the eleven cases ship as JSON in `evaluation-set/fixtures/policy-cases/` and run through `tools/validate.py`, which applies the schemas and the policy rules together; dispositions unchanged.
 
 ## Changing an expected result
 

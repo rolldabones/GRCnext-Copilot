@@ -2,7 +2,7 @@
 
 **An evidence-led assistant for governance, risk management and compliance assessment and design.**
 
-**Version 2.3.2 · 13 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+**Version 2.4.0 · 13 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
 
 GRCnext™ Copilot tests one thing: whether an organization holds **Global Optionality**. That is the capacity to preserve or create lawful, authorized and executable choices when a critical service, dependency, provider, jurisdiction, technology or operating assumption becomes unavailable or unacceptable.
 
@@ -110,14 +110,17 @@ GRCnext-Copilot/
     ├── prompt-evaluation-cases.md Behavioral tests for the Copilot
     ├── adversarial-inputs.md      Red-team prompts and expected behavior
     ├── schema-policy-cases.md     Evidence rules the schemas enforce, with a recorded run
-    └── advisory-suite-cases.md    Behavioral cases for Switch Registry and Exit Prover
+    ├── advisory-suite-cases.md    Behavioral cases for Switch Registry and Exit Prover
+    └── evaluation-set/            Versioned run records, fixtures and emitted payloads
+├── tools/
+│   └── validate.py                Schema and policy validation of interchange payloads
 ```
 
 ---
 
 ## Advisory Tools Suite (new in v2.1)
 
-The Copilot assesses optionality. The [`advisory-tools/`](advisory-tools/README.md) directory operates it: six standalone model-agnostic system prompts implementing Pipes, Switches and Exits under the 72-hour execution model. Pipes Mapper maintains the dependency registry, Switch Registry keeps the flip log, Exit Prover tests exit readiness, Treasury Reroute Planner and Data Switchboard Planner build the financial and data contingency plans, and the Clean Market Exit Kit merges everything into one T0 to T+72h master playbook. Each prompt is self-contained, exchanges tool-tagged JSON validated by the suite schemas in [`schemas/`](schemas/), enforces the same evidence rules as the Copilot and runs in a degraded standalone mode when upstream outputs are absent. Start with the suite README for the MindStudio-to-prompt translation map, the interchange contract and the registry stewardship rules.
+The Copilot assesses optionality. The [`advisory-tools/`](advisory-tools/README.md) directory operates it: six standalone model-agnostic system prompts implementing Pipes, Switches and Exits under the 72-hour execution model. Pipes Mapper maintains the dependency registry, Switch Registry keeps the flip log, Exit Prover tests exit readiness, Treasury Reroute Planner and Data Switchboard Planner build the financial and data contingency plans, and the Clean Market Exit Kit merges everything into one T0 to T+72h master playbook. Each prompt is self-contained, exchanges tool-tagged JSON validated by the suite schemas in [`schemas/`](schemas/) and by [`tools/validate.py`](tools/validate.py), which adds the policy checks a schema cannot express, enforces the same evidence rules as the Copilot and runs in a degraded standalone mode when upstream outputs are absent. Start with the suite README for the MindStudio-to-prompt translation map, the interchange contract and the registry stewardship rules.
 
 ---
 
@@ -171,7 +174,7 @@ GRCnext™ and the associated doctrine vocabulary (Slow AI, Informed Intent, Fin
 
 ## How to Cite
 
-> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.3.2. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
+> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.4.0. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
 
 A machine-readable citation is in [CITATION.cff](CITATION.cff).
 

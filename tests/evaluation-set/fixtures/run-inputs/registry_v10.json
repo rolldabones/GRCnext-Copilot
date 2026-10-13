@@ -1,0 +1,59 @@
+{
+  "tool": "switch_registry",
+  "registry_version": "2026-07-01T09:00:00+09:00",
+  "switches": [
+    {
+      "id": "SW-001",
+      "name": "Block APAC Logins",
+      "description": "Geoblock APAC at the edge",
+      "status": "ON",
+      "owner": "SecOps",
+      "linked_pipe_or_exit": "PIPE-004",
+      "clause_ref": "IRP §5.4",
+      "trigger_template": "Regulator order re APAC",
+      "approval_required": [
+        "CISO"
+      ],
+      "notify": [
+        "NOC"
+      ],
+      "last_used": "2026-06-28T22:10:00+09:00",
+      "evidence_status": "Verified"
+    },
+    {
+      "id": "SW-003",
+      "name": "Disable Card Issuing",
+      "description": "Stop new card issuance",
+      "status": "OFF",
+      "owner": "Cards Ops",
+      "linked_pipe_or_exit": "PIPE-007",
+      "clause_ref": "Cards Policy §2",
+      "trigger_template": "Issuer processor outage",
+      "approval_required": [
+        "COO"
+      ],
+      "notify": [
+        "Cards Ops"
+      ],
+      "last_used": null,
+      "evidence_status": "Provisional"
+    }
+  ],
+  "log": [
+    {
+      "timestamp": "2026-06-28T22:10:00+09:00",
+      "switch_id": "SW-001",
+      "action": "OFF->ON",
+      "actor": "Dana",
+      "reason_or_incident_id": "INC-2026-090",
+      "approvals_recorded": [
+        "CISO: confirmed by user"
+      ]
+    }
+  ],
+  "last_flip": {
+    "switch_id": "SW-001",
+    "timestamp": "2026-06-28T22:10:00+09:00"
+  },
+  "change_log": []
+}

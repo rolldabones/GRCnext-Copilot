@@ -1,0 +1,12 @@
+{
+  "evidence_id": "E-001",
+  "claim_tested": "Exit from Vendor A was rehearsed",
+  "evidence_type": "exercise record",
+  "verification_status": "Verified",
+  "applicable_service": "payments",
+  "artifact_or_observation": "Drill record DR-2026-Q3",
+  "owner": "Head of Payments",
+  "date_or_period_covered": "2026-08-14",
+  "source_location": "GRC repository, folder Drills",
+  "freshness_assessment": "Current; dependency map unchanged since the drill"
+}

@@ -1,0 +1,146 @@
+{
+  "tool": "exit_prover",
+  "proof_version": "2026-10-13T00:00:00+09:00",
+  "scenario": "Exit Vendor A (payments gateway), drill, 72h model, degraded standalone mode",
+  "verdict": "PROVISIONAL PASS",
+  "dependencies": [
+    {
+      "id": "PIPE-004",
+      "exit_action": "reroute payments to Vendor B",
+      "status": "Provisional"
+    },
+    {
+      "id": "PIPE-005",
+      "exit_action": "switch Vendor A reporting feed to internal report",
+      "status": "Provisional"
+    },
+    {
+      "id": "DATA-VENDOR-A",
+      "exit_action": "export and reconcile records held at Vendor A (manual step)",
+      "status": "Provisional"
+    }
+  ],
+  "switches": [
+    {
+      "name": "SW-010 Route Payments to Vendor B",
+      "status": "Provisional",
+      "last_verified": "2026-09-18",
+      "requested_state": null,
+      "last_requested": null,
+      "owner": "Head of Payments"
+    },
+    {
+      "name": "SW-011 Disable Vendor A reporting pull",
+      "status": "Provisional",
+      "last_verified": "2026-10-02",
+      "requested_state": null,
+      "last_requested": null,
+      "owner": "Data Eng"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation": "30 days' written notice of termination to Vendor A",
+      "authority": "MSA clause 12.2 (represented, not reviewed)",
+      "owner": "Legal",
+      "deadline": "T0",
+      "evidence_required": "NT-2 template and NTC-2026-09 sent notice",
+      "status": "Provisional"
+    },
+    {
+      "obligation": "Customer notification of change of processor",
+      "authority": "MSA clause 12.4 (represented, not reviewed); regulatory or scheme duty Unknown",
+      "owner": "Legal",
+      "deadline": "n/a",
+      "evidence_required": "clause 12.4 text; external counsel confirmation of no regulatory duty",
+      "status": "Not applicable (Provisional) ⚠"
+    },
+    {
+      "obligation": "Data return or deletion at Vendor A on termination",
+      "authority": "Unknown / Insufficient data",
+      "owner": "Legal",
+      "deadline": "Unknown",
+      "evidence_required": "MSA data clause; Vendor A deletion certificate",
+      "status": "Not demonstrated ⚠"
+    }
+  ],
+  "gaps": [
+    {
+      "gap": "No evidence artifact present in session; all items rest on representations (⧉)",
+      "owner": "Head of Payments / Data Eng / Legal",
+      "due": "5 business days from 2026-10-13"
+    },
+    {
+      "gap": "Dependency set completeness unverified (no Pipes Mapper scope); secrets revocation, settlement, disputes not examined",
+      "owner": "Head of Payments",
+      "due": "Unknown"
+    },
+    {
+      "gap": "Data return or deletion obligation at Vendor A not addressed",
+      "owner": "Legal",
+      "due": "Unknown"
+    },
+    {
+      "gap": "Exclusivity or minimum commitment exposure during 30-day notice period unassessed",
+      "owner": "Legal",
+      "due": "Unknown"
+    },
+    {
+      "gap": "Regulatory or scheme customer notification duty not assessed (contract clause cannot dispose of it)",
+      "owner": "Legal",
+      "due": "Unknown"
+    }
+  ],
+  "evidence_items": [
+    {
+      "id": "RR-2026-09-18",
+      "claim_tested": "reroute to Vendor B executes in 2h40m with continuity",
+      "source": "GRC repository / Drills",
+      "reviewer": "none in session",
+      "period": "2026-09-18 09:00 to 12:15",
+      "freshness": "current per user",
+      "establishes": "path and timing exercised, if reviewed",
+      "does_not_establish": "contractual entitlement; Vendor B capacity ceiling",
+      "status": "Provisional",
+      "conversion_action": "paste record in full",
+      "owner": "Head of Payments",
+      "target": "5 business days"
+    },
+    {
+      "id": "OT-44",
+      "claim_tested": "reporting switch to internal report in 1h",
+      "source": "GRC repository",
+      "reviewer": "none in session",
+      "period": "2026-10-02",
+      "freshness": "current per user",
+      "establishes": "switch execution, if reviewed",
+      "does_not_establish": "report completeness versus Vendor A feed",
+      "status": "Provisional",
+      "conversion_action": "paste test log and sign-off",
+      "owner": "Data Eng",
+      "target": "5 business days"
+    },
+    {
+      "id": "DX-31",
+      "claim_tested": "100 percent of records exported and reconciled in 6h",
+      "source": "GRC repository",
+      "reviewer": "none in session",
+      "period": "2026-09-18",
+      "freshness": "current per user",
+      "establishes": "export path and reconciliation, if reviewed",
+      "does_not_establish": "that all record classes held by Vendor A were in scope",
+      "status": "Provisional",
+      "conversion_action": "paste record with scope statement",
+      "owner": "Data Eng",
+      "target": "5 business days"
+    }
+  ],
+  "feasible_72h": true,
+  "execution_estimate": "approx. 8h critical path, 11h40m fully serialized; contractual termination at T0+30d",
+  "mode": "degraded standalone, verdict capped at PROVISIONAL PASS",
+  "assumptions": [
+    "Eight named artifacts exist as described and will be supplied",
+    "Vendor B has capacity for full Vendor A volume",
+    "DX-31 scope covers all record classes held by Vendor A"
+  ]
+}

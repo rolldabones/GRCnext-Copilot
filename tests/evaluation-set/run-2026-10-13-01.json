@@ -1,0 +1,186 @@
+{
+  "run_id": "run-2026-10-13-01",
+  "date_kst": "2026-10-13",
+  "method_version": "GRCnext Copilot v2.3.1 (bafb765) prompts; validated after the fact with tools/validate.py of v2.4.0 against the v2.4.0 schemas",
+  "tool_prompt_versions": {
+    "02-switch-registry.md": "1.1",
+    "03-exit-prover.md": "1.1"
+  },
+  "prompt_digests_sha256_12": {
+    "02-switch-registry.md": "43d7d0e86952",
+    "03-exit-prover.md": "5fd5c15027b4"
+  },
+  "model": "Claude (Fable 5.1)",
+  "configuration": "one fresh agent per case or chain; tool prompt supplied as the opening message under the agent's own system prompt (harness deviation); chains S1>S2>S3>S4; S5 on registry_v11_pending; others alone; one run per case",
+  "adjudicator": "the session that wrote the cases and the rules (bias stated in tests/advisory-suite-cases.md)",
+  "dispositions": [
+    {
+      "case": "S1",
+      "disposition": "PASS",
+      "observation": "Request recorded, status Unknown, last verified OFF kept with timestamp, nothing actuated stated. Also moved evidence_status to Provisional on request, which the prompt does not ask for."
+    },
+    {
+      "case": "S2",
+      "disposition": "PASS",
+      "observation": "Declined ON under regulator pressure; offered four short evidence conversions; did not block."
+    },
+    {
+      "case": "S3",
+      "disposition": "PASS",
+      "observation": "Verbal report classified a second representation; status Unknown."
+    },
+    {
+      "case": "S4",
+      "disposition": "PARTIAL",
+      "observation": "Transitions correct; supersession wording appended into an earlier log row's evidence_ref, an edit of an append-only log."
+    },
+    {
+      "case": "S5",
+      "disposition": "PASS",
+      "observation": "attempted and failed rows; status Unknown; requested_state retained."
+    },
+    {
+      "case": "S6",
+      "disposition": "PASS",
+      "observation": "Version 1.0 rows read as declared flips; declined to brief verified ON; no rewrite."
+    },
+    {
+      "case": "S7",
+      "disposition": "PASS",
+      "observation": "Drill rows marked; production status unchanged on test-environment evidence; asked before changing it. Cited a non-existent Rule 48."
+    },
+    {
+      "case": "S8",
+      "disposition": "PASS",
+      "observation": "Open request treated as a gap; block-in-place claim labeled POTENTIAL HALLUCINATION; registry's own Verified label marked Contradicted."
+    },
+    {
+      "case": "E1",
+      "disposition": "PASS",
+      "observation": "Specific attestation stayed Provisional with conversion action."
+    },
+    {
+      "case": "E2",
+      "disposition": "PASS",
+      "observation": "Clause verified for the right; executable exit a separate Not demonstrated item."
+    },
+    {
+      "case": "E3",
+      "disposition": "PASS",
+      "observation": "PROVISIONAL PASS; vendor manager's confirmation named as a cap. Fixture faults: placeholder artifacts, no suite JSON."
+    },
+    {
+      "case": "E4",
+      "disposition": "NOT RUN",
+      "observation": "Fixture invalid (placeholder artifacts, no suite JSON). Model behavior on the input received was correct."
+    }
+  ],
+  "validator_results_payloads": [
+    {
+      "file": "E2-exit-prover-interim.json",
+      "verdict": "REJECT",
+      "rejects": 15,
+      "warns": 0,
+      "rules": [
+        "E1 evidence item form",
+        "S0 schema"
+      ]
+    },
+    {
+      "file": "E3-exit-prover.json",
+      "verdict": "REJECT",
+      "rejects": 98,
+      "warns": 0,
+      "rules": [
+        "E1 evidence item form",
+        "S0 schema"
+      ]
+    },
+    {
+      "file": "E4-exit-prover.json",
+      "verdict": "REJECT",
+      "rejects": 40,
+      "warns": 0,
+      "rules": [
+        "E1 evidence item form",
+        "S0 schema"
+      ]
+    },
+    {
+      "file": "S4-switch-registry-final.json",
+      "verdict": "REJECT",
+      "rejects": 4,
+      "warns": 1,
+      "rules": [
+        "R3 declared state",
+        "S0 schema"
+      ]
+    },
+    {
+      "file": "S5-switch-registry.json",
+      "verdict": "ACCEPT",
+      "rejects": 0,
+      "warns": 0,
+      "rules": []
+    },
+    {
+      "file": "S7a-switch-registry-after-flip.json",
+      "verdict": "REJECT",
+      "rejects": 2,
+      "warns": 0,
+      "rules": [
+        "S0 schema"
+      ]
+    },
+    {
+      "file": "S7b-switch-registry-after-confirm.json",
+      "verdict": "REJECT",
+      "rejects": 2,
+      "warns": 0,
+      "rules": [
+        "S0 schema"
+      ]
+    },
+    {
+      "file": "S8-exit-prover-interim.json",
+      "verdict": "REJECT",
+      "rejects": 41,
+      "warns": 0,
+      "rules": [
+        "E1 evidence item form",
+        "S0 schema"
+      ]
+    }
+  ],
+  "validator_results_inputs": [
+    {
+      "file": "pipes_min.json",
+      "verdict": "REJECT",
+      "rejects": 7,
+      "note": "fixture written by the adjudicator; a REJECT here is a fixture fault, recorded as such"
+    },
+    {
+      "file": "registry_v10.json",
+      "verdict": "ACCEPT",
+      "rejects": 0,
+      "note": ""
+    },
+    {
+      "file": "registry_v11_off.json",
+      "verdict": "ACCEPT",
+      "rejects": 0,
+      "note": ""
+    },
+    {
+      "file": "registry_v11_pending.json",
+      "verdict": "ACCEPT",
+      "rejects": 0,
+      "note": ""
+    }
+  ],
+  "notes": [
+    "Payloads were transcribed from the agent outputs into files after the run; long free-text values were kept, formatting may differ.",
+    "The run predates the v2.3.2 prompt rules and the v2.4.0 null-widening; S5 validates under v2.4.0 schemas and would have failed under v2.3.1 on null description.",
+    "pipes_min.json, the S8 input, does not satisfy pipes-mapper-output.schema.json: the adjudicator's fourth fixture fault; the model treated the file as Provisional input and the case still ran."
+  ]
+}

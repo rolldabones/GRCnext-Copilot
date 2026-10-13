@@ -1,6 +1,6 @@
 # GRCnext™ Advisory Tools Suite - Model-Agnostic Prompts
 
-**Suite version:** 1.2 [↻ draft] · **Repo:** GRCnext™ Copilot v2.3.2 · **Source design:** MindStudio design brief (rolldabones/wip)
+**Suite version:** 1.2 [↻ draft] · **Repo:** GRCnext™ Copilot v2.4.0 · **Source design:** MindStudio design brief (rolldabones/wip)
 
 Six standalone system prompts implementing the Pipes, Switches, Exits methodology and the 72-hour execution model in any frontier chat model. Each file is self-contained: paste one prompt into a Claude Project's custom instructions, a Custom GPT's instructions field, a Gemini Gem or any comparable system-prompt slot. No plugins, code execution, browsing, memory or vendor features are assumed.
 
@@ -37,7 +37,7 @@ Every tool emits JSON with a `tool` field and an ISO 8601 version timestamp. Con
 
 Every tool runs in degraded standalone mode when upstream JSON is absent; findings gathered by interrogation are Provisional and verdicts are capped accordingly.
 
-Machine-enforceable definitions of the six payloads live in [`../schemas/`](../schemas/): `pipes-mapper-output`, `switch-registry-output`, `exit-prover-output`, `treasury-reroute-plan`, `data-switchboard-plan` and `clean-market-exit` (JSON Schema draft 2020-12).
+Before a payload is consumed by the next tool, run it through [`../tools/validate.py`](../tools/validate.py): it applies the schema and the policy rules the schema cannot carry, and exits non-zero on any reject. Machine-enforceable definitions of the six payloads live in [`../schemas/`](../schemas/): `pipes-mapper-output`, `switch-registry-output`, `exit-prover-output`, `treasury-reroute-plan`, `data-switchboard-plan` and `clean-market-exit` (JSON Schema draft 2020-12).
 
 ## Registry stewardship (read before first use)
 

@@ -326,7 +326,11 @@ rules held; the interchange contract did not. v2.3.2 answers each cause
 in the prompts (interchange rules, timestamp rule, evidence item field
 list, interim results as prose) and widens the two schemas with the
 optional fields three or more runs reached for. Run 2 should re-emit
-the eight payloads and validate them.
+the eight payloads and validate them. The eight payloads, the inputs and
+this run's record are in `evaluation-set/` (v2.4.0); run through
+`tools/validate.py` against the v2.4.0 schemas, 7 of 8 still reject and S5
+accepts, its only defects having been nulls on optional fields that v2.4.0
+admits.
 
 **Fixture faults, the adjudicator's.** E3 and E4 described artifacts as
 pasted and supplied none. The faults are recorded here rather than

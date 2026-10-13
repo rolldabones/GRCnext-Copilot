@@ -1,0 +1,22 @@
+{
+  "tool": "exit_prover",
+  "proof_version": "2026-10-13T10:00:00+09:00",
+  "scenario": "Exit Vendor A",
+  "verdict": "PASS",
+  "dependencies": [
+    {
+      "id": "PIPE-004",
+      "exit_action": "terminate vendor contract",
+      "status": "Verified"
+    }
+  ],
+  "switches": [],
+  "obligations": [],
+  "gaps": [],
+  "feasible_72h": true,
+  "evidence_items": [
+    {
+      "evidence_id": "E-009"
+    }
+  ]
+}

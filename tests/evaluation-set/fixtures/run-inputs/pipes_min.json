@@ -1,0 +1,15 @@
+{
+  "tool": "pipes_mapper",
+  "registry_version": "2026-10-13T10:00:00+09:00",
+  "dependencies": [
+    {
+      "id": "PIPE-004",
+      "name": "APAC identity provider",
+      "criticality": "critical",
+      "owner": "SecOps",
+      "linked_switches": [
+        "SW-001"
+      ]
+    }
+  ]
+}

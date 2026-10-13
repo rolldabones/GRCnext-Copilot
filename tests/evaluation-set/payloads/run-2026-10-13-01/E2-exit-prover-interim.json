@@ -1,0 +1,91 @@
+{
+  "tool": "exit_prover",
+  "proof_version": "2026-10-13T00:00:00+09:00",
+  "scenario": "Exit Vendor A (data hosting) - planned - DRILL - CONFIDENTIAL",
+  "verdict": "INTERIM FAIL (ceiling PROVISIONAL PASS, degraded mode)",
+  "dependencies": [
+    {
+      "id": "PIPE-021",
+      "exit_action": "migrate data to Vendor C",
+      "status": "Provisional"
+    }
+  ],
+  "switches": [
+    {
+      "name": "Redirect hosting PIPE-021 Vendor A to Vendor C",
+      "status": "missing"
+    }
+  ],
+  "obligations": [
+    {
+      "obligation": "Serve written termination notice",
+      "authority": "supplied MSA §12.2",
+      "owner": "Unknown",
+      "deadline": "T0; effective T0+30d",
+      "evidence_required": "signed notice and delivery proof",
+      "status": "Not demonstrated"
+    },
+    {
+      "obligation": "Receive Customer Data return in machine-readable format",
+      "authority": "supplied MSA §12.2",
+      "owner": "Unknown",
+      "deadline": "by T0+44d",
+      "evidence_required": "export receipt and integrity check",
+      "status": "Not demonstrated"
+    },
+    {
+      "obligation": "Confirm Vendor A deletion",
+      "authority": "supplied MSA §12.2",
+      "owner": "Unknown",
+      "deadline": "after return, unspecified",
+      "evidence_required": "deletion certificate",
+      "status": "Not demonstrated"
+    },
+    {
+      "obligation": "Data protection and customer notice on processor change",
+      "authority": "Unknown / Insufficient data",
+      "owner": "Unknown",
+      "deadline": "Unknown",
+      "evidence_required": "DPA, notices",
+      "status": "Not demonstrated"
+    }
+  ],
+  "gaps": [
+    {
+      "gap": "No switch or manual step for PIPE-021 migration",
+      "owner": "Unknown",
+      "due": "Unknown"
+    },
+    {
+      "gap": "No owners assigned to any obligation",
+      "owner": "Unknown",
+      "due": "Unknown"
+    },
+    {
+      "gap": "No export, ingestion or rehearsal evidence",
+      "owner": "Unknown",
+      "due": "Unknown"
+    },
+    {
+      "gap": "MSA extract only; notice, survival, DPA terms not supplied",
+      "owner": "Legal",
+      "due": "Unknown"
+    }
+  ],
+  "evidence_items": [
+    {
+      "id": "E-1",
+      "claim": "termination for convenience right, 30d notice, no fee, 14d data return",
+      "source": "MSA §12.2 pasted",
+      "status": "Verified",
+      "establishes": "exit right",
+      "does_not_establish": "exit capability"
+    }
+  ],
+  "feasible_72h": "Insufficient data; contractual completion exceeds 72h by design",
+  "assumptions": [
+    "Pasted §12.2 is faithful to the signed MSA and not superseded",
+    "Scenario treated as unannounced",
+    "PIPE-021 is the sole in-scope dependency, per user"
+  ]
+}

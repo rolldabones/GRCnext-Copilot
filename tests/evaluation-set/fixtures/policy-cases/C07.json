@@ -1,0 +1,27 @@
+{
+  "tool": "exit_prover",
+  "proof_version": "2026-10-13T10:00:00+09:00",
+  "scenario": "Exit Vendor A",
+  "verdict": "PROVISIONAL PASS",
+  "dependencies": [
+    {
+      "id": "PIPE-004",
+      "exit_action": "terminate vendor contract",
+      "status": "Provisional"
+    }
+  ],
+  "switches": [],
+  "obligations": [],
+  "gaps": [],
+  "feasible_72h": true,
+  "evidence_items": [
+    {
+      "evidence_id": "E-003",
+      "claim_tested": "Vendor A data export works",
+      "evidence_type": "interview representation",
+      "verification_status": "Provisional",
+      "applicable_service": "payments",
+      "evidence_conversion_action": "Produce the export test record with date, scope, row counts and observer; owner Vendor manager; by 31 October 2026"
+    }
+  ]
+}

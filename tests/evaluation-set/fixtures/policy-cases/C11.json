@@ -1,0 +1,21 @@
+{
+  "tool": "exit_prover",
+  "proof_version": "2026-10-13T10:00:00+09:00",
+  "scenario": "Exit Vendor A",
+  "verdict": "FAIL",
+  "dependencies": [],
+  "switches": [
+    {
+      "name": "Block APAC Logins",
+      "status": "exists",
+      "id": "SW-001",
+      "owner": "SecOps",
+      "requested_state": "ON",
+      "last_verified": "2026-06-30T10:00:00+09:00",
+      "last_verified_state": "OFF"
+    }
+  ],
+  "obligations": [],
+  "gaps": [],
+  "feasible_72h": true
+}
