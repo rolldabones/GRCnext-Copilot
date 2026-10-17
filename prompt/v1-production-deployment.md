@@ -1,6 +1,6 @@
-# GRCnext™ Copilot v1 production deployment (current)
+# GRCnext™ Copilot v1 production deployment (retired)
 
-**Status: CURRENT PRODUCTION as of 15 July 2026.** This file is the system of record for the configuration the deployed custom GPT actually runs at https://chatgpt.com/g/g-69831f7f8df48191a3808c37306ec918-grcnexttm-copilot. It is the v1 single-prompt build. The v2 configuration this repository ships ([`compact-custom-gpt-version.md`](compact-custom-gpt-version.md) as Instruction with [`GRCnext-Copilot-v2.md`](GRCnext-Copilot-v2.md) as Knowledge) has not yet been deployed to that instance. The v1-to-v2 rationale is in [`CHANGELOG.md`](../CHANGELOG.md) under v2.0.0. On redeployment to v2, this file is re-marked superseded and the repository re-versions.
+**Status: retired 1 October 2026 (KST). History, not production.** This file records the configuration the author's GRCnext™ Copilot custom GPT ran, the v1 single-prompt build, as last verified on 15 July 2026, before the conversion. The GPT was retired on 1 October 2026 and converted to a private plug-in on the OpenAI platform; the v2 configuration this repository ships was never deployed to it, and no repository claims to mirror the plug-in ([RETIREMENT.md](https://github.com/rolldabones/rolldabones/blob/main/RETIREMENT.md)). The v1-to-v2 rationale is in [`CHANGELOG.md`](../CHANGELOG.md) under v2.0.0.
 
 ---
 

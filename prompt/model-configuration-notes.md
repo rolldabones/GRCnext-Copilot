@@ -42,6 +42,8 @@ No compaction is needed on Claude. Use the full prompt.
 
 ## ChatGPT Custom GPT
 
+**Closed route, 18 October 2026 (KST).** OpenAI is retiring custom GPTs, and the author's GRCnext™ Copilot custom GPT was retired on 1 October 2026 ([RETIREMENT.md](https://github.com/rolldabones/rolldabones/blob/main/RETIREMENT.md)). The steps below are kept as the record of how the route worked; on any current assistant use the Claude route above or the long-form edition below.
+
 The Custom GPT instructions field has a hard limit of 8,000 characters.
 The full prompt exceeds that, so split the deployment.
 

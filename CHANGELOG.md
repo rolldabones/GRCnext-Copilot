@@ -3,6 +3,20 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.5.2 (2026-10-18)
+
+Patch. Session T4 of the whole-account review of 15 October 2026 (doc section 4, items 4 and 6; reviewer report 08, items 8 and 9), under determination D5: the GRCnext™ Copilot custom GPT was retired on 1 October 2026 and converted to a private plug-in on the OpenAI platform; the instructions published here are the text of record. Notice lines only; the GRCnext™ v2.6.0 train is session T6. No schema, scoring rule, gate, fixture, prompt body or advisory-tool prompt text changed.
+
+- **`README.md` Deploy it.** ~~"**Deployed production instance (as of 15 July 2026).** The author's deployed custom GPT is at https://chatgpt.com/g/g-69831f7f8df48191a3808c37306ec918-grcnexttm-copilot and currently runs the **v1 single-prompt configuration** ... has not yet been deployed to that instance. When production changes, this paragraph and that file change and the repository version bumps."~~ **STRUCK.** Now "Former production instance": the v1 configuration as last verified on 15 July 2026, before the conversion; v2 never deployed to it. The live link is removed.
+- **`README.md` retirement notice.** ~~"> **Retirement notice, 28 September 2026 (KST), corrected 5 October 2026 (KST).** OpenAI is retiring custom GPTs. ... The link above was verified resolving on 5 October 2026 and stops working on 11 December 2026, and the ChatGPT Custom GPT route above closes with it."~~ and its second paragraph ~~"Everything needed to build your own stays published here: ... test before you rely on the output."~~ **STRUCK.** Replaced by the account's one dated line, which points to RETIREMENT.md in the profile repository for the long form.
+- **`README.md` ChatGPT Custom GPT route** marked closed and pointed at the Claude and standalone routes.
+- **`prompt/v1-production-deployment.md`.** ~~"(current)"~~ and ~~"**Status: CURRENT PRODUCTION as of 15 July 2026.** This file is the system of record for the configuration the deployed custom GPT actually runs at <link>. ... On redeployment to v2, this file is re-marked superseded and the repository re-versions."~~ **STRUCK.** Now "(retired)", with a status line that states the configuration as last verified on 15 July 2026, before the conversion. The mirrored configuration below the line is unchanged.
+- **`prompt/model-configuration-notes.md`.** One dated line at the head of the ChatGPT Custom GPT section marks the route closed; the steps stay as record.
+- **`prompt/GRCnext-Copilot-v2.md` header note** (the blockquote above the prompt, not the prompt body): ~~"or attached to a Custom GPT as a Knowledge file. For the ChatGPT instructions field (8,000-character limit), use `prompt/compact-custom-gpt-version.md` and attach this file as Knowledge."~~ **STRUCK**; the note now names any current assistant and records the custom GPT route as closed. The compact edition keeps its file name until T6, which renames it in the v2.6.0 naming pass.
+- **`advisory-tools/README.md`.** ~~"a Custom GPT's instructions field,"~~ **STRUCK** from the deployment sentence: four of the six prompts exceed the 8,000-character field (02: 13,554; 03: 11,133; 05: 8,100; 06: 8,957 characters, whole file, measured 18 October 2026), and the route is retiring. The suite header's repository version reads v2.5.2 (it read v2.5.0).
+- `tests/schema-policy-cases.md` version line to 2.5.2, the repository version (pin `grcnext-tests-version`); its cases and recorded run are unchanged.
+- README masthead, How to Cite and `CITATION.cff` to 2.5.2 in lockstep.
+
 ## v2.5.1 (2026-10-17)
 
 Patch. Session T3 of the whole-account review of 15 October 2026 (doc sections 1 and 8; reviewer report 08, items C1 and B/C glossary). No schema, scoring rule, gate, fixture or advisory-tool text changed.

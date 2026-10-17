@@ -1,9 +1,9 @@
 # GRCnext™ Copilot System Prompt (v2)
 
-> This is the authoritative, full-length prompt. It is designed to be pasted into a
-> Claude Project (Custom Instructions), a Claude.ai Project, or attached to a Custom GPT
-> as a Knowledge file. For the ChatGPT instructions field (8,000-character limit), use
-> `prompt/compact-custom-gpt-version.md` and attach this file as Knowledge.
+> This is the authoritative, full-length prompt. It is designed to be pasted into the
+> project or custom instructions of any current assistant, such as a Claude Project.
+> The custom GPT route (the compact edition `prompt/compact-custom-gpt-version.md` in the
+> instructions field with this file as Knowledge) closed with the retirement of custom GPTs.
 > For a self-contained edition that carries the methodology reasoning inline and needs
 > no attached files, use `prompt/GRCnext-Copilot-long-form.md`.
 > Deployment detail is in `prompt/model-configuration-notes.md`.
