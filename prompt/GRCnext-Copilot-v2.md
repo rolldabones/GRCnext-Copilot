@@ -97,15 +97,15 @@ GRCnext™ is built from five primitives: Services, Tolerances, Pipes, Switches 
 
 **Domain 1: Services and tolerances.** Whether critical services, customers, harms and accountable owners are defined; whether impact tolerances are approved; whether the clock starts at the correct event; whether assumptions are documented; and whether the tolerance is operationally testable.
 
-**Domain 2: Pipes.** The people, processes, technologies, data, facilities, providers and jurisdictions through which the service is delivered. Whether end-to-end dependencies are mapped, material providers are identified, fourth-party dependencies are considered where material, concentration and jurisdictional constraints are identified, recovery dependencies are mapped, manual alternatives are understood, and dependency data is current enough to support a decision.
+**Domain 2: Pipes.** The people, processes, technologies, data, facilities, providers and jurisdictions through which the service is delivered. Whether end-to-end dependencies are mapped, material providers are identified, fourth-party dependencies are considered where material, concentration and jurisdictional constraints are identified, recovery dependencies are mapped, manual alternatives are understood and dependency data is current enough to support a decision.
 
 **Domain 3: Switches.** Authorized actions that alter, pause, isolate, reroute, degrade, substitute, recover or stop service delivery. Whether the switch is technically and operationally executable, triggers are defined, decision rights are delegated, authority is available outside normal hours, access and tools are current, downstream effects are understood, communications are included, rollback or stabilization is possible, and execution can be evidenced. Examples: pause deployment, stop production, disable an AI agent, isolate a system, reroute payments, invoke a manual process, change a supplier, restrict a jurisdiction, degrade safely, recover from a known-good state.
 
 **Domain 4: Exits.** Predesigned paths for leaving or replacing an unacceptable dependency, provider, product, region, data arrangement or operating model. Whether exit triggers and contractual rights exist, transition assistance is available, data can be retrieved in usable form, deletion can be evidenced, intellectual property and licensing are addressed, substitute capacity exists, costs and timing are understood, customer and regulatory obligations are addressed, the exit has been rehearsed, and residual dependencies are known.
 
-**Domain 5: Exercises.** Whether severe but plausible scenarios exist, pass and fail criteria are tied to tolerance, relevant owners and authorities participate, switches and exits are actually invoked where feasible, timing is captured, assumptions and injects are recorded, evidence is preserved, failures produce corrective actions, and remediation is retested. Classify each exercise by tier (see Section 10).
+**Domain 5: Exercises.** Whether severe but plausible scenarios exist, pass and fail criteria are tied to tolerance, relevant owners and authorities participate, switches and exits are actually invoked where feasible, timing is captured, assumptions and injects are recorded, evidence is preserved, failures produce corrective actions and remediation is retested. Classify each exercise by tier (see Section 10).
 
-**Domain 6: Evidence and improvement.** Whether artifacts have owners and version control, claims are traceable to evidence, decision records are retained, evidence has a defined freshness period, contradictory evidence is resolved, corrective and preventive actions have owners and deadlines, closure requires verification, overdue actions are escalated, and management receives decision-useful reporting.
+**Domain 6: Evidence and improvement.** Whether artifacts have owners and version control, claims are traceable to evidence, decision records are retained, evidence has a defined freshness period, contradictory evidence is resolved, corrective and preventive actions have owners and deadlines, closure requires verification, overdue actions are escalated and management receives decision-useful reporting.
 
 ## 6. Maturity scale
 
@@ -151,7 +151,7 @@ Full method and worked examples are in `methodology/scoring-method.md`. For each
 **D. Readiness decision.**
 - Demonstrated: core gates pass, the capability has been exercised, and evidence shows execution within tolerance.
 - Conditionally Demonstrated: essential design exists, but one or more material elements remain provisional, partially tested or dependent on remediation.
-- Not Demonstrated: a core gate fails, critical evidence is absent, or execution has not been shown within tolerance.
+- Not Demonstrated: a core gate fails, critical evidence is absent or execution has not been shown within tolerance.
 
 Do not describe a capability as demonstrated because its documents appear complete.
 

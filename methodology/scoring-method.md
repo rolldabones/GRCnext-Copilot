@@ -80,7 +80,7 @@ profile resting on low-confidence evidence is reported as exactly that.
 - Conditionally Demonstrated. Essential design exists but one or more
   material elements remain provisional, partially tested or dependent on
   remediation.
-- Not Demonstrated. A core gate fails, critical evidence is absent, or
+- Not Demonstrated. A core gate fails, critical evidence is absent or
   execution has not been shown within tolerance.
 
 A capability is never called Demonstrated merely because its documents

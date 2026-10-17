@@ -3,6 +3,16 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.5.1 (2026-10-17)
+
+Patch. Session T3 of the whole-account review of 15 October 2026 (doc sections 1 and 8; reviewer report 08, items C1 and B/C glossary). No schema, scoring rule, gate, fixture or advisory-tool text changed.
+
+- **`methodology/glossary.md` Doctrine terms:** the three entries restated the doctrines into different rules: Slow AI as "governance owns the clock", Informed Intent as a decision "traceable to a human who understood it" (no purpose, authority, boundaries or exit), Final Liability without decision rights, oversight or the power to intervene. Each now quotes the canonical statement of rolldabones DOCTRINE.md v1.2.0 verbatim with a section link, under the doctrine citation line. "GRC owns the clock" stays GRCnext™'s operating principle and is now said to be that, not Slow AI.
+- **`README.md`:** the first link to DOCTRINE.md in the repository, in License and attribution.
+- **`tests/schema-policy-cases.md`:** version line 2.3.2 corrected to 2.5.1, the repository version; the file's cases and recorded run are unchanged.
+- **Serial commas** removed from the Not Demonstrated definition in `prompt/GRCnext-Copilot-v2.md` (the prompt that forbids them), `prompt/GRCnext-Copilot-long-form.md` and `methodology/scoring-method.md`, and from three domain lines of the v2 prompt. Wording otherwise unchanged. The same fault in the six advisory tools and `templates/service-dossier.md` waits for v2.6.0 (session T6), which re-versions each tool; the deployed configurations are Locked (ruling 9 of 15 October 2026) and session T4's.
+- Masthead, How to Cite and `CITATION.cff` to 2.5.1 in lockstep.
+
 ## v2.5.0 (2026-10-13)
 
 Second external evaluation of v2.4.0 (run by the maintainer with another model, same day) and the session's own audit, answered. Minor release: Switch Registry's evidence standard changes (1.3); the validator gains six reject rules and two warnings and no longer crashes on malformed input; it is marked INCOMPLETE and human review of readiness conclusions is stated as retained everywhere the validator is described.

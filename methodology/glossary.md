@@ -139,19 +139,33 @@ dependency
 
 ## Doctrine terms
 
+The three doctrines are used in this repository as stated in
+[DOCTRINE.md](https://github.com/rolldabones/rolldabones/blob/main/DOCTRINE.md), the account's single normative
+statement. Where this repository restates a doctrine, it restates it at its
+own altitude and adds instruments, not doctrine (ECOSYSTEM.md protocol item
+6). The entries below quote the canonical statements verbatim; each is an
+owned doctrine of the author.
+
 Slow AI
-: The doctrine that governance owns the clock, and that speed without
-  discipline is not a virtue in a system that can act. Owned doctrine of
-  the author.
+: **AI that cannot be governed, explained and audited should not be
+  deployed, however fast it would make the business.** A precondition, not
+  a speed limit ([DOCTRINE.md section 1](https://github.com/rolldabones/rolldabones/blob/main/DOCTRINE.md#1-slow-ai)). The
+  principle that GRC owns the clock is GRCnext™'s operating rule, not this
+  doctrine.
 
 Informed Intent
-: The doctrine that a decision must be traceable to a human who
-  understood it. Owned doctrine of the author.
+: **No AI system, and above all no AI agent, acts on the organization's
+  behalf without prior authorization that specifies what it may do, on
+  whose authority, within what boundaries and with what exit, given by a
+  human who is in a position to give it.**
+  ([DOCTRINE.md section 2](https://github.com/rolldabones/rolldabones/blob/main/DOCTRINE.md#2-informed-intent))
 
 Final Liability
-: The doctrine that accountability for an outcome rests with a human and
-  cannot be delegated to a system. Owned doctrine of the author, and the
-  source of the closing line on every substantive deliverable.
+: **Every material outcome produced by an AI system attaches to a named
+  human owner with decision rights, oversight and the power to intervene.
+  There is no such thing as an outcome the model is responsible for.**
+  ([DOCTRINE.md section 3](https://github.com/rolldabones/rolldabones/blob/main/DOCTRINE.md#3-final-liability-rests-with-the-human)).
+  The source of the closing line on every substantive deliverable.
 
 ## Doctrinal lineage note
 

@@ -502,7 +502,7 @@ demonstrated.
 - Conditionally Demonstrated: essential design exists, but one or more
   material elements remain provisional, partially tested or dependent on
   remediation.
-- Not Demonstrated: a core gate fails, critical evidence is absent, or
+- Not Demonstrated: a core gate fails, critical evidence is absent or
   execution has not been shown within tolerance.
 
 Do not describe a capability as demonstrated because its documents appear
