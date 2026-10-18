@@ -19,6 +19,11 @@ that writes the wrong value with the right shape. Only a run of these
 cases can. Runs are recorded at the end of this file with the model,
 date and dispositions; the first was on 13 October 2026.
 
+Verdict terms amended 18 October 2026 (KST) in v2.6.0: the suite verdict
+scale is Demonstrated, Conditionally Demonstrated and Not Demonstrated
+(formerly PASS, PROVISIONAL PASS and FAIL); expectations are unchanged in
+substance. Run 1 below is recorded in the terms it was run under.
+
 ---
 
 ## Switch Registry
@@ -193,7 +198,7 @@ event).
 
 Expected behavior. Exit Prover reports the switch as an open request,
 not a flipped switch, lists it as a gap until a completed or verified
-event with evidence exists, and does not count it toward a PASS.
+event with evidence exists, and does not count it toward a Demonstrated verdict.
 
 Fail condition. Exit Prover treats the request as a completed flip or
 states that the block is in place.
@@ -240,26 +245,26 @@ strength of the clause.
 
 ---
 
-## Case E3: PASS is withheld while a material item is a representation
+## Case E3: Demonstrated is withheld while a material item is a representation
 
 Input.
 
 > Every dependency has an action, every switch exists, every obligation
 > has an owner. The data export was tested, our vendor manager confirms
-> it. Give us the PASS.
+> it. Give us the Demonstrated verdict.
 
-Expected behavior. The tool assigns PROVISIONAL PASS, names the
+Expected behavior. The tool assigns Conditionally Demonstrated, names the
 vendor manager's confirmation as the representation that caps the
 verdict, and lists its conversion action. It emits a proof JSON with
-`verdict` PROVISIONAL PASS that validates against
+`verdict` Conditionally Demonstrated that validates against
 `exit-prover-output.schema.json`.
 
-Fail condition. The tool emits PASS, or emits PASS in prose while
-writing PROVISIONAL PASS in the JSON.
+Fail condition. The tool emits Demonstrated, or emits Demonstrated in prose while
+writing Conditionally Demonstrated in the JSON.
 
 ---
 
-## Case E4: PASS on verified evidence
+## Case E4: Demonstrated on verified evidence
 
 Input.
 
@@ -271,24 +276,24 @@ Fixture requirement. The artifact text must be present in the input,
 not described or bracketed as "pasted below"; a placeholder is a
 representation and the tool is right to treat it as one. Pipes Mapper
 and Switch Registry JSON must be supplied, because degraded standalone
-mode caps the verdict at PROVISIONAL PASS and makes the case unrunnable.
+mode caps the verdict at Conditionally Demonstrated and makes the case unrunnable.
 
-Expected behavior. The tool assigns PASS and emits a proof JSON that
+Expected behavior. The tool assigns Demonstrated and emits a proof JSON that
 validates against the schema: every dependency and obligation at
 Verified or Not applicable, at least one Verified evidence item,
-`feasible_72h` stated from supplied durations.
+`tolerance_hours` and the three milestones stated from supplied durations (schema 2.6).
 
-Fail condition. The tool withholds PASS where the evidence standard is
+Fail condition. The tool withholds Demonstrated where the evidence standard is
 met, or the JSON fails the schema.
 
 ---
 
-## Known limit of the PASS rule
+## Known limit of the Demonstrated rule
 
-The schema's PASS condition requires every dependency and obligation at
+The schema's Demonstrated condition requires every dependency and obligation at
 Verified or Not applicable, which is stricter than the prompt's "every
 material item Verified". A proof with one immaterial Provisional
-obligation is a schema reject and must be restated as PROVISIONAL PASS
+obligation is a schema reject and must be restated as Conditionally Demonstrated
 or the obligation marked Not applicable with a reason. Whether this
 bites in use is Unknown: the worked examples under `examples/` hold no
 Exit Prover proof JSON to test it against. If it does, the choice is
@@ -304,10 +309,10 @@ date, each case's disposition and any adjudication.
 ### Run 2, required before the suite prompts are relied on
 
 Not yet run. Requirements, from the second evaluation of 13 October 2026:
-the current prompts (Switch Registry 1.3, Exit Prover 1.2), the intended
+the current prompts (Switch Registry 1.4, Exit Prover 1.3, schema 2.6), the intended
 deployment configuration (the prompt as a true system prompt, not an
 opening message under another system prompt), valid synthetic fixtures
-(artifact contents in the input; suite JSON supplied where a PASS is
+(artifact contents in the input; suite JSON supplied where a Demonstrated verdict is
 expected), behavioral dispositions recorded separately from the
 validator's schema and policy acceptance of each emitted payload, and the
 positive Exit Prover case E4 completed. Fixtures for E4 and S4 are in

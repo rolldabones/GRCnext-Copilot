@@ -27,8 +27,10 @@ Tested sub-elements:
 - An accountable owner is named for each service.
 - An impact tolerance is approved by an authority with standing to
   approve it.
-- Tolerance measurement begins at the correct event, not at the moment
-  the organization happens to notice.
+- Tolerance measurement begins at the onset of disruption, the
+  service's named onset event, not at the moment the organization
+  happens to notice. Time from onset to detection is the Detect phase of
+  the clock (see Clock start in [`glossary.md`](glossary.md)).
 - The assumptions underlying the tolerance are documented.
 - The tolerance is operationally testable, meaning an exercise could
   produce a clear Met or Not Met result.
@@ -91,7 +93,7 @@ change a supplier, restrict a jurisdiction, degrade service safely,
 recover from a known-good state.
 
 The decisive question is not whether a runbook exists. It is whether an
-authorized person could operate the switch, tonight, within tolerance,
+authorized person could operate the switch, tonight, within tolerance
 and prove it happened.
 
 ## Domain 4: Exits
@@ -167,7 +169,8 @@ are pulled down here, and the evidence confidence rating reflects it.
 
 The six domain scores are reported individually as the capability
 profile. The Constraint Level is the minimum of Pipes, Switches and
-Exits. Exercises and Evidence set the evidence confidence and gate the
+Exits; beside it the binding constraint names the clock phase or gate
+that actually limits execution. Exercises and Evidence set the evidence confidence and gate the
 readiness decision. No domain is averaged into another. See
 [`scoring-method.md`](scoring-method.md) for the full logic.
 

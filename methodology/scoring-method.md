@@ -58,6 +58,15 @@ optionality. The minimum captures that. It is reported as the Constraint
 Level, not as the whole score, so the capability profile remains visible
 alongside it.
 
+The minimum is the maturity diagnostic. It names the weakest structural
+domain; it does not by itself name what limits execution. Beside it every
+assessment reports the **binding constraint**: the clock phase (Detect,
+Interpret, Decide, Authorize, Execute, Verify, Communicate or Stabilize)
+or the readiness gate that actually limits execution in the governing
+scenario, with that scenario and a one-sentence basis. A service can score
+4 on Switches and still be bound by a slow Authorize phase inside them. In
+JSON output this is the required `binding_constraint` field.
+
 ### C. Evidence confidence
 
 Rate how strongly the conclusion is supported.
@@ -75,7 +84,7 @@ profile resting on low-confidence evidence is reported as exactly that.
 
 ### D. Readiness decision
 
-- Demonstrated. Core gates pass, the capability has been exercised, and
+- Demonstrated. Core gates pass, the capability has been exercised and
   evidence shows execution within tolerance.
 - Conditionally Demonstrated. Essential design exists but one or more
   material elements remain provisional, partially tested or dependent on
@@ -97,6 +106,15 @@ Always state the event that started the clock and the event that stopped
 it. A tolerance result with no clock-start and clock-stop event is
 incomplete.
 
+The clock starts at the onset of disruption, the moment the critical
+service first falls outside its normal level of delivery, whether or not
+anyone has noticed, and never at detection (see Clock start in
+[`glossary.md`](glossary.md)). Time from onset to detection is the Detect
+phase. Where onset cannot be established from evidence, the pre-detection
+interval is Unknown; a Met result then needs an evidenced bound on that
+interval, otherwise the result is Cannot Determine. The clock stops at
+verified stabilization of the service at or above its tolerance level.
+
 ## Readiness gates
 
 Eight core gates. Each is classified Pass, Provisional Pass, Fail,
@@ -117,15 +135,43 @@ issue split or hybrid gate states.
 Gate effect on the decision:
 
 - Any core gate at Fail or Unknown prevents a Demonstrated decision.
-- A Provisional Pass on a material gate caps the decision at
-  Conditionally Demonstrated until the evidence-conversion action
-  closes.
+- Every one of the eight core gates is material. A Provisional Pass on
+  any core gate caps the decision at Conditionally Demonstrated until its
+  evidence-conversion action closes.
 - Gates marked Not Applicable must carry a supported reason. An
   unsupported Not Applicable is treated as Unknown.
 
 Gates constrain the decision. They do not by themselves set the domain
 scores. A service can score well on design and still fail the readiness
 decision because a gate is unmet.
+
+## Decision caps
+
+These caps bind the readiness decision. They are stated once here and
+carried as section 8F of the v2 prompt, DECISION CAPS in the compact
+edition and the decision caps in the long-form edition.
+
+1. Any core gate at Fail or Unknown prevents Demonstrated.
+2. Every one of the eight core gates is material: a Provisional Pass on
+   any core gate caps the decision at Conditionally Demonstrated until its
+   evidence-conversion action closes.
+3. A Not Applicable gate without a supported reason is treated as
+   Unknown.
+4. A Fail on any core gate, or a tolerance result of Not Met, makes the
+   decision Not Demonstrated.
+5. Demonstrated requires a tolerance result of Met with both clock events
+   stated.
+6. When several services are assessed, the organization view is the
+   minimum of the service-level readiness positions, naming the service
+   that set the floor; never an average.
+7. Contradictory evidence on a material point is recorded as Contradicted
+   and cannot support credit until resolved (scoring Case 3).
+8. Exercise tier caps maturity ([`exercise-tiers.md`](exercise-tiers.md)):
+   T0 and T1 alone do not earn L3, save the narrow justified exception for
+   a capability that genuinely could not be executed in a controlled test;
+   T2 earns credit only for the component tested; T3 supports L3 for the
+   path exercised and no other; L4 also needs monitoring, current metrics
+   and closed corrective-action loops.
 
 ## Scoring procedure
 
@@ -137,13 +183,14 @@ For each service:
    tolerances as Domain 1.
 2. Assemble the capability profile from the six domain scores.
 3. Compute the Constraint Level as the minimum of Pipes, Switches and
-   Exits.
+   Exits, and name the binding constraint beside it.
 4. Set evidence confidence from the quality and freshness of the
    supporting evidence, weighted by Domains 5 and 6.
 5. Classify the eight gates.
 6. Derive the readiness decision from the gates, the Constraint Level and
-   the exercise evidence.
-7. State the tolerance result with clock-start and clock-stop events.
+   the exercise evidence, within the decision caps.
+7. State the tolerance result with clock-start (onset) and clock-stop
+   events.
 
 When multiple services are assessed, the organization view takes the
 minimum of the service-level readiness positions and lists which service
@@ -165,8 +212,10 @@ Inputs, in summary:
   Substitute capacity is identified. Data portability was tested. The
   exit was rehearsed to a controlled technical test, not end to end.
 - One severe but plausible exercise was completed at T3 for the switch
-  path, achieving stabilization in 9 hours against the 12-hour
-  tolerance. The exit path was exercised only to T2.
+  path, achieving verified stabilization 9 hours after the onset of
+  disruption against the 12-hour tolerance. Onset was established from
+  system records; the time to detection is counted inside the Detect
+  phase. The exit path was exercised only to T2.
 - Evidence is version-controlled, traceable and under 6 months old.
   Tolerance breach and dependency drift are monitored with defined
   triggers, and timing metrics are current from the latest rehearsal.
@@ -183,9 +232,10 @@ Scoring:
 - Domain 3 Switches: L4. Executable, delegated, evidenced, invocation
   trigger defined and monitored, exercised at T3 within tolerance with
   current timing metrics.
-- Domain 4 Exits: L3. Rehearsed only to T2 for the exit path, so
-  execution end to end is not yet shown, though rights, substitute
-  capacity and data portability are in place.
+- Domain 4 Exits: L2. Rights, substitute capacity and data portability
+  are in place, but the exit path was rehearsed only to T2. T3 supports
+  L3 only for the path exercised ([`exercise-tiers.md`](exercise-tiers.md)),
+  so end-to-end execution is not yet shown and the domain stays at L2.
 - Domain 5 Exercises: L3. A T3 severe-but-plausible exercise on the
   switch path with timing and remediation, but the exit path is not yet
   rehearsed end to end.
@@ -195,8 +245,11 @@ Scoring:
 
 Results:
 
-- Capability profile: 4, 4, 4, 3, 3, 3.
-- Constraint Level: minimum of Pipes 4, Switches 4, Exits 3 = 3.
+- Capability profile: 4, 4, 4, 2, 3, 3.
+- Constraint Level: minimum of Pipes 4, Switches 4, Exits 2 = 2.
+- Binding constraint: gate 5 for the exit path. The exit off Vendor A is
+  not yet shown executable end to end. The walkthrough does not give
+  phase times for the switch path, so no clock phase is named there.
 - Evidence confidence: Moderate. Strong and fresh evidence overall, but
   the exit path lacks end-to-end execution evidence and one action is
   overdue.
@@ -207,15 +260,18 @@ Results:
 - Readiness decision: Conditionally Demonstrated. The switch path is
   Demonstrated within tolerance. The exit path and the overdue action
   hold the overall decision at Conditionally Demonstrated.
-- Tolerance result: Met for the switch scenario. Clock started at
-  detection of Vendor A unavailability. Clock stopped at verified
+- Tolerance result: Met for the switch scenario. Clock started at the
+  onset of Vendor A unavailability, established from system records, not
+  at its detection. Clock stopped at verified
   service stabilization on the backup path at 9 hours. Not Tested end to
   end for the exit scenario.
 
-Note how the fatal-weakness logic works. Even though four domains score
-at the top, the exit path pulls the Constraint Level to 3 and the
-overdue action and untested exit hold the decision at Conditionally
-Demonstrated. Nothing is averaged. The single weakest structural
-component governs the constraint, and the gates govern the decision.
+Note how the fatal-weakness logic works. Even though three domains score
+at the top, the exit path pulls the Constraint Level to 2, and the
+binding constraint, gate 5, says what to fix first: rehearse the exit end
+to end. The Provisional Pass on gates 5 and 8 holds the decision at
+Conditionally Demonstrated. Nothing is averaged. The weakest structural
+domain governs the constraint, the binding constraint names what limits
+execution and the gates govern the decision.
 
 Final Liability rests with the Human.

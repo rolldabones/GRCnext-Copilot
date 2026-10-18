@@ -33,7 +33,9 @@ Synthetic example. Neutral labels throughout.
   detected and brought under human control within 1 hour.
 - Measurement method: Elapsed time from the first materially incorrect or
   stalled action to verified human control of the queue.
-- Clock start: First materially incorrect or stalled automated action.
+- Clock start (onset event): First materially incorrect or stalled
+  automated action, whether or not anyone has noticed it. Detection is
+  the first phase of the execution clock (Detect), not its start.
 - Clock stop: Verified human control, meaning Agent A is no longer acting
   autonomously and a human is handling the queue.
 - Approving authority: Head of operations, with risk function endorsement.
@@ -133,7 +135,7 @@ Switch SW-K4
 For Vendor M, the leading concentration.
 
 - Dependency being exited: Vendor M model provider.
-- Exit triggers: Vendor M outage pattern, unacceptable model change, or
+- Exit triggers: Vendor M outage pattern, unacceptable model change or
   commercial breakdown.
 - Legal and contractual rights: Terms permit termination. No committed
   alternate provider.
@@ -166,6 +168,8 @@ For Vendor M, the leading concentration.
 - Actions simulated: Customer communication.
 - Actions performed: Detection, decision to stop, kill-switch execution,
   rollback to human processing.
+- Clock start (onset): The first materially incorrect automated action
+  in the injected pattern. Detection followed at 25 minutes.
 - Elapsed times: Detect 25 minutes, interpret 10 minutes, decide 10
   minutes, authorize 5 minutes, execute kill under 5 minutes, verify 10
   minutes, communicate 10 minutes, stabilize to human handling about 90
@@ -213,7 +217,7 @@ concentration provider (Vendor M).
 - Preservation of records: Logs preserved.
 - Security and misuse scenarios: Considered, not tested here.
 - Consequences of incorrect autonomous action: Material and cumulative.
-- Human ability to assume control within tolerance: Not demonstrated.
+- Human ability to assume control within tolerance: Refuted in test (E-K2).
   Control took about 90 minutes against a 1-hour tolerance.
 
 ---

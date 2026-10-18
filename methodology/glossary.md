@@ -30,8 +30,20 @@ Critical service
 Impact tolerance
 : The maximum tolerable disruption to a critical service, expressed
   against a measurable dimension such as time, and approved by an
-  authority with standing to accept the underlying risk. Measurement
-  starts at a defined event.
+  authority with standing to accept the underlying risk. Measured from
+  the clock start (see Clock start).
+
+Clock start
+: The onset of disruption: the moment the critical service first falls
+  outside its normal level of delivery, whether or not anyone has
+  noticed. Detection is not the clock start. The interval from onset to
+  detection is the Detect phase, the first phase of the execution clock.
+  Each service dossier names its observable onset event. Where onset
+  cannot be established from evidence, the pre-detection interval is
+  Unknown; a Met tolerance result then needs an evidenced bound on that
+  interval, otherwise the tolerance result is Cannot Determine. The clock
+  stops at verified stabilization of the service at or above its
+  tolerance level.
 
 Pipe
 : A dependency through which a service is delivered: people, process,
@@ -48,6 +60,11 @@ Exit
   provider, product, region, data arrangement or operating model. An exit
   changes what the service depends on.
 
+How the advisory suite narrows each primitive (Services, Tolerances,
+Pipes, Switches and Exits) is set out in the
+[Primitives in the suite](../advisory-tools/README.md#primitives-in-the-suite)
+table.
+
 Exercise
 : A structured test of a claimed capability under a scenario, classified
   by tier from T0 to T4. See [`exercise-tiers.md`](exercise-tiers.md).
@@ -57,10 +74,11 @@ Concentration dependency
   whose failure impairs one service or several services at once.
 
 Execution clock
-: The full sequence measured by GRCnext™: detect, interpret, decide,
-  authorize, execute, verify, communicate, stabilize. The tolerance is
-  met only when stabilization completes within the approved tolerance
-  from the correct clock-start event.
+: The full sequence measured by GRCnext™ from the clock start: Detect
+  (onset to detection), Interpret, Decide, Authorize, Execute, Verify,
+  Communicate, Stabilize. The tolerance is met only when stabilization
+  completes within the approved tolerance measured from the clock start
+  (see Clock start).
 
 ## Scoring terms
 
@@ -69,14 +87,23 @@ Capability profile
 
 Constraint Level
 : The minimum of Pipes, Switches and Exits. The weakest structural
-  component of optionality.
+  component of optionality. A maturity diagnostic: it names the weakest
+  domain, not what limits execution.
+
+Binding constraint
+: The clock phase or readiness gate that actually limits execution in
+  the governing scenario, reported beside the Constraint Level with the
+  scenario and a one-sentence basis. The minimum names the weakest
+  maturity domain; the binding constraint names the tooth that will not
+  catch.
 
 Evidence confidence
 : How strongly a conclusion is supported. High, Moderate, Low or
   Indeterminate.
 
 Readiness decision
-: Demonstrated, Conditionally Demonstrated or Not Demonstrated.
+: Demonstrated, Conditionally Demonstrated or Not Demonstrated, bounded
+  by the decision caps in [`scoring-method.md`](scoring-method.md).
 
 Tolerance result
 : Met, Not Met, Not Tested or Cannot Determine, stated with clock-start
@@ -96,7 +123,7 @@ Provisional
 : Supported only by a representation, draft or incomplete artifact.
   Carries a mandatory evidence-conversion action.
 
-Not demonstrated
+Not evidenced
 : Evidence is absent or insufficient. Not the same as absent capability.
 
 Contradicted
@@ -184,12 +211,20 @@ came into force on 31 March 2022, with firms required to be able to remain
 within their impact tolerances for each important business service in a
 severe but plausible disruption by 31 March 2025. The GRCnext™ emphasis on
 mapping, testing against severe but plausible scenarios and measuring
-recovery from an assumed disruption follows that regime.
+recovery from an assumed disruption follows that regime. PRA SS1/21
+defines an impact tolerance as the maximum tolerable level of disruption
+measured by a length of time (para 3.1) and counts its examples from the
+disruption itself (paras 3.7 and 4.11); it names no detection trigger, so
+the onset rule is GRCnext™'s, consistent with that framing ([SS1/21,
+March 2021 text](https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/supervisory-statement/2021/ss121-march-21.pdf),
+read 18 October 2026; the Bank of England marks that text superseded by
+an updated version, which this note has not compared).
 
 The emphasis on third-party dependency, concentration, exit and
 substitutability is aligned with the European Union Digital Operational
-Resilience Act, Regulation (EU) 2022/2554 of 14 December 2022, published
-in the Official Journal on 27 December 2022 and applicable since 17
+Resilience Act, Regulation (EU) 2022/2554 of 14 December 2022
+([EUR-Lex](https://eur-lex.europa.eu/eli/reg/2022/2554/oj), read 18
+October 2026), published in the Official Journal on 27 December 2022 and applicable since 17
 January 2025. DORA established an oversight framework for critical ICT
 third-party service providers and requires financial entities to manage
 ICT third-party risk, test digital operational resilience and maintain

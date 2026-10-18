@@ -1,0 +1,61 @@
+{
+  "schema_version": "2.6",
+  "service_name": "Payments (synthetic)",
+  "capability_profile": {
+    "services_and_tolerances": 4,
+    "pipes": 4,
+    "switches": 4,
+    "exits": 3,
+    "exercises": 3,
+    "evidence_and_improvement": 3
+  },
+  "constraint_level": 3,
+  "binding_constraint": {
+    "kind": "gate",
+    "name": "executable_exit_for_leading_concentration",
+    "scenario": "fixture scenario",
+    "basis": "fixture for a policy rule; the binding constraint is not under test"
+  },
+  "evidence_confidence": "High",
+  "readiness_decision": "Demonstrated",
+  "tolerance_result": {
+    "result": "Met",
+    "clock_start_event": "primary processor outage declared 02:00",
+    "clock_stop_event": "service restored on reroute 05:30"
+  },
+  "gates": [
+    {
+      "gate": "service_and_owner_defined",
+      "status": "Pass"
+    },
+    {
+      "gate": "tolerance_approved_and_measurable",
+      "status": "Pass"
+    },
+    {
+      "gate": "dependencies_mapped",
+      "status": "Pass"
+    },
+    {
+      "gate": "switch_authority_available",
+      "status": "Pass"
+    },
+    {
+      "gate": "executable_exit_for_leading_concentration",
+      "status": "Provisional Pass",
+      "note": "exit rehearsed to T2 only"
+    },
+    {
+      "gate": "severe_but_plausible_exercise_completed",
+      "status": "Pass"
+    },
+    {
+      "gate": "evidence_shows_tolerance_result",
+      "status": "Pass"
+    },
+    {
+      "gate": "corrective_actions_have_owners_and_dates",
+      "status": "Pass"
+    }
+  ]
+}

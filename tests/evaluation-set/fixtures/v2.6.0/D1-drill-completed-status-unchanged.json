@@ -1,0 +1,34 @@
+{
+  "schema_version": "2.6",
+  "tool": "switch_registry",
+  "registry_version": "2026-10-13T12:00:00+09:00",
+  "switches": [
+    {
+      "id": "SW-001",
+      "name": "Block APAC Logins",
+      "status": "OFF",
+      "requested_state": null,
+      "evidence_status": "Verified"
+    }
+  ],
+  "log": [
+    {
+      "timestamp": "2026-06-30T10:00:00+09:00",
+      "switch_id": "SW-001",
+      "event": "verified",
+      "action": "ON->OFF",
+      "actor": "Operations lead",
+      "evidence_ref": "EXP-0031"
+    },
+    {
+      "timestamp": "2026-10-01T10:00:00+09:00",
+      "switch_id": "SW-001",
+      "event": "completed",
+      "action": "OFF->ON",
+      "actor": "Operations lead",
+      "evidence_ref": "DRILL-0007",
+      "drill": true
+    }
+  ],
+  "change_log": []
+}

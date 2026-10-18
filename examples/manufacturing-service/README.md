@@ -33,6 +33,10 @@ downstream customer harm become material.
   exit, which does not exist because no second raw-material supplier is
   qualified.
 - How a T1 tabletop does not earn L3 for the exercised capability.
+- The synthetic evidence inputs keyed to the eight gates, in
+  [`input-pack.md`](input-pack.md), and the assessment as an
+  `assessment_result` payload, in
+  [`assessment-result.json`](assessment-result.json).
 
 ## The switches in play
 

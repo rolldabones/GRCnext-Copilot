@@ -1,0 +1,72 @@
+{
+  "schema_version": "2.6",
+  "tool": "exit_prover",
+  "proof_version": "2026-10-13T12:00:00+09:00",
+  "scenario": "synthetic clean base",
+  "verdict": "Not Demonstrated",
+  "dependencies": [
+    {
+      "id": "PIPE-004",
+      "exit_action": "reroute to Vendor B",
+      "status": "Verified"
+    }
+  ],
+  "switches": [
+    {
+      "name": "Route Payments to Vendor B",
+      "status": "exists",
+      "requested_state": null,
+      "last_verified_state": "OFF"
+    }
+  ],
+  "obligations": [],
+  "gaps": [
+    {
+      "gap": "interim continuity estimated at 52 h against a 48 h tolerance",
+      "owner": "Head of Payments",
+      "due": "2026-11-30"
+    }
+  ],
+  "evidence_items": [
+    {
+      "evidence_id": "E-1",
+      "claim_tested": "reroute executes within tolerance",
+      "evidence_type": "exercise record",
+      "verification_status": "Verified",
+      "applicable_service": "payments",
+      "artifact_or_observation": "RR-2026-09-18",
+      "owner": "Head of Payments",
+      "date_or_period_covered": "2026-09-18",
+      "source_location": "GRC repository, Drills",
+      "freshness_assessment": "current"
+    }
+  ],
+  "tolerance_hours": 48,
+  "milestones": [
+    {
+      "milestone": "containment",
+      "elapsed_hours": 6,
+      "basis": "observed",
+      "limit_hours": null,
+      "limit_source": "none supplied",
+      "within_limit": null
+    },
+    {
+      "milestone": "interim_continuity",
+      "elapsed_hours": 52,
+      "basis": "estimated",
+      "limit_hours": 48,
+      "limit_source": "impact tolerance",
+      "within_limit": false
+    },
+    {
+      "milestone": "final_exit",
+      "elapsed_hours": null,
+      "basis": "unknown",
+      "limit_hours": null,
+      "limit_source": "none supplied",
+      "within_limit": null
+    }
+  ],
+  "assumptions": []
+}

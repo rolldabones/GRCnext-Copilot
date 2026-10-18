@@ -2,10 +2,11 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/rolldabones/GRCnext-Copilot/schemas/clean-market-exit.schema.json",
   "title": "GRCnext™ Clean Market Exit Master Plan",
-  "description": "Terminal artifact of the Advisory Tools Suite, emitted by the Clean Market Exit Kit. Merges all upstream tool outputs into one T0 to T+72h master playbook. Verdict is capped at PROVISIONAL in degraded standalone mode.",
+  "description": "Terminal artifact of the Advisory Tools Suite, emitted by the Clean Market Exit Kit. Merges all upstream tool outputs into one master playbook from T0 (onset or decision) to final exit, with three milestones against the service's tolerance. Verdict is capped at Conditionally Demonstrated in degraded standalone mode.",
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "schema_version",
     "tool",
     "plan_version",
     "market",
@@ -14,11 +15,17 @@
     "inputs_absent",
     "timeline",
     "gaps",
-    "72h_feasible",
+    "tolerance_hours",
+    "milestones",
     "status",
     "drill"
   ],
   "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "2.6",
+      "description": "Interchange contract version. 2.6 from GRCnext™ Copilot v2.6.0 (18 October 2026). Changes only when a schema changes; migration rules in schemas/README.md."
+    },
     "tool": {
       "type": "string",
       "const": "clean_market_exit_kit",
@@ -34,10 +41,11 @@
     "verdict": {
       "type": "string",
       "enum": [
-        "READY",
-        "PROVISIONAL",
-        "NOT READY"
-      ]
+        "Demonstrated",
+        "Conditionally Demonstrated",
+        "Not Demonstrated"
+      ],
+      "description": "The suite verdict scale, shared with the Copilot readiness decision (schema 2.6; replaces PASS / PROVISIONAL PASS / FAIL and READY / PROVISIONAL / NOT READY)."
     },
     "inputs_present": {
       "type": "array",
@@ -141,7 +149,7 @@
             "enum": [
               "Verified",
               "Provisional",
-              "Not demonstrated",
+              "Not evidenced",
               "Contradicted",
               "Refuted",
               "Not applicable"
@@ -185,7 +193,7 @@
             "enum": [
               "Verified",
               "Provisional",
-              "Not demonstrated",
+              "Not evidenced",
               "Contradicted",
               "Refuted",
               "Not applicable"
@@ -207,7 +215,7 @@
         "properties": {
           "t": {
             "type": "string",
-            "description": "T0, T+4h, T+72h."
+            "description": "Relative to T0, for example T0, T+4h, T+30d."
           },
           "step": {
             "type": "string"
@@ -228,8 +236,81 @@
         "type": "string"
       }
     },
-    "72h_feasible": {
-      "type": "boolean"
+    "tolerance_hours": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "exclusiveMinimum": 0,
+      "description": "The critical service's approved impact tolerance in hours, from the service dossier. Null when not supplied; feasibility is then Unknown."
+    },
+    "milestones": {
+      "type": "array",
+      "description": "Exactly three milestones, in order: containment, interim_continuity, final_exit. Elapsed time runs from clock start (onset of disruption) along the critical path; it is not a sum of step estimates where steps run in parallel. Replaces the 72-hour feasibility boolean of schema 2.5.",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "milestone",
+          "elapsed_hours",
+          "basis",
+          "limit_hours",
+          "limit_source",
+          "within_limit"
+        ],
+        "properties": {
+          "milestone": {
+            "type": "string",
+            "enum": [
+              "containment",
+              "interim_continuity",
+              "final_exit"
+            ]
+          },
+          "elapsed_hours": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "description": "Hours from clock start to the milestone. Null when a duration on the critical path is not supplied."
+          },
+          "basis": {
+            "type": "string",
+            "enum": [
+              "observed",
+              "estimated",
+              "assumed",
+              "unknown"
+            ],
+            "description": "observed: measured in an exercise or event; estimated: supplied estimate; assumed: assumption the user accepted; unknown: not supplied."
+          },
+          "limit_hours": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "description": "For interim_continuity, equal to tolerance_hours. For final_exit, the limit set by the supplied authority, or null."
+          },
+          "limit_source": {
+            "type": "string",
+            "description": "\"impact tolerance\", the supplied clause or decision, or \"none supplied\"."
+          },
+          "within_limit": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "description": "elapsed_hours <= limit_hours when both are numbers; null when either is null."
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
     },
     "status": {
       "type": "string",

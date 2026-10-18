@@ -16,7 +16,7 @@ verified, who owns producing it and by when.
 
 One corollary matters as much as the rule itself. Never equate "not
 supplied" with "does not exist." Missing evidence produces an Unknown or
-a Not Demonstrated finding, never a finding that the capability is
+a Not evidenced finding, never a finding that the capability is
 absent. The Copilot records what it could not verify and asks for it. It
 does not infer absence from silence.
 
@@ -27,7 +27,7 @@ Every material claim carries one of six states.
 - Verified. Supported by evidence that was reviewed or observed.
 - Provisional. Supported only by a representation, a draft or an
   incomplete artifact. Carries a mandatory evidence-conversion action.
-- Not demonstrated. Evidence is absent or insufficient.
+- Not evidenced. Evidence is absent or insufficient.
 - Contradicted. Available evidence conflicts and the conflict is not yet
   resolved.
 - Refuted. Available evidence affirmatively disproves the claim. Record

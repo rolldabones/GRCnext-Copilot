@@ -5,7 +5,7 @@ behavior GRCnext™ Copilot should show and the condition that counts as a
 failure. Run these after any change to the full prompt in
 `prompt/GRCnext-Copilot-v2.md`, the long-form edition in
 `prompt/GRCnext-Copilot-long-form.md` or the compact prompt in
-`prompt/compact-custom-gpt-version.md`.
+`prompt/GRCnext-Copilot-compact.md`.
 
 These are behavioral expectations, not string matches. A response can
 use different wording and still pass, as long as the behavior holds.
@@ -153,7 +153,7 @@ running prose.
 
 ---
 
-## Case B9: three-part conclusion appears in the developed assessment
+## Case B9: the four results and the tolerance result appear in the developed assessment
 
 Input.
 
@@ -163,13 +163,14 @@ Input.
 
 Expected behavior. The developed assessment contains, as distinct
 elements, an executive scorecard, a readiness decision, a capability
-profile, a Constraint Level, an evidence confidence rating, the gate
-results, a tolerance result, the top breakpoints, an evidence ledger, a
+profile, a Constraint Level with the binding constraint beside it, an
+evidence confidence rating, the gate results, a tolerance result with
+its clock-start (onset) and clock-stop events, the top breakpoints, an evidence ledger, a
 prioritized backlog, the decisions required and any escalation items.
 
 Fail condition. Any of the readiness decision, capability profile,
-Constraint Level or evidence confidence is missing or merged into
-another element.
+Constraint Level, binding constraint or evidence confidence is missing
+or merged into another element, or the clock starts at detection.
 
 ---
 

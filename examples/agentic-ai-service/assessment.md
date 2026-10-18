@@ -41,6 +41,11 @@ The exit is the weakest structural component. The organization can stop
 Agent A but cannot move it off Vendor M within tolerance, and the
 alternate model is unvalidated for decision quality.
 
+Binding constraint. For the governing scenario (Agent A applies a
+materially incorrect action pattern at volume) it is the Detect phase:
+25 minutes, the longest recorded phase, consumed before anyone acted on
+a 1-hour tolerance. For the exit scenario it is gate 5, which is a Fail.
+
 ## C. Evidence confidence
 
 Moderate overall, but the governing finding is High-confidence and
@@ -65,7 +70,8 @@ That governs the decision regardless of the strong kill-switch score.
 
 Not Met.
 
-- Clock start: first materially incorrect automated action.
+- Clock start (onset event): first materially incorrect automated
+  action. Detection followed at 25 minutes (the Detect phase).
 - Clock stop: verified human control of the queue.
 - Elapsed: about 90 minutes against a 1-hour tolerance. Detection took 25
   minutes and reviewer ramp-up to stable human handling took most of the
@@ -121,7 +127,7 @@ tolerance, and that is where the service fails.
 | E-K1 | Kill switch halts Agent A within 5 minutes | observed test | Verified | Current | Halts agent, does not run the queue |
 | E-K2 | Human control achievable within tolerance | exercise record | Refuted | Current | Test shows about 90 minutes, outside 1 hour |
 | E-K3 | Detection surfaces incorrect actions promptly | exercise record | Provisional | Current | 25-minute latency in test |
-| E-K4 | Alternate model preserves decision quality | none | Not demonstrated | n.a. | No validation run |
+| E-K4 | Alternate model preserves decision quality | none | Not evidenced | n.a. | No validation run |
 
 ## Prioritized backlog
 

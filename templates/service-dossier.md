@@ -27,7 +27,9 @@ paste secrets, credentials or protected personal data.
 
 - Tolerance statement (maximum tolerable disruption):
 - Measurement method:
-- Clock start (the event that starts the tolerance clock):
+- Clock start (the onset event: the moment the service first falls
+  outside its normal level of delivery, whether or not anyone has
+  noticed; detection is the first phase of the clock, not its start):
 - Clock stop (the event that stops it):
 - Approving authority (role with standing to accept the risk):
 - Underlying assumptions:
@@ -96,8 +98,8 @@ For the leading concentration dependency.
 - Elapsed times across detect, interpret, decide, authorize, execute,
   verify, communicate, stabilize:
 - Tolerance met or not met:
-- Evidence pack (pointer to
-  [`evidence-pack-index.md`](evidence-pack-index.md)):
+- Evidence pack (pointer to the evidence ledger,
+  [`evidence-ledger.csv`](evidence-ledger.csv)):
 - Findings:
 - Corrective actions (pointer to
   [`capa-register.csv`](capa-register.csv)):

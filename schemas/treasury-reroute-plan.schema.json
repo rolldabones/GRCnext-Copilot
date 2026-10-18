@@ -6,16 +6,23 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "schema_version",
     "tool",
     "plan_version",
     "scenario",
     "affected_flows",
     "routes",
     "steps",
-    "72h_feasible",
+    "tolerance_hours",
+    "milestones",
     "drill"
   ],
   "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "2.6",
+      "description": "Interchange contract version. 2.6 from GRCnext™ Copilot v2.6.0 (18 October 2026). Changes only when a schema changes; migration rules in schemas/README.md."
+    },
     "tool": {
       "type": "string",
       "const": "treasury_reroute_planner",
@@ -71,7 +78,7 @@
                 "enum": [
                   "Verified",
                   "Provisional",
-                  "Not demonstrated",
+                  "Not evidenced",
                   "Contradicted",
                   "Refuted",
                   "Not applicable"
@@ -104,7 +111,7 @@
                 "enum": [
                   "Verified",
                   "Provisional",
-                  "Not demonstrated",
+                  "Not evidenced",
                   "Contradicted",
                   "Refuted",
                   "Not applicable"
@@ -179,8 +186,81 @@
         "description": "Advisory notes only."
       }
     },
-    "72h_feasible": {
-      "type": "boolean"
+    "tolerance_hours": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "exclusiveMinimum": 0,
+      "description": "The critical service's approved impact tolerance in hours, from the service dossier. Null when not supplied; feasibility is then Unknown."
+    },
+    "milestones": {
+      "type": "array",
+      "description": "Exactly three milestones, in order: containment, interim_continuity, final_exit. Elapsed time runs from clock start (onset of disruption) along the critical path; it is not a sum of step estimates where steps run in parallel. Replaces the 72-hour feasibility boolean of schema 2.5.",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "milestone",
+          "elapsed_hours",
+          "basis",
+          "limit_hours",
+          "limit_source",
+          "within_limit"
+        ],
+        "properties": {
+          "milestone": {
+            "type": "string",
+            "enum": [
+              "containment",
+              "interim_continuity",
+              "final_exit"
+            ]
+          },
+          "elapsed_hours": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "description": "Hours from clock start to the milestone. Null when a duration on the critical path is not supplied."
+          },
+          "basis": {
+            "type": "string",
+            "enum": [
+              "observed",
+              "estimated",
+              "assumed",
+              "unknown"
+            ],
+            "description": "observed: measured in an exercise or event; estimated: supplied estimate; assumed: assumption the user accepted; unknown: not supplied."
+          },
+          "limit_hours": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "description": "For interim_continuity, equal to tolerance_hours. For final_exit, the limit set by the supplied authority, or null."
+          },
+          "limit_source": {
+            "type": "string",
+            "description": "\"impact tolerance\", the supplied clause or decision, or \"none supplied\"."
+          },
+          "within_limit": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "description": "elapsed_hours <= limit_hours when both are numbers; null when either is null."
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
     },
     "assumptions": {
       "type": "array",

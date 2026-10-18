@@ -29,7 +29,9 @@ Synthetic example. Neutral labels throughout.
   penalties and downstream customer harm become material.
 - Measurement method: Elapsed time from an unplanned stop to verified
   resumption of in-specification production.
-- Clock start: Unplanned production stop.
+- Clock start (onset event): Unplanned production stop, whether or not
+  its cause has been detected. Detection is the first phase of the
+  execution clock (Detect), not its start.
 - Clock stop: Verified resumption of in-specification output.
 - Approving authority: Plant operations director, endorsed by the
   commercial function on penalty exposure.
@@ -118,7 +120,7 @@ Switch SW-M3
 For Vendor R, the leading raw-material concentration.
 
 - Dependency being exited: Vendor R raw-material supply.
-- Exit triggers: Sustained Vendor R delivery failure, quality failure, or
+- Exit triggers: Sustained Vendor R delivery failure, quality failure or
   loss of the upstream mine in Jurisdiction Z.
 - Legal and contractual rights: Supply agreement permits sourcing
   elsewhere on Vendor R default, but no alternate is contracted.

@@ -1,0 +1,54 @@
+{
+  "schema_version": "2.6",
+  "service_name": "Service B real-time payments",
+  "assessment_date": "2026-06-15",
+  "evidence_cutoff_date": "2026-06-10",
+  "capability_profile": {
+    "services_and_tolerances": 3,
+    "pipes": 3,
+    "switches": 3,
+    "exits": 2,
+    "exercises": 3,
+    "evidence_and_improvement": 3
+  },
+  "constraint_level": 2,
+  "binding_constraint": {
+    "kind": "clock_phase",
+    "name": "Authorize",
+    "scenario": "Vendor A gateway unavailable during a weekday peak (reroute to the Vendor C backup rail)",
+    "basis": "Authorize took 3 hours of the 9-hour rehearsal because the authorized decision-maker was hard to reach out of hours; for the exit scenario the binding constraint is gate executable_exit_for_leading_concentration, held at Provisional Pass."
+  },
+  "evidence_confidence": "Moderate",
+  "readiness_decision": "Conditionally Demonstrated",
+  "tolerance_result": {
+    "result": "Met",
+    "clock_start_event": "Onset: the injected Vendor A outage at rehearsal start (detection followed at 20 minutes, the Detect phase)",
+    "clock_stop_event": "Verified stabilization on the Vendor C backup rail, 9 hours from onset"
+  },
+  "gates": [
+    {"gate": "service_and_owner_defined", "status": "Pass", "note": "Head of payments accountable"},
+    {"gate": "tolerance_approved_and_measurable", "status": "Provisional Pass", "note": "12 hours, approved by COO with clock start at detection; onset clock pending re-approval (CA-005)"},
+    {"gate": "dependencies_mapped", "status": "Pass", "note": "Map verified 2026-05-20; next re-verification due 2026-08-20 (CA-003)"},
+    {"gate": "switch_authority_available", "status": "Pass", "note": "Delegated, though out-of-hours reachability was slow in rehearsal"},
+    {"gate": "executable_exit_for_leading_concentration", "status": "Provisional Pass", "note": "Exit exists on paper and in a T2 data-export test, not end to end"},
+    {"gate": "severe_but_plausible_exercise_completed", "status": "Pass", "note": "T3 reroute rehearsal 2026-05-12"},
+    {"gate": "evidence_shows_tolerance_result", "status": "Pass", "note": "For the reroute path"},
+    {"gate": "corrective_actions_have_owners_and_dates", "status": "Pass", "note": "Every action has an owner and a target date; none overdue"}
+  ],
+  "top_breakpoints": [
+    "Exit from Vendor A not rehearsed end to end, and substitute capacity unconfirmed under peak load.",
+    "Fourth-party concentration: the upstream network provider behind Vendor A may also sit behind the substitute gateway.",
+    "Authorization latency: 3 hours in rehearsal because the decision-maker was hard to reach out of hours.",
+    "Tolerance clock start approved at detection; the onset clock awaits re-approval."
+  ],
+  "evidence_ledger_ref": "examples/payment-service/evidence-ledger.csv",
+  "escalation_items": [
+    {
+      "issue": "Vendor A termination mechanics and cross-border notification duties in Jurisdiction Y",
+      "operational_consequence": "A live exit from Vendor A could breach notice or notification duties",
+      "facts_required": "MSA v3 termination and transition-assistance terms; Jurisdiction Y notification rules",
+      "decision_owner": "Qualified counsel, before any live Vendor A exit"
+    }
+  ],
+  "ai_overlay_applied": false
+}

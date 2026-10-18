@@ -1,7 +1,7 @@
 {
   "run_id": "run-2026-10-13-01",
   "date_kst": "2026-10-13",
-  "method_version": "GRCnext Copilot v2.3.1 (bafb765) prompts; validated after the fact with tools/validate.py of v2.4.0 against the v2.4.0 schemas",
+  "method_version": "GRCnext™ Copilot v2.3.1 (bafb765) prompts; validated after the fact with tools/validate.py of v2.4.0 against the v2.4.0 schemas",
   "tool_prompt_versions": {
     "02-switch-registry.md": "1.1",
     "03-exit-prover.md": "1.1"
@@ -136,11 +136,13 @@
     {
       "file": "S7b-switch-registry-after-confirm.json",
       "verdict": "REJECT",
-      "rejects": 2,
+      "rejects": 3,
       "warns": 0,
       "rules": [
-        "S0 schema"
-      ]
+        "S0 schema",
+        "R6 status contradicts execution evidence"
+      ],
+      "correction": "Corrected 18 October 2026 (KST) in v2.6.0: the v2.5.0 validator returns 3 findings on this payload, not 2. The third, R6 on log[3], counts a drill row as an execution event; drill events never change production status (02-switch-registry.md s4), so it was a false rejection, fixed in v2.6.0 (fixtures/v2.6.0 D1 and D2). Under the v2.6.0 rule the payload carries the two S0 findings only."
     },
     {
       "file": "S8-exit-prover-interim.json",

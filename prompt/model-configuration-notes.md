@@ -3,8 +3,8 @@
 GRCnext™ Copilot is model-neutral. It is a prompt and a method, not a
 model. It runs on any capable general-purpose assistant that can follow
 long structured instructions and, where a platform allows, read attached
-files. This note covers deployment on Claude and on ChatGPT, and gives
-general guidance for other platforms.
+files. This note covers deployment on Claude, records the closed ChatGPT
+custom GPT route and gives general guidance for other platforms.
 
 Three prompt files support deployment:
 
@@ -16,10 +16,11 @@ Three prompt files support deployment:
   Use it on a strong reasoning model, or on any platform that cannot read
   attached files, when you want the fullest single-file expression of the
   method.
-- [`compact-custom-gpt-version.md`](compact-custom-gpt-version.md) is a
-  reduced version that fits an 8,000-character instruction field. It
-  carries the full behavioral spine so the Copilot behaves correctly even
-  before it reads any attached file.
+- [`GRCnext-Copilot-compact.md`](GRCnext-Copilot-compact.md) is the short
+  edition of the v2 prompt for any assistant whose instruction field
+  cannot take the full prompt. It carries the full behavioral spine,
+  including the decision caps, so the Copilot behaves correctly without
+  any attached file.
 
 The three are consistent. They differ in length and in how much reasoning
 is stated inline, not in what the Copilot does.
@@ -40,7 +41,7 @@ so the full prompt fits directly.
 
 No compaction is needed on Claude. Use the full prompt.
 
-## ChatGPT Custom GPT
+## ChatGPT Custom GPT (history)
 
 **Closed route, 18 October 2026 (KST).** OpenAI is retiring custom GPTs, and the author's GRCnext™ Copilot custom GPT was retired on 1 October 2026 ([RETIREMENT.md](https://github.com/rolldabones/rolldabones/blob/main/RETIREMENT.md)). The steps below are kept as the record of how the route worked; on any current assistant use the Claude route above or the long-form edition below.
 
@@ -48,9 +49,10 @@ The Custom GPT instructions field has a hard limit of 8,000 characters.
 The full prompt exceeds that, so split the deployment.
 
 1. In the GPT editor, open Configure.
-2. Paste the contents of
-   [`compact-custom-gpt-version.md`](compact-custom-gpt-version.md) into
-   the Instructions field. It is sized to fit under 8,000 characters.
+2. Paste the contents of the compact edition (then
+   `compact-custom-gpt-version.md`, now
+   [`GRCnext-Copilot-compact.md`](GRCnext-Copilot-compact.md)) into the
+   Instructions field. It was then sized to fit under 8,000 characters.
 3. Under Knowledge, upload
    [`GRCnext-Copilot-v2.md`](GRCnext-Copilot-v2.md). This gives the GPT
    the full method as a reference it can open on demand.
@@ -94,8 +96,8 @@ For any other assistant:
 
 - If the instruction or system field accepts the full prompt, use
   [`GRCnext-Copilot-v2.md`](GRCnext-Copilot-v2.md).
-- If the field is capped near 8,000 characters, use
-  [`compact-custom-gpt-version.md`](compact-custom-gpt-version.md) in the
+- If the field cannot take the full prompt, use
+  [`GRCnext-Copilot-compact.md`](GRCnext-Copilot-compact.md) in the
   field and provide the full prompt as an attachment or a first-message
   reference if the platform supports file input.
 - If the platform cannot read attachments, paste the full prompt as the
@@ -109,7 +111,7 @@ changes over time, so re-select periodically and verify behavior against
 the tests in [`../tests/`](../tests/) after any model change.
 
 Whatever model you choose, the guardrails hold: evidence precedes credit,
-critical weakness is preserved, and the Copilot does not invent facts,
+critical weakness is preserved and the Copilot does not invent facts,
 authority or scores.
 
 ## Verifying a deployment
@@ -120,7 +122,7 @@ and
 [`../tests/adversarial-inputs.md`](../tests/adversarial-inputs.md). Confirm
 that the Copilot refuses to invent evidence, uses progressive disclosure,
 flags escalation items, keeps the GRCnext™ mark and produces the
-three-part conclusion. If any check fails, the instructions were likely
+four results plus the tolerance result. If any check fails, the instructions were likely
 truncated or the model is underpowered for the task.
 
 Final Liability rests with the Human.

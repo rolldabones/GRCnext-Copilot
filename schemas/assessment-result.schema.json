@@ -2,22 +2,35 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/rolldabones/GRCnext-Copilot/schemas/assessment-result.schema.json",
   "title": "GRCnext™ Assessment Result",
-  "description": "The scored result for one critical service. Reports the four results plus the tolerance result and gate classifications. Capability, confidence and constraint are kept separate and never averaged.",
+  "description": "The scored result for one critical service. Reports the four results plus the tolerance result, the gate classifications and the binding constraint. Capability, confidence and constraint are kept separate and never averaged.",
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "schema_version",
     "service_name",
     "capability_profile",
     "constraint_level",
+    "binding_constraint",
     "evidence_confidence",
     "readiness_decision",
     "tolerance_result",
     "gates"
   ],
   "properties": {
-    "service_name": { "type": "string" },
-    "assessment_date": { "type": "string" },
-    "evidence_cutoff_date": { "type": "string" },
+    "schema_version": {
+      "type": "string",
+      "const": "2.6",
+      "description": "Interchange contract version. 2.6 from GRCnext™ Copilot v2.6.0 (18 October 2026). Changes only when a schema changes; migration rules in schemas/README.md."
+    },
+    "service_name": {
+      "type": "string"
+    },
+    "assessment_date": {
+      "type": "string"
+    },
+    "evidence_cutoff_date": {
+      "type": "string"
+    },
     "capability_profile": {
       "type": "object",
       "description": "Six domain scores, each 0 to 4. Reported individually, never averaged.",
@@ -31,12 +44,36 @@
         "evidence_and_improvement"
       ],
       "properties": {
-        "services_and_tolerances": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "pipes": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "switches": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "exits": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "exercises": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "evidence_and_improvement": { "type": "integer", "minimum": 0, "maximum": 4 }
+        "services_and_tolerances": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "pipes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "switches": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "exits": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "exercises": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "evidence_and_improvement": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        }
       }
     },
     "constraint_level": {
@@ -45,25 +82,76 @@
       "maximum": 4,
       "description": "Minimum of pipes, switches and exits."
     },
+    "binding_constraint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "name",
+        "scenario",
+        "basis"
+      ],
+      "description": "The clock phase or gate that limits execution in the governing scenario, reported beside the ordinal Constraint Level.",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "clock_phase",
+            "gate",
+            "none_identified"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "A clock phase (Detect, Interpret, Decide, Authorize, Execute, Verify, Communicate, Stabilize) or a gate key."
+        },
+        "scenario": {
+          "type": "string"
+        },
+        "basis": {
+          "type": "string"
+        }
+      }
+    },
     "evidence_confidence": {
       "type": "string",
-      "enum": ["High", "Moderate", "Low", "Indeterminate"]
+      "enum": [
+        "High",
+        "Moderate",
+        "Low",
+        "Indeterminate"
+      ]
     },
     "readiness_decision": {
       "type": "string",
-      "enum": ["Demonstrated", "Conditionally Demonstrated", "Not Demonstrated"]
+      "enum": [
+        "Demonstrated",
+        "Conditionally Demonstrated",
+        "Not Demonstrated"
+      ]
     },
     "tolerance_result": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["result"],
+      "required": [
+        "result"
+      ],
       "properties": {
         "result": {
           "type": "string",
-          "enum": ["Met", "Not Met", "Not Tested", "Cannot Determine"]
+          "enum": [
+            "Met",
+            "Not Met",
+            "Not Tested",
+            "Cannot Determine"
+          ]
         },
-        "clock_start_event": { "type": "string" },
-        "clock_stop_event": { "type": "string" }
+        "clock_start_event": {
+          "type": "string"
+        },
+        "clock_stop_event": {
+          "type": "string"
+        }
       }
     },
     "gates": {
@@ -74,7 +162,10 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["gate", "status"],
+        "required": [
+          "gate",
+          "status"
+        ],
         "properties": {
           "gate": {
             "type": "string",
@@ -91,31 +182,55 @@
           },
           "status": {
             "type": "string",
-            "enum": ["Pass", "Provisional Pass", "Fail", "Unknown", "Not Applicable"]
+            "enum": [
+              "Pass",
+              "Provisional Pass",
+              "Fail",
+              "Unknown",
+              "Not Applicable"
+            ]
           },
-          "note": { "type": "string" }
+          "note": {
+            "type": "string"
+          }
         }
       }
     },
     "top_breakpoints": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
-    "evidence_ledger_ref": { "type": "string" },
+    "evidence_ledger_ref": {
+      "type": "string"
+    },
     "escalation_items": {
       "type": "array",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["issue"],
+        "required": [
+          "issue"
+        ],
         "properties": {
-          "issue": { "type": "string" },
-          "operational_consequence": { "type": "string" },
-          "facts_required": { "type": "string" },
-          "decision_owner": { "type": "string" }
+          "issue": {
+            "type": "string"
+          },
+          "operational_consequence": {
+            "type": "string"
+          },
+          "facts_required": {
+            "type": "string"
+          },
+          "decision_owner": {
+            "type": "string"
+          }
         }
       }
     },
-    "ai_overlay_applied": { "type": "boolean" }
+    "ai_overlay_applied": {
+      "type": "boolean"
+    }
   }
 }

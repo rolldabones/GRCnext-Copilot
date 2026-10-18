@@ -2,7 +2,7 @@
 
 A tabletop conversation is not execution. This file defines the exercise
 tiers that separate discussion from performance, and the execution clock
-that measures the full sequence from detection to stabilization. It is the
+that measures the full sequence from the onset of disruption to stabilization. It is the
 long form of Section 10 of the full prompt.
 
 ## Why tiers exist
@@ -68,7 +68,7 @@ hours. GRCnext™ measures the complete clock, not just the technical step.
 
 The eight phases:
 
-1. Detect. The condition is noticed.
+1. Detect. From the onset of disruption until the condition is noticed.
 2. Interpret. The condition is understood well enough to act.
 3. Decide. A decision on what to do is made.
 4. Authorize. The decision is authorized by someone with the right.
@@ -79,14 +79,22 @@ The eight phases:
 
 Rules for using the clock:
 
-- The tolerance clock starts at the event defined in the impact tolerance,
-  usually detection, not at the moment the technical step begins.
+- The tolerance clock starts at the onset of disruption: the moment the
+  critical service first falls outside its normal level of delivery,
+  whether or not anyone has noticed. It never starts at detection or at
+  the moment the technical step begins. Each service dossier names its
+  observable onset event, and Detect is the first phase of the clock.
+- Where onset cannot be established from evidence, the pre-detection
+  interval is Unknown. A Met result then needs an evidenced bound on that
+  interval; otherwise the tolerance result is Cannot Determine.
+- The clock stops at verified stabilization of the service at or above
+  its tolerance level.
 - Capture elapsed time for each phase where material.
 - Do not report only technical execution time when decision or
   authorization time is material. The most common hidden failure is a
   fast Execute phase behind a slow Authorize phase.
 - The tolerance result is Met only when Stabilize completes within the
-  approved tolerance, measured from the correct clock-start event.
+  approved tolerance, measured from the onset of disruption.
 
 ## Recording the result
 

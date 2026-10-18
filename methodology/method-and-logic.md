@@ -6,7 +6,7 @@ domain tests. `scoring-method.md` states the arithmetic.
 `evidence-standard.md` states how proof is weighed. `exercise-tiers.md`
 states how testing is graded. `glossary.md` fixes the terms. This file
 states the reasoning underneath all of them: why the method is built the
-way it is, what its primitives are for, and how to apply its logic when a
+way it is, what its primitives are for and how to apply its logic when a
 specific rule does not squarely decide a case.
 
 Read it if you want to understand the method rather than only run it. It
@@ -108,8 +108,8 @@ An exit is not adequate in the abstract. It is inside or outside a
 tolerable time and cost. Remove the Tolerance and the method loses its
 unit of measure, and assessments collapse into opinion. A tolerance is
 real only when it is measurable, approved by someone with standing to
-accept the underlying risk and started from the correct event rather than
-from the moment the organization happens to notice.
+accept the underlying risk and started from the onset of disruption rather
+than from the moment the organization happens to notice.
 
 **Pipes** are the dependencies through which the Service is delivered. Pipes
 are a primitive because you cannot steer or leave what you have not
@@ -123,7 +123,7 @@ because a stale map fails at exactly the moment it is needed.
 can be steered back inside its tolerance. A Switch is a primitive because
 it is the escapement's lever, the thing that can be thrown. The decisive
 question is never whether a runbook exists. It is whether an authorized
-person could operate the switch, tonight, within tolerance, and prove it
+person could operate the switch, tonight, within tolerance and prove it
 happened. A switch that depends on one person being reachable, or on
 credentials that have expired, or on a decision no one is empowered to
 make out of hours, is a switch that depends on attention, and so it is not
@@ -199,11 +199,15 @@ fails at the one tooth that will not catch, and a service with strong Pipes
 and Switches but a described-only Exit is constrained at the Exit, because
 that is where it gives way. The minimum is not averaged with the other
 domains and does not replace the capability profile. It sits beside it and
-names the tooth that will not catch. This is why the method retains the
+names the weakest maturity domain. This is why the method retains the
 minimum rule from earlier versions but demotes it from the whole score to
-one result among several. The minimum still tells you the binding
-constraint. It was never the whole story, and treating it as the whole
-score hid the profile that an improver needs.
+one result among several. The minimum is the maturity diagnostic. It does
+not by itself name the tooth that will not catch: a service can score 4 on
+Switches and still be held by a three-hour Authorize phase inside them. So
+beside the minimum every assessment reports the **binding constraint**, the
+clock phase or readiness gate that actually limits execution in the
+governing scenario. The minimum was never the whole story, and treating it
+as the whole score hid the profile that an improver needs.
 
 **Maturity is graded on execution, not documentation.** The five maturity
 levels run from Unowned to Instrumented, and the two rules that matter
@@ -226,11 +230,13 @@ mechanism that fails at any one of these does not reliably keep time,
 however good the rest of it looks. The gates are deliberately blunt. They
 are not scored on a scale. They pass, provisionally pass, fail, are
 unknown or do not apply, and a single core failure is enough to withhold
-the top decision.
+the top decision. All eight are material, so a Provisional Pass on any of
+them caps the decision at Conditionally Demonstrated. The full set of
+decision caps is stated once in `scoring-method.md`.
 
 **The readiness decision follows from the gates and the evidence, not from
 the profile.** Demonstrated requires the core gates to pass, the capability
-to have been exercised, and evidence of execution within tolerance.
+to have been exercised and evidence of execution within tolerance.
 Conditionally Demonstrated is for a real design with one or more elements
 still provisional, partially tested or dependent on remediation. Not
 Demonstrated is for a failed core gate, absent critical evidence or
@@ -247,7 +253,7 @@ corollary is that not supplied is never the same as does not exist.
 The corollary carries as much weight as the rule. An assessment that
 inferred absence from silence would punish organizations for not having
 handed over a document, and would reward whoever submitted the most paper.
-So missing evidence produces an Unknown or a Not Demonstrated finding and a
+So missing evidence produces an Unknown or a Not evidenced finding and a
 request for what is missing. It never produces a finding that a capability
 is absent. The Copilot records what it could not verify and asks for it. It
 does not conclude from the gap.
@@ -277,7 +283,17 @@ obvious, but stale or conflicting evidence that looks like proof.
 The method measures the full execution sequence, not just the technical
 action: detect, interpret, decide, authorize, execute, verify, communicate,
 stabilize. The tolerance is met only when stabilization completes within
-the approved tolerance from the correct clock-start event.
+the approved tolerance measured from the clock start.
+
+The clock starts at the onset of disruption, the moment the critical
+service first falls outside its normal level of delivery, whether or not
+anyone has noticed. Detection is not the start. The time from onset to
+detection is the Detect phase, the first phase of the clock, and it is the
+phase an organization most often forgets to count. Where onset cannot be
+established from evidence, that interval is Unknown, and a Met result needs
+an evidenced bound on it; otherwise the tolerance result is Cannot
+Determine. The clock stops at verified stabilization of the service at or
+above its tolerance level.
 
 The reason is that the concealed failures live in the human steps, not the
 technical one. A switch that runs in two hours can still fail a twelve-hour
@@ -305,7 +321,7 @@ its tolerance, interrogate the facts and evidence, stress-test the claimed
 capability under a severe but plausible scenario and decide. The
 primitives give the interrogation its structure. You are always asking, for
 this service and this tolerance, what are the Pipes, what are the Switches,
-what are the Exits, and what has been exercised and evidenced.
+what are the Exits and what has been exercised and evidenced.
 
 A few traps recur often enough to name.
 
@@ -330,8 +346,9 @@ apart on the face of the assessment.
 
 Reading a result follows the same discipline. Look first at the readiness
 decision and the tolerance result, because they say whether optionality was
-demonstrated. Look next at the Constraint Level, because it names the
-binding weakness. Look at the evidence confidence, because it says how much
+demonstrated. Look next at the Constraint Level and the binding constraint,
+because together they name the weakest domain and the phase or gate that
+will not catch. Look at the evidence confidence, because it says how much
 to trust the rest. Only then read the full capability profile, which tells
 you where the work is. An assessment read in that order tells you what to
 fix first and why.
@@ -339,7 +356,7 @@ fix first and why.
 ## 10. A method in the making
 
 GRCnext™ is a work in progress and it has to be. It is not worked out in
-theory and then applied. It is developed in deployments, with Clients, and
+theory and then applied. It is developed in deployments, with Clients and
 made fit for their purpose. In some sense it is all still in the making.
 
 This is a design stance, not an apology. A governance method that claimed

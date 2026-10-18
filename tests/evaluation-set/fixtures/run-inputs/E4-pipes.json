@@ -1,4 +1,5 @@
 {
+  "schema_version": "2.6",
   "tool": "pipes_mapper",
   "registry_version": "2026-10-13T12:00:00+09:00",
   "scope": "payments service, Vendor A exit",

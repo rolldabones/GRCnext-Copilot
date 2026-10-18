@@ -1,4 +1,5 @@
 {
+  "schema_version": "2.6",
   "tool": "switch_registry",
   "registry_version": "2026-07-04T10:00:00+09:00",
   "switches": [
@@ -14,7 +15,7 @@
       "timestamp": "2026-07-04T09:41:00+09:00",
       "switch_id": "SW-001",
       "action": "OFF->ON",
-      "actor": "Alice"
+      "actor": "Payments engineer"
     }
   ],
   "change_log": []

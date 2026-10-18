@@ -1,0 +1,60 @@
+{
+  "schema_version": "2.6",
+  "service_name": "Service M production line",
+  "assessment_date": "2026-06-20",
+  "evidence_cutoff_date": "2026-06-16",
+  "capability_profile": {
+    "services_and_tolerances": 3,
+    "pipes": 3,
+    "switches": 3,
+    "exits": 1,
+    "exercises": 2,
+    "evidence_and_improvement": 2
+  },
+  "constraint_level": 1,
+  "binding_constraint": {
+    "kind": "gate",
+    "name": "executable_exit_for_leading_concentration",
+    "scenario": "Loss of raw-material supply from Vendor R",
+    "basis": "No second raw-material supplier is qualified, so no exit exists and no clock phase can be timed for the governing supplier-loss scenario."
+  },
+  "evidence_confidence": "Low",
+  "readiness_decision": "Not Demonstrated",
+  "tolerance_result": {
+    "result": "Cannot Determine",
+    "clock_start_event": "Onset: an unplanned production stop (not tested for the governing scenario)",
+    "clock_stop_event": "Verified resumption of in-specification output (not tested for the governing scenario)"
+  },
+  "gates": [
+    {"gate": "service_and_owner_defined", "status": "Pass", "note": "Plant operations director accountable"},
+    {"gate": "tolerance_approved_and_measurable", "status": "Pass", "note": "24 hours, approved"},
+    {"gate": "dependencies_mapped", "status": "Pass", "note": "Both concentrations and the mine dependency identified"},
+    {"gate": "switch_authority_available", "status": "Pass", "note": "Safety stop authority is clear and immediate"},
+    {"gate": "executable_exit_for_leading_concentration", "status": "Fail", "note": "No second raw-material supplier qualified"},
+    {"gate": "severe_but_plausible_exercise_completed", "status": "Fail", "note": "Only T1 tabletop for control loss, no supplier-loss test"},
+    {"gate": "evidence_shows_tolerance_result", "status": "Unknown", "note": "Tolerance never tested for the governing scenario"},
+    {"gate": "corrective_actions_have_owners_and_dates", "status": "Fail", "note": "Actions identified but not owned, dated or scheduled"}
+  ],
+  "top_breakpoints": [
+    "No executable exit for Vendor R. Qualification takes 3 to 6 months and is unfunded.",
+    "Fourth-party concentration: a candidate second supplier may depend on the same mine in Jurisdiction Z.",
+    "Manual control is unproven on the line. A T1 tabletop is not execution.",
+    "Buffer runway is assumed at 18 hours but never tested to exhaustion."
+  ],
+  "evidence_ledger_ref": "examples/manufacturing-service/assessment.md#evidence-ledger-extract",
+  "escalation_items": [
+    {
+      "issue": "Single-source raw-material exposure with no qualified alternate",
+      "operational_consequence": "A Vendor R loss stops production once buffer stock is exhausted",
+      "facts_required": "Funding decision on second-supplier qualification; upstream mine dependency of candidate suppliers",
+      "decision_owner": "Board, with a named owner for any accepted risk"
+    },
+    {
+      "issue": "Live tests near buffer exhaustion or under manual control",
+      "operational_consequence": "Safety hazard to line personnel and equipment",
+      "facts_required": "Test plan with controlled-stop fallback",
+      "decision_owner": "Safety function"
+    }
+  ],
+  "ai_overlay_applied": false
+}

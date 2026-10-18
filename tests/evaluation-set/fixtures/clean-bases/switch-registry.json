@@ -1,4 +1,5 @@
 {
+  "schema_version": "2.6",
   "tool": "switch_registry",
   "registry_version": "2026-10-13T12:00:00+09:00",
   "switches": [
@@ -16,7 +17,7 @@
       "switch_id": "SW-001",
       "event": "verified",
       "action": "ON->OFF",
-      "actor": "Dana",
+      "actor": "Operations lead",
       "evidence_ref": "EXP-0031"
     }
   ],

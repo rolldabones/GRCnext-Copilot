@@ -1,0 +1,27 @@
+# GRCnext™ Copilot: interchange validation on every push and pull request.
+# Runs tools/check_fixtures.py, which runs tools/validate.py over the fixtures,
+# the examples' assessment-result.json files and the six advisory prompt samples
+# against the verdict each is expected to receive. Added in v2.6.0 (18 October 2026).
+name: validate
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install jsonschema
+        run: python -m pip install "jsonschema>=4,<5"
+      - name: Validator help exits 0
+        run: python tools/validate.py --help > /dev/null
+      - name: Fixtures, examples and prompt samples
+        run: python tools/check_fixtures.py --verbose
+# Final Liability rests with the Human.

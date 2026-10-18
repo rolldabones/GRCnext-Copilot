@@ -30,22 +30,28 @@ Synthetic example. Neutral labels throughout.
 
 - Tolerance statement: No more than 12 hours of disruption to real-time
   settlement in a severe but plausible scenario.
-- Measurement method: Elapsed time from detection to verified
-  stabilization on any acceptable settlement path.
-- Clock start: Detection of a material disruption to real-time
-  settlement.
+- Measurement method: Elapsed time from onset of disruption to verified
+  stabilization on any acceptable settlement path. Pending re-approval:
+  the statement approved on record named detection as the clock start
+  (CA-005).
+- Clock start (onset event): The moment real-time settlement first falls
+  outside its normal level of delivery, whether or not anyone has
+  noticed. Detection is the first phase of the execution clock (Detect),
+  not its start.
 - Clock stop: Verified stabilization on the primary rail or an approved
   alternate path.
-- Approving authority: Chief operating officer, on record.
+- Approving authority: Chief operating officer, on record for the
+  detection-based statement. Re-approval with clock start at onset is
+  open (CA-005, Chief operating officer's office, target 2026-07-15).
 - Underlying assumptions: Backup rail capacity is sufficient for peak
   volume, and delayed batch settlement is acceptable to customers for a
   bounded period.
-- Latest result: Met for the reroute scenario. Not Tested end to end for
-  the exit scenario.
+- Latest result: Met for the reroute scenario, 9 hours from onset to
+  verified stabilization. Not Tested end to end for the exit scenario.
 
 ## 3. End-to-end dependency map
 
-Last verified: 2026-05-20.
+Last verified: 2026-05-20. Next re-verification due 2026-08-20 (CA-003).
 
 - People: Payments duty manager, payments operations engineers,
   settlement operations lead, treasury on-call.
@@ -70,8 +76,9 @@ Last verified: 2026-05-20.
 
 ## 4. Switch Catalog
 
-See [`../../templates/switch-catalog.csv`](../../templates/switch-catalog.csv)
-for the tabular form. Two material switches.
+See [`switch-catalog.csv`](switch-catalog.csv) for the tabular form. Two
+material switches. Failing back to Vendor A is SW-001's rollback, not a
+separate switch.
 
 Switch SW-001
 
@@ -114,7 +121,7 @@ For Vendor A, the leading concentration dependency. See
 [`../../templates/exit-playbook.md`](../../templates/exit-playbook.md).
 
 - Dependency being exited: Vendor A gateway.
-- Exit triggers: Sustained Vendor A instability, material price change, or
+- Exit triggers: Sustained Vendor A instability, material price change or
   loss of confidence in Vendor A resilience.
 - Legal and contractual rights: Termination for convenience on 90 days
   notice under MSA v3. Transition assistance clause present.
@@ -146,18 +153,24 @@ For Vendor A, the leading concentration dependency. See
 - Actions simulated: Regulator notification.
 - Actions performed: Detection, decision, authorization, reroute
   execution, verification, customer communication, stabilization.
+- Clock start (onset): The injected Vendor A outage at rehearsal start.
+  Detection followed at 20 minutes and is recorded as the Detect phase.
 - Elapsed times: Detect 20 minutes, interpret 25 minutes, decide 40
   minutes, authorize 3 hours, execute 1 hour, verify 40 minutes,
-  communicate 30 minutes, stabilize to 9 hours total.
+  communicate 30 minutes, stabilize 2 hours 25 minutes: 9 hours from
+  onset to verified stabilization.
+- Clock stop: Verified stabilization on the Vendor C backup rail.
 - Tolerance met or not met: Met against the 12-hour tolerance.
-- Evidence pack: See
-  [`../../templates/evidence-pack-index.md`](../../templates/evidence-pack-index.md)
-  applied to this service.
+- Evidence pack: See [`evidence-ledger.csv`](evidence-ledger.csv) and the
+  inputs in [`input-pack.md`](input-pack.md).
 - Findings: Authorization was the slowest phase at 3 hours because the
   authorized decision-maker was hard to reach out of hours. The exit path
-  is not rehearsed end to end. The dependency map is aging.
-- Corrective actions: See
-  [`../../templates/capa-register.csv`](../../templates/capa-register.csv).
+  is not rehearsed end to end. The approved tolerance statement names
+  detection as the clock start, so the onset clock needs re-approval
+  (CA-005). The dependency map re-verification falls due on 2026-08-20
+  (CA-003).
+- Corrective actions: See [`capa-register.csv`](capa-register.csv). Five
+  open (CA-001 to CA-005), none overdue.
 - Retest status: Reroute path retest scheduled. Exit path first end-to-end
   rehearsal not yet scheduled.
 

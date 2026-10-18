@@ -1,0 +1,90 @@
+[
+  {
+    "case": "D1",
+    "file": "fixtures/v2.6.0/D1-drill-completed-status-unchanged.json",
+    "expected": "ACCEPT",
+    "rule": "R6",
+    "note": "a drill-only completed event with evidence leaves production status OFF; 02-switch-registry.md s4: drill events never change the production status",
+    "v2.5.2_result": "REJECT (R6 false rejection)"
+  },
+  {
+    "case": "D2",
+    "file": "fixtures/v2.6.0/D2-production-completed-status-unchanged.json",
+    "expected": "REJECT",
+    "rule": "R6",
+    "note": "the same event as production: status OFF contradicts the newest evidenced production event (ON); the guard still fires",
+    "v2.5.2_result": "REJECT"
+  },
+  {
+    "case": "M1",
+    "file": "fixtures/v2.6.0/M1-52h-against-48h-not-within.json",
+    "expected": "ACCEPT",
+    "rule": "M1",
+    "note": "52 h critical path against a 48 h tolerance, within_limit false, verdict Not Demonstrated"
+  },
+  {
+    "case": "M2",
+    "file": "fixtures/v2.6.0/M2-52h-claimed-within-48h.json",
+    "expected": "REJECT",
+    "rule": "M1",
+    "note": "the same arithmetic claimed within the tolerance"
+  },
+  {
+    "case": "M3",
+    "file": "fixtures/v2.6.0/M3-92h-against-96h-demonstrated.json",
+    "expected": "ACCEPT",
+    "rule": "M1, M4",
+    "note": "92 h observed against a 96 h tolerance: within; the 2.5 72-hour constant would have called this infeasible"
+  },
+  {
+    "case": "M4",
+    "file": "fixtures/v2.6.0/M4-interim-limit-72h-not-tolerance.json",
+    "expected": "REJECT",
+    "rule": "M2",
+    "note": "the 72-hour constant re-entering as the interim limit against a 12 h tolerance"
+  },
+  {
+    "case": "M5",
+    "file": "fixtures/v2.6.0/M5-demonstrated-outside-tolerance.json",
+    "expected": "REJECT",
+    "rule": "M4",
+    "note": "Demonstrated while interim continuity (14 h) is outside the 12 h tolerance"
+  },
+  {
+    "case": "M6",
+    "file": "fixtures/v2.6.0/M6-milestones-out-of-order.json",
+    "expected": "REJECT",
+    "rule": "M3",
+    "note": "milestones not in the order containment, interim_continuity, final_exit"
+  },
+  {
+    "case": "M7",
+    "file": "fixtures/v2.6.0/M7-treasury-tolerance-unknown.json",
+    "expected": "ACCEPT",
+    "rule": "M1, M2",
+    "note": "tolerance not supplied: every limit null, every fit null"
+  },
+  {
+    "case": "M8",
+    "file": "fixtures/v2.6.0/M8-treasury-limit-without-tolerance.json",
+    "expected": "REJECT",
+    "rule": "M2",
+    "note": "an interim limit of 72 h with no tolerance supplied"
+  },
+  {
+    "case": "A1",
+    "file": "fixtures/v2.6.0/A1-demonstrated-with-provisional-pass.json",
+    "expected": "REJECT",
+    "rule": "A5",
+    "note": "Demonstrated with a Provisional Pass on a core gate; every core gate is material",
+    "v2.5.2_result": "ACCEPT with A5 WARN"
+  },
+  {
+    "case": "S1",
+    "file": "fixtures/v2.6.0/S1-pre-2.6-exit-prover.json",
+    "expected": "REJECT",
+    "rule": "S1, S0",
+    "note": "the v2.5.2 clean base unchanged: no schema_version, feasible_72h, PASS; migrate per schemas/README.md",
+    "v2.5.2_result": "ACCEPT"
+  }
+]

@@ -13,6 +13,7 @@ The mechanics under test are the ones most easily broken:
 - contradictory evidence blocking a Demonstrated decision
 - exercise tiers gating the maturity level
 - the organization view as the minimum across services
+- the clock starting at onset of disruption, not at detection
 
 Vocabulary follows `methodology/scoring-method.md`,
 `methodology/evidence-standard.md` and `methodology/exercise-tiers.md`.
@@ -203,7 +204,7 @@ This case confirms the worked walkthrough in
 
 Inputs.
 
-- A single service scoring 4, 4, 4, 3, 3, 3 across the six domains in
+- A single service scoring 4, 4, 4, 2, 3, 3 across the six domains in
   order.
 - One corrective action is overdue. The priority exit is designed but
   untested.
@@ -211,9 +212,11 @@ Inputs.
 Expected results.
 
 - Capability profile: all six domain scores are shown individually. The
-  profile is 4, 4, 4, 3, 3, 3. It is not reduced to an average or to a
+  profile is 4, 4, 4, 2, 3, 3. It is not reduced to an average or to a
   single grade.
-- Constraint Level: minimum of Pipes, Switches and Exits is 3.
+- Constraint Level: minimum of Pipes, Switches and Exits is 2.
+- Binding constraint: gate 5, the executable exit, for the exit
+  scenario.
 - Evidence confidence: Moderate.
 - Readiness decision: Conditionally Demonstrated, held there by the
   overdue action and the untested exit.
@@ -223,6 +226,43 @@ What this pins. Capability, confidence and constraint stay separate. A
 high Constraint Level does not by itself produce a Demonstrated
 decision. The gates govern the decision, and a strong profile still
 carries its open items on its face.
+
+Expected result amended 18 October 2026 (KST) in v2.6.0: the
+walkthrough's Exits score moved from L3 to L2 under the tier rule
+(`methodology/exercise-tiers.md`: T3 supports L3 only for the path
+exercised, and the exit path reached T2), so the profile and the
+Constraint Level follow; the binding constraint line is new with the
+binding-constraint finding.
+
+---
+
+## Case 7: the clock starts at onset, not at detection
+
+The acceptance case for finding F04 of the evaluation brief.
+
+Inputs.
+
+- A critical service with an approved impact tolerance of four hours.
+- Disruption begins at 02:00. Nobody notices until 04:00. The service is
+  verified stable on an alternate path at 07:00.
+
+Expected results.
+
+- Clock start: onset of disruption at 02:00. Detection at 04:00 ends the
+  Detect phase (two hours); it does not start the clock.
+- Clock stop: verified stabilization at 07:00.
+- Elapsed: five hours against a four-hour tolerance.
+- Tolerance result: Not Met.
+- Readiness decision: Not Demonstrated (decision caps rule 4).
+- Binding constraint: the Detect phase, which alone consumes half the
+  tolerance.
+
+What this pins. A clock started at detection would read three hours and
+call the tolerance Met. The organization's failure to notice is part of
+the disruption its customers suffered, so it is on the clock. Where the
+onset time cannot be established, the pre-detection interval is Unknown
+and the result is Cannot Determine unless an evidenced bound on that
+interval still fits the tolerance.
 
 ---
 

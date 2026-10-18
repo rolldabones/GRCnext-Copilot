@@ -39,7 +39,10 @@ measure the full execution clock. Use neutral labels.
 ## Execution clock
 
 Capture elapsed time for each phase where material. The tolerance clock
-starts at the event defined in the impact tolerance.
+starts at the onset event defined in the impact tolerance (the moment
+the service first falls outside its normal level of delivery), not at
+detection. Detect is the interval from onset to detection. Where onset
+cannot be established, record the pre-detection interval as Unknown.
 
 | Phase | Expected owner | Planned or actual elapsed time | Notes |
 |---|---|---|---|
@@ -61,7 +64,7 @@ starts at the event defined in the impact tolerance.
 
 - Evidence to be captured:
 - Where it will be stored (link to
-  [`evidence-pack-index.md`](evidence-pack-index.md)):
+  [`evidence-ledger.csv`](evidence-ledger.csv)):
 - Owner of evidence capture:
 
 ## Hotwash and corrective action

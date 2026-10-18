@@ -23,7 +23,8 @@ because a Vendor M outage or model change impairs the whole service.
 
 The impact tolerance is 1 hour: incorrect or stalled automated actions
 must be detected and brought under human control within 1 hour before
-customer harm accumulates.
+customer harm accumulates. The clock starts at onset, the first
+materially incorrect or stalled automated action, not at detection.
 
 ## What this example demonstrates
 
@@ -38,6 +39,10 @@ customer harm accumulates.
   is too slow in practice.
 - How the same system is scored as Pipe, Switch and decision actor without
   double counting.
+- The synthetic evidence inputs keyed to the eight gates, in
+  [`input-pack.md`](input-pack.md), and the assessment as an
+  `assessment_result` payload, in
+  [`assessment-result.json`](assessment-result.json).
 
 ## The switches in play
 

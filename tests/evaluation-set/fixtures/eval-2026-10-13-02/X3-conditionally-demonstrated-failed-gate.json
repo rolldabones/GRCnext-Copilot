@@ -1,4 +1,5 @@
 {
+  "schema_version": "2.6",
   "service_name": "Payments (synthetic)",
   "capability_profile": {
     "services_and_tolerances": 4,
@@ -9,6 +10,12 @@
     "evidence_and_improvement": 3
   },
   "constraint_level": 3,
+  "binding_constraint": {
+    "kind": "gate",
+    "name": "executable_exit_for_leading_concentration",
+    "scenario": "fixture scenario",
+    "basis": "fixture for a policy rule; the binding constraint is not under test"
+  },
   "evidence_confidence": "High",
   "readiness_decision": "Conditionally Demonstrated",
   "tolerance_result": {

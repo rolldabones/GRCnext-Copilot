@@ -73,7 +73,7 @@ prerequisite and elapsed time.
 
 - Evidence this playbook produces when executed:
 - Evidence pointers (link to
-  [`evidence-pack-index.md`](evidence-pack-index.md)):
+  [`evidence-ledger.csv`](evidence-ledger.csv)):
 - Latest rehearsal (tier T0 to T4, date, outcome):
 - Simulated versus performed in the last rehearsal:
 - Next rehearsal due:

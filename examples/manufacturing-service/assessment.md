@@ -38,6 +38,11 @@ The exit is the fatal weakness. The plant can stop safely and can limp on
 degraded control for a while, but it cannot leave Vendor R within
 tolerance, and buffer stock only postpones the problem.
 
+Binding constraint. For the governing supplier-loss scenario it is gate
+5 (executable exit for the leading concentration), which is a Fail: no
+second raw-material supplier is qualified, so no clock phase can be
+timed until an exit exists.
+
 ## C. Evidence confidence
 
 Low for the governing scenario.
@@ -61,7 +66,7 @@ decision.
 
 Cannot Determine.
 
-- Clock start would be an unplanned production stop.
+- Clock start (onset event) would be an unplanned production stop.
 - Clock stop would be verified resumption of in-specification output.
 - The 24-hour tolerance has not been tested to buffer exhaustion or to a
   supplier switch, so no result can be stated.
@@ -95,9 +100,9 @@ Four gates are not passed. Two are hard Fails on core gates.
 | Evidence ID | Claim | Type | Status | Freshness | Limitation |
 |---|---|---|---|---|---|
 | E-M1 | Safe controlled stop achievable in minutes | production event | Verified | Current | Covers stop, not resumption within tolerance |
-| E-M2 | Manual control can sustain production | none | Not demonstrated | n.a. | Tabletop only, never run on line |
+| E-M2 | Manual control can sustain production | none | Not evidenced | n.a. | Tabletop only, never run on line |
 | E-M3 | Buffer covers about 18 hours | interview representation | Provisional | Uncertain | Never tested to exhaustion |
-| E-M4 | Alternate raw-material supplier available | none | Not demonstrated | n.a. | No supplier qualified |
+| E-M4 | Alternate raw-material supplier available | none | Not evidenced | n.a. | No supplier qualified |
 
 ## Prioritized backlog
 

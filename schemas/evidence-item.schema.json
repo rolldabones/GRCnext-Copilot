@@ -13,6 +13,11 @@
     "applicable_service"
   ],
   "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "2.6",
+      "description": "Interchange contract version. 2.6 from GRCnext™ Copilot v2.6.0 (18 October 2026). Changes only when a schema changes; migration rules in schemas/README.md."
+    },
     "evidence_id": {
       "type": "string",
       "description": "Stable identifier, for example E-001."
@@ -58,7 +63,7 @@
       "enum": [
         "Verified",
         "Provisional",
-        "Not demonstrated",
+        "Not evidenced",
         "Contradicted",
         "Refuted",
         "Not applicable"

@@ -1,0 +1,49 @@
+{
+  "schema_version": "2.6",
+  "tool": "treasury_reroute_planner",
+  "plan_version": "2026-10-18T10:00:00+09:00",
+  "scenario": "Bank A unavailable, drill",
+  "affected_flows": [
+    "supplier payments"
+  ],
+  "routes": [],
+  "steps": [
+    {
+      "order": 1,
+      "step": "Freeze new payment instructions on Bank A",
+      "owner": "Treasury lead",
+      "status": "pending"
+    }
+  ],
+  "tolerance_hours": null,
+  "milestones": [
+    {
+      "milestone": "containment",
+      "elapsed_hours": null,
+      "basis": "unknown",
+      "limit_hours": null,
+      "limit_source": "none supplied",
+      "within_limit": null
+    },
+    {
+      "milestone": "interim_continuity",
+      "elapsed_hours": null,
+      "basis": "unknown",
+      "limit_hours": 72,
+      "limit_source": "impact tolerance",
+      "within_limit": null
+    },
+    {
+      "milestone": "final_exit",
+      "elapsed_hours": null,
+      "basis": "unknown",
+      "limit_hours": null,
+      "limit_source": "none supplied",
+      "within_limit": null
+    }
+  ],
+  "assumptions": [
+    "tolerance not supplied: feasibility Unknown"
+  ],
+  "drill": true
+}

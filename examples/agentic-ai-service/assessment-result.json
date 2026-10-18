@@ -1,0 +1,54 @@
+{
+  "schema_version": "2.6",
+  "service_name": "Service K agentic resolution",
+  "assessment_date": "2026-06-25",
+  "evidence_cutoff_date": "2026-06-20",
+  "capability_profile": {
+    "services_and_tolerances": 3,
+    "pipes": 3,
+    "switches": 3,
+    "exits": 2,
+    "exercises": 3,
+    "evidence_and_improvement": 3
+  },
+  "constraint_level": 2,
+  "binding_constraint": {
+    "kind": "clock_phase",
+    "name": "Detect",
+    "scenario": "Agent A applies a materially incorrect action pattern at volume",
+    "basis": "Detect took 25 minutes, the longest recorded phase, before anyone acted on a 1-hour tolerance; for the exit scenario the binding constraint is gate executable_exit_for_leading_concentration, which is a Fail."
+  },
+  "evidence_confidence": "Moderate",
+  "readiness_decision": "Not Demonstrated",
+  "tolerance_result": {
+    "result": "Not Met",
+    "clock_start_event": "Onset: first materially incorrect automated action (detection followed at 25 minutes, the Detect phase)",
+    "clock_stop_event": "Verified human control of the queue, about 90 minutes from onset"
+  },
+  "gates": [
+    {"gate": "service_and_owner_defined", "status": "Pass", "note": "Head of operations accountable, named human principal for the agent"},
+    {"gate": "tolerance_approved_and_measurable", "status": "Pass", "note": "1 hour, clock events explicit"},
+    {"gate": "dependencies_mapped", "status": "Pass", "note": "Vendor M concentration, shared cloud, agent single point identified"},
+    {"gate": "switch_authority_available", "status": "Pass", "note": "Kill authority immediate, risk function can trigger"},
+    {"gate": "executable_exit_for_leading_concentration", "status": "Fail", "note": "Provider substitution not built or validated"},
+    {"gate": "severe_but_plausible_exercise_completed", "status": "Pass", "note": "T3 stop-and-rollback with full clock timing"},
+    {"gate": "evidence_shows_tolerance_result", "status": "Pass", "note": "Evidence shows the tolerance was Not Met"},
+    {"gate": "corrective_actions_have_owners_and_dates", "status": "Provisional Pass", "note": "Actions identified, some without firm dates"}
+  ],
+  "top_breakpoints": [
+    "Human assumption of control exceeds tolerance (about 90 minutes against 1 hour).",
+    "Detection latency of 25 minutes consumes much of the clock.",
+    "No built or validated provider substitution for Vendor M.",
+    "Human-in-the-loop degrade mode unproven at volume."
+  ],
+  "evidence_ledger_ref": "examples/agentic-ai-service/assessment.md#evidence-ledger-extract",
+  "escalation_items": [
+    {
+      "issue": "Autonomous action at volume with human control that exceeds tolerance",
+      "operational_consequence": "Incorrect automated actions accumulate before a human can assume control",
+      "facts_required": "Whether Service K touches regulated decisions about customers; interim autonomy posture",
+      "decision_owner": "Senior management and the risk function"
+    }
+  ],
+  "ai_overlay_applied": true
+}

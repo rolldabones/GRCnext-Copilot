@@ -1,8 +1,9 @@
 {
+  "schema_version": "2.6",
   "tool": "exit_prover",
   "proof_version": "2026-10-13T12:00:00+09:00",
   "scenario": "synthetic clean base",
-  "verdict": "PASS",
+  "verdict": "Demonstrated",
   "dependencies": [
     {
       "id": "PIPE-004",
@@ -39,6 +40,32 @@
       "freshness_assessment": "current"
     }
   ],
-  "feasible_72h": true,
+  "tolerance_hours": 12,
+  "milestones": [
+    {
+      "milestone": "containment",
+      "elapsed_hours": 1,
+      "basis": "observed",
+      "limit_hours": null,
+      "limit_source": "none supplied",
+      "within_limit": null
+    },
+    {
+      "milestone": "interim_continuity",
+      "elapsed_hours": 9,
+      "basis": "observed",
+      "limit_hours": 12,
+      "limit_source": "impact tolerance",
+      "within_limit": true
+    },
+    {
+      "milestone": "final_exit",
+      "elapsed_hours": null,
+      "basis": "unknown",
+      "limit_hours": null,
+      "limit_source": "none supplied",
+      "within_limit": null
+    }
+  ],
   "assumptions": []
 }

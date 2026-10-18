@@ -2,7 +2,7 @@
 
 **An evidence-led assistant for governance, risk management and compliance assessment and design.**
 
-**Version 2.5.2 · 18 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+**Version 2.6.0 · 18 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
 
 GRCnext™ Copilot tests one thing: whether an organization holds **Global Optionality**. That is the capacity to preserve or create lawful, authorized and executable choices when a critical service, dependency, provider, jurisdiction, technology or operating assumption becomes unavailable or unacceptable.
 
@@ -18,24 +18,13 @@ Or put in the operating principle the whole method turns on:
 
 ---
 
-## What changed in v2
+## Start here
 
-v1 was a single dense instruction block that did the work of a constitution, a methodology, a scoring engine, a legal triage protocol, a report template and one user's ChatGPT settings all at once. It worked, but it invited the model to satisfy an output checklist mechanically and it flattened materially different risk profiles into a single minimum score.
+To run one assessment of one critical service, follow [`START-HERE.md`](START-HERE.md): paste the v2 prompt, fill the intake pack, send the first message, save the result as JSON and run the validator over it. The payment example walks the same route with its inputs, its assessment and its result file.
 
 **What this instrument is, stated plainly.** This is a **structured self-assessment**. It is not a measurement, a benchmark, an audit, a certification or a rating. Its outputs are the organization's own answers, organized against a defined structure and disciplined by an evidence rule. That structure is what makes the answers comparable over time and arguable in front of a board. It does not make them independent. A score produced here evidences the organization's position; it does not attest to it, and it should never be presented externally as though a third party had.
 
-v2 keeps the intellectual spine and repairs the failure modes:
-
-1. **Three separate conclusions, not one.** Every assessment now reports **capability** (what the organization appears able to do), **evidence confidence** (how strongly that is supported) and the **constraint finding** (the weakest condition that could defeat execution under stress). A polished but stale document no longer scores like a recently executed drill.
-2. **A verifiable evidence rule.** "No evidence, no credit" became "no *verified* evidence, no *verified* credit." Representations can take provisional credit while labeled unverified and tied to a named evidence-conversion action, so the Copilot stays useful during discovery without silently treating absence as proof of absence.
-3. **The minimum rule is preserved but demoted.** `min(Pipes, Switches, Exits)` is retained as the **Constraint Level**, not the whole score. It sits alongside the full capability profile, an evidence-confidence rating and a readiness decision.
-4. **Time is first-class.** The method measures the full execution clock: Detect, Interpret, Decide, Authorize, Execute, Verify, Communicate, Stabilize. A switch that runs in two hours can still fail a twelve-hour tolerance if authorization and communication add eighteen more.
-5. **Exercises are tiered.** T0 walkthrough through T4 live invocation. The Copilot must state which actions were simulated and which were performed, and it will not award "Exercised" maturity for a conversation.
-6. **The AI overlay is real.** AI is analyzed as a Pipe, a Switch, a decision actor, an evidence producer or a concentration dependency. For agentic AI the method governs the verb, the boundary and the consequence, and it refuses to assume a human-in-the-loop control is effective without testing the human's information, authority, time and practical ability to intervene.
-7. **Progressive disclosure.** The Copilot no longer emits a full assessment package before the facts exist. It scopes, states assumptions, requests evidence and proposes the next step.
-8. **Worked examples and tests ship with the method.** Without them, different models interpret the rubric differently. See `examples/` and `tests/`.
-
-A full v1 to v2 diff is in [`CHANGELOG.md`](CHANGELOG.md).
+How v2 differs from v1 is recorded in [`CHANGELOG.md`](CHANGELOG.md), in the entry for the first v2 release.
 
 ---
 
@@ -49,7 +38,7 @@ A full v1 to v2 diff is in [`CHANGELOG.md`](CHANGELOG.md).
 
 **Eight readiness gates.** Service and owner; approved measurable tolerance; mapped dependencies; switch authority; at least one executable exit for the top concentration dependency; at least one completed severe-but-plausible exercise; evidence that the tolerance was met; corrective actions with owners and dates. A fail or unknown on any core gate blocks an unqualified "demonstrated" conclusion.
 
-**Four scoring results.** Capability profile (all domain scores shown); Constraint Level = `min(Pipes, Switches, Exits)`; Evidence confidence (High, Moderate, Low, Indeterminate); Readiness decision (Demonstrated, Conditionally Demonstrated, Not Demonstrated); plus a Tolerance result (Met, Not Met, Not Tested, Cannot Determine).
+**Four results plus the tolerance result.** Capability profile (all domain scores shown); Constraint Level = `min(Pipes, Switches, Exits)`, the ordinal maturity diagnostic, reported with the **binding constraint** (the clock phase or gate that actually limits execution in the governing scenario); Evidence confidence (High, Moderate, Low, Indeterminate); Readiness decision (Demonstrated, Conditionally Demonstrated, Not Demonstrated, the one verdict scale the advisory suite also uses); plus the Tolerance result (Met, Not Met, Not Tested, Cannot Determine), measured from the **onset of disruption**, not from detection.
 
 Detail lives in [`methodology/`](methodology/).
 
@@ -60,67 +49,64 @@ Detail lives in [`methodology/`](methodology/).
 ```
 GRCnext-Copilot/
 ├── README.md                     You are here
+├── START-HERE.md                 One service, start to finish
 ├── LICENSE
-├── CHANGELOG.md                  v1 to v2 diff and version history
+├── CHANGELOG.md                  Version history, with the v1 to v2 diff
+├── CITATION.cff
 ├── CONTRIBUTING.md
+├── .github/workflows/
+│   └── validate.yml              Runs the validator over fixtures, examples and samples on every push
 ├── prompt/
 │   ├── GRCnext-Copilot-v2.md          Authoritative modular prompt
-│   ├── GRCnext-Copilot-long-form.md   Self-contained model-agnostic prompt
-│   ├── compact-custom-gpt-version.md  Fits the ChatGPT 8,000-char field
-│   └── model-configuration-notes.md   Deployment on Claude, ChatGPT and elsewhere
-├── advisory-tools/                New in v2.1: the operating suite
-│   ├── README.md                  Suite overview, translation map, interchange contract
+│   ├── GRCnext-Copilot-long-form.md   Self-contained edition with the reasoning inline
+│   ├── GRCnext-Copilot-compact.md     Short edition of the v2 prompt
+│   ├── model-configuration-notes.md   Deployment on any current assistant
+│   └── v1-production-deployment.md    The v1 text the custom GPT ran, kept as the record
+├── advisory-tools/                The operating suite
+│   ├── README.md                  Suite overview, primitives in the suite, interchange map
 │   ├── 01-pipes-mapper.md         Dependency Registry
 │   ├── 02-switch-registry.md      Switch registry and append-only flip log
-│   ├── 03-exit-prover.md          Exit readiness proof: PASS / PROVISIONAL PASS / FAIL
+│   ├── 03-exit-prover.md          Exit proof with milestones against tolerance
 │   ├── 04-treasury-reroute-planner.md  Plan B for financial pipes
 │   ├── 05-data-switchboard-planner.md  Reroute, isolate or sever data flows
-│   └── 06-clean-market-exit-kit.md     Orchestrator: T0 to T+72h master playbook
+│   └── 06-clean-market-exit-kit.md     Orchestrator: T0 (onset) to final exit
 ├── methodology/
 │   ├── method-and-logic.md   Conceptual foundation and the escapement logic
 │   ├── capability-model.md
-│   ├── scoring-method.md
+│   ├── scoring-method.md     Scoring, gates and the decision caps
 │   ├── evidence-standard.md
 │   ├── exercise-tiers.md
 │   └── glossary.md
-├── templates/
+├── templates/                Blank: headers and fields only
+│   ├── intake-pack.md        Keyed to the eight gates
 │   ├── service-dossier.md
 │   ├── evidence-ledger.csv
 │   ├── switch-catalog.csv
 │   ├── exit-playbook.md
 │   ├── exercise-plan.md
-│   ├── evidence-pack-index.md
 │   └── capa-register.csv
-├── schemas/
-│   ├── service-dossier.schema.json
-│   ├── evidence-item.schema.json
-│   ├── assessment-result.schema.json
-│   ├── pipes-mapper-output.schema.json     Advisory Tools interchange
-│   ├── switch-registry-output.schema.json
-│   ├── exit-prover-output.schema.json
-│   ├── treasury-reroute-plan.schema.json
-│   ├── data-switchboard-plan.schema.json
-│   └── clean-market-exit.schema.json
-├── examples/
+├── schemas/                  Interchange contract 2.6; README carries the migration rules
+├── examples/                 Each with input-pack.md, assessment.md and assessment-result.json
 │   ├── payment-service/          Financial-services worked example
 │   ├── manufacturing-service/    Physical, safety-critical worked example
 │   └── agentic-ai-service/       Agentic AI worked example
-└── tests/
-    ├── scoring-cases.md          Pins the rubric
-    ├── prompt-evaluation-cases.md Behavioral tests for the Copilot
-    ├── adversarial-inputs.md      Red-team prompts and expected behavior
-    ├── schema-policy-cases.md     Evidence rules the schemas enforce, with a recorded run
-    ├── advisory-suite-cases.md    Behavioral cases for Switch Registry and Exit Prover
-    └── evaluation-set/            Versioned run records, fixtures and emitted payloads
-├── tools/
-│   └── validate.py                Schema and policy validation of interchange payloads
+├── tests/
+│   ├── scoring-cases.md          Pins the rubric
+│   ├── prompt-evaluation-cases.md Behavioral tests for the Copilot
+│   ├── adversarial-inputs.md      Red-team prompts and expected behavior
+│   ├── schema-policy-cases.md     Rules the schemas and validator enforce, with recorded runs
+│   ├── advisory-suite-cases.md    Behavioral cases for Switch Registry and Exit Prover
+│   └── evaluation-set/            Versioned run records, fixtures and emitted payloads
+└── tools/
+    ├── validate.py                Schema and policy validation of interchange payloads
+    └── check_fixtures.py          Every fixture, example and sample against its expected verdict
 ```
 
 ---
 
-## Advisory Tools Suite (new in v2.1)
+## Advisory Tools Suite
 
-The Copilot assesses optionality. The [`advisory-tools/`](advisory-tools/README.md) directory operates it: six standalone model-agnostic system prompts implementing Pipes, Switches and Exits under the 72-hour execution model. Pipes Mapper maintains the dependency registry, Switch Registry keeps the flip log, Exit Prover tests exit readiness, Treasury Reroute Planner and Data Switchboard Planner build the financial and data contingency plans, and the Clean Market Exit Kit merges everything into one T0 to T+72h master playbook. Each prompt is self-contained, exchanges tool-tagged JSON validated by the suite schemas in [`schemas/`](schemas/) and by [`tools/validate.py`](tools/validate.py), which adds the policy checks a schema cannot express (incomplete by design: its acceptance is not a readiness conclusion and human review of every readiness decision is retained), enforces the same evidence rules as the Copilot and runs in a degraded standalone mode when upstream outputs are absent. Start with the suite README for the MindStudio-to-prompt translation map, the interchange contract and the registry stewardship rules.
+The Copilot assesses optionality. The [`advisory-tools/`](advisory-tools/README.md) directory operates it: six standalone model-agnostic system prompts implementing Pipes, Switches and Exits against each critical service's own impact tolerance, reported as three milestones (containment, interim continuity, final exit). Pipes Mapper maintains the dependency registry, Switch Registry keeps the flip log, Exit Prover tests exit readiness, Treasury Reroute Planner and Data Switchboard Planner build the financial and data contingency plans, and the Clean Market Exit Kit merges everything into one master playbook from T0 (onset) to final exit. Each prompt is self-contained, exchanges tool-tagged JSON validated by the suite schemas in [`schemas/`](schemas/) and by [`tools/validate.py`](tools/validate.py), which adds the policy checks a schema cannot express (incomplete by design: its acceptance is not a readiness conclusion and human review of every readiness decision is retained), enforces the same evidence rules as the Copilot and runs in a degraded standalone mode when upstream outputs are absent. Start with the suite README for the primitives as the suite narrows them, the interchange map and the registry stewardship rules.
 
 ---
 
@@ -128,11 +114,11 @@ The Copilot assesses optionality. The [`advisory-tools/`](advisory-tools/README.
 
 Full instructions with data-control and memory caveats are in [`prompt/model-configuration-notes.md`](prompt/model-configuration-notes.md). In brief:
 
-**Claude (Project or Custom Instructions).** Paste [`prompt/GRCnext-Copilot-v2.md`](prompt/GRCnext-Copilot-v2.md) into the Project instructions. Project instruction limits are large enough for the full prompt, so no compaction is needed. Add the `templates/` and `examples/` files as Project knowledge if you want the Copilot to reuse them.
+**Claude (Project or Custom Instructions).** Paste [`prompt/GRCnext-Copilot-v2.md`](prompt/GRCnext-Copilot-v2.md) into the Project instructions. Project instruction limits are large enough for the full prompt, so no compaction is needed. Add the blank `templates/` and the `examples/` files as Project knowledge if you want the Copilot to reuse them; [`START-HERE.md`](START-HERE.md) is the first run.
 
-**ChatGPT Custom GPT (closed route).** [`prompt/compact-custom-gpt-version.md`](prompt/compact-custom-gpt-version.md) was written for the 8,000-character instructions field of a custom GPT, with [`prompt/GRCnext-Copilot-v2.md`](prompt/GRCnext-Copilot-v2.md) attached as a Knowledge file. OpenAI is retiring custom GPTs (sources in [RETIREMENT.md](https://github.com/rolldabones/rolldabones/blob/main/RETIREMENT.md)), so use the Claude route above or the standalone route below on any current assistant.
+**Short edition.** [`prompt/GRCnext-Copilot-compact.md`](prompt/GRCnext-Copilot-compact.md) is the v2 prompt in short form, for an assistant with a tight instruction limit; it carries the decision caps and points to the v2 prompt for the rest. Until v2.6.0 it was `compact-custom-gpt-version.md`, written for the 8,000-character field of a custom GPT; that route closed with the retirement (sources in [RETIREMENT.md](https://github.com/rolldabones/rolldabones/blob/main/RETIREMENT.md)), and the edition no longer fits that field.
 
-**Former production instance.** The author's GRCnext™ Copilot custom GPT ran the **v1 single-prompt configuration**, documented in [`prompt/v1-production-deployment.md`](prompt/v1-production-deployment.md) as last verified on 15 July 2026, before the conversion: the v1 instruction in the Instruction field, no Knowledge files, no conversation starters, and Web Search, Canvas, Image Generation and Code Interpreter & Data Analysis enabled. The v2 configuration this repository ships was never deployed to it.
+**Former production instance.** The author's GRCnext™ Copilot custom GPT ran the **v1 single-prompt configuration** until 1 October 2026, documented in [`prompt/v1-production-deployment.md`](prompt/v1-production-deployment.md) as last verified on 15 July 2026, before the conversion: the v1 instruction in the Instruction field, no Knowledge files, no conversation starters; Web Search, Canvas, Image Generation and Code Interpreter & Data Analysis enabled. The v2 configuration this repository ships was never deployed to it.
 
 > **Retired 1 October 2026 (KST).** The GRCnext™ Copilot custom GPT was retired on 1 October 2026 and converted to a private plug-in on the OpenAI platform. The instructions published in this repository are the text of record and suffice for anyone who wants to build their own. History and sources: [RETIREMENT.md](https://github.com/rolldabones/rolldabones/blob/main/RETIREMENT.md).
 
@@ -158,7 +144,7 @@ GRCnext™ received its first public exposition in the essay [*Made to Hold*](ht
 
 This repository is part of the [rolldabones governance ecosystem](https://github.com/rolldabones/rolldabones/blob/main/ECOSYSTEM.md), classified in Layer 2 (assessment and decision tools). Nearest neighbors:
 
-- [grc](https://github.com/rolldabones/grc) - the GRCnext™ framework whose five primitives this Copilot runs as a scoring engine
+- [grc](https://github.com/rolldabones/grc) - the OCEG-spine working method for governance, risk management and compliance; the five GRCnext™ primitives are defined here, not there
 - [RedCap-00](https://github.com/rolldabones/RedCap-00) - the 72-hour operational-optionality self-check this method generalizes
 - [RedCap-01](https://github.com/rolldabones/RedCap-01) - the objective-to-risk alignment diagnostic upstream of optionality design
 - [Contract-Mechanism-Review-Assistant](https://github.com/rolldabones/Contract-Mechanism-Review-Assistant) - the contract reader that feeds the Contract Exit Review mode
@@ -172,7 +158,7 @@ GRCnext™ and the associated doctrine vocabulary (Slow AI, Informed Intent, Fin
 
 ## How to Cite
 
-> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.5.2. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
+> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.6.0. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
 
 A machine-readable citation is in [CITATION.cff](CITATION.cff).
 
