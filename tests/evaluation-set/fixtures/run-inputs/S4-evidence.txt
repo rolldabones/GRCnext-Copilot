@@ -2,7 +2,7 @@ Synthetic evidence for case S4 (advisory-suite-cases.md). Paste both blocks into
 
 EXP-0042 (excerpt):
 # edge-ctl config export  host=edge-01  ts=2026-10-13T10:42:07+09:00  export_id=EXP-0042
-rule geoblock-apac { action: reject; countries: [KR, JP, SG, AU, HK, TW]; enabled: true; changed_by: bob.k; changed_at: 2026-10-13T10:41:55+09:00 }
+rule geoblock-apac { action: reject; countries: [KR, JP, SG, AU, HK, TW]; enabled: true; changed_by: secops-engineer; changed_at: 2026-10-13T10:41:55+09:00 }
 
 NOC log line:
 2026-10-13T10:44:12+09:00 noc-siem auth.reject src_country=SG rule=geoblock-apac count_60s=142 note="APAC login attempts rejected since 10:42"

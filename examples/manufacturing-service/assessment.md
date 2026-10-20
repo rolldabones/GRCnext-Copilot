@@ -84,7 +84,7 @@ Cannot Determine.
 | Evidence shows tolerance result | Unknown | Tolerance never tested for the governing scenario |
 | Corrective actions have owners and dates | Fail | Actions identified but not owned, dated or scheduled |
 
-Four gates are not passed. Two are hard Fails on core gates.
+Four gates are not passed: three hard Fails (gates 5, 6 and 8) and one Unknown.
 
 ## Top breakpoints
 

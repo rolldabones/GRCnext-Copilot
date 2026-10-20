@@ -201,9 +201,8 @@ deliberately aligned with established operational-resilience regulation so
 that assessments produced with this method map cleanly onto recognized
 supervisory language.
 
-The terms impact tolerance, important or critical service and severe but
-plausible scenario are aligned with the United Kingdom operational
-resilience regime: Financial Conduct Authority Policy Statement PS21/3,
+The terms impact tolerance and severe but plausible scenario are aligned
+with the United Kingdom operational resilience regime: Financial Conduct Authority Policy Statement PS21/3,
 Building operational resilience, and Prudential Regulation Authority
 Policy Statement PS6/21 with Supervisory Statement SS1/21, Operational
 resilience: Impact tolerances for important business services. Those rules
@@ -216,9 +215,12 @@ defines an impact tolerance as the maximum tolerable level of disruption
 measured by a length of time (para 3.1) and counts its examples from the
 disruption itself (paras 3.7 and 4.11); it names no detection trigger, so
 the onset rule is GRCnext™'s, consistent with that framing ([SS1/21,
-March 2021 text](https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/supervisory-statement/2021/ss121-march-21.pdf),
-read 18 October 2026; the Bank of England marks that text superseded by
-an updated version, which this note has not compared).
+March 2022 version](https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/supervisory-statement/2021/ss121-march-22.pdf),
+read 20 October 2026; it superseded the March 2021 text on 31 March
+2022, and paras 3.1, 3.7 and 4.11 read the same in both). The term
+important or critical service is this method's own: the United Kingdom
+regime's term is important business service and DORA's, below, is
+critical or important function (Article 3, point (22)).
 
 The emphasis on third-party dependency, concentration, exit and
 substitutability is aligned with the European Union Digital Operational

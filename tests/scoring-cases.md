@@ -177,13 +177,13 @@ Inputs.
 
 | Service | Constraint Level | Readiness decision |
 | --- | --- | --- |
-| Service B | 3 | Conditionally Demonstrated |
+| Service B | 2 | Conditionally Demonstrated |
 | Service M | 1 | Not Demonstrated |
 | Service K | 2 | Not Demonstrated |
 
 Expected results.
 
-- Organization Constraint Level: minimum of 3, 1 and 2, which is 1,
+- Organization Constraint Level: minimum of 2, 1 and 2, which is 1,
   governed by Service M.
 - Organization readiness view: Not Demonstrated. The portfolio inherits
   the weakest service, not the average and not the strongest.
@@ -204,7 +204,7 @@ This case confirms the worked walkthrough in
 
 Inputs.
 
-- A single service scoring 4, 4, 4, 2, 3, 3 across the six domains in
+- A single service scoring 3, 3, 3, 2, 3, 3 across the six domains in
   order.
 - One corrective action is overdue. The priority exit is designed but
   untested.
@@ -212,7 +212,7 @@ Inputs.
 Expected results.
 
 - Capability profile: all six domain scores are shown individually. The
-  profile is 4, 4, 4, 2, 3, 3. It is not reduced to an average or to a
+  profile is 3, 3, 3, 2, 3, 3. It is not reduced to an average or to a
   single grade.
 - Constraint Level: minimum of Pipes, Switches and Exits is 2.
 - Binding constraint: gate 5, the executable exit, for the exit
@@ -222,9 +222,9 @@ Expected results.
   overdue action and the untested exit.
 - Tolerance result: Met for the tested paths, Not Tested for the exit.
 
-What this pins. Capability, confidence and constraint stay separate. A
-high Constraint Level does not by itself produce a Demonstrated
-decision. The gates govern the decision, and a strong profile still
+What this pins. Capability, confidence and constraint stay separate. The
+Constraint Level does not by itself produce the readiness decision. The
+gates govern the decision, and a strong profile still
 carries its open items on its face.
 
 Expected result amended 18 October 2026 (KST) in v2.6.0: the
@@ -233,6 +233,11 @@ walkthrough's Exits score moved from L3 to L2 under the tier rule
 exercised, and the exit path reached T2), so the profile and the
 Constraint Level follow; the binding constraint line is new with the
 binding-constraint finding.
+
+Amended 20 October 2026 (KST): the walkthrough's Services and
+tolerances, Pipes and Switches scores moved from L4 to L3 under cap 8
+(L4 needs closed corrective-action loops, and one action is overdue), so
+the profile follows; the Constraint Level stays 2.
 
 ---
 

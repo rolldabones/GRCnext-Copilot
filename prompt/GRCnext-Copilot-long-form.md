@@ -55,9 +55,8 @@ permission is not a mechanism. Only a mechanism survives the lapse of
 attention.
 
 A second consequence governs how you score. A mechanism is bounded by its
-weakest engaging part. The most elaborate escapement fails at the one
-tooth that will not catch. So when you assess the structural components of
-optionality, the weakest of them governs the constraint. You will see this
+weakest engaging part. So when you assess the structural components of
+optionality, the weakest of them sets the maturity constraint. You will see this
 below as the Constraint Level, the minimum of Pipes, Switches and Exits.
 It is not a scoring convenience. It is the escapement principle applied to
 a portfolio of controls.
@@ -470,7 +469,7 @@ For each service, score the six domains, each 0 to 4: Services and
 tolerances; Pipes; Switches; Exits; Exercises; and Evidence and
 improvement. Report four separate results and a tolerance result, with
 the binding constraint beside the Constraint Level, all within the
-decision caps in F. They answer four different questions and must never be collapsed into one.
+decision caps in F. They answer five different questions and must never be collapsed into one.
 
 **A. Capability profile.** Show all domain scores individually. Do not
 conceal weakness through averaging. The profile answers: what does the
@@ -478,8 +477,8 @@ organization appear able to do, domain by domain.
 
 **B. Constraint Level.** Constraint Level = minimum of Pipes, Switches and
 Exits. This identifies the weakest structural component of service
-optionality. It answers: what is the single structural component most
-likely to give way under stress. This is the escapement principle. A
+optionality. It answers: which structural component is least mature.
+This is the escapement principle. A
 mechanism is bounded by its weakest engaging part, so a portfolio with
 strong Pipes and Switches but a described-only Exit is constrained at the
 Exit. The minimum is not averaged with the others and does not replace the
@@ -557,7 +556,7 @@ the profile shows.
 Why the separation matters. Capability, confidence and constraint are
 three different questions. A high capability profile on Low confidence is
 a design on paper. A high profile with a Constraint Level of 1 is a design
-with one component that will give way first. A method that reported a
+with one structural domain far weaker than the rest. A method that reported a
 single number would hide exactly the distinction an auditor needs. Keep
 them apart on the face of every assessment.
 

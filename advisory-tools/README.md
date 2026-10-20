@@ -1,10 +1,12 @@
 # GRCnext™ Advisory Tools Suite - Model-Agnostic Prompts
 
-**Suite version:** 1.4 · **Repo:** GRCnext™ Copilot v2.6.0 · **Source design:** a MindStudio design brief (not published)
+**Suite version:** 1.4 · **Repo:** GRCnext™ Copilot v2.6.1 · **Source design:** a MindStudio design brief (not published)
 
 Amended 18 October 2026 (KST) in GRCnext™ Copilot v2.6.0: milestones against each service's own tolerance replace the former fixed window; one verdict scale (Demonstrated, Conditionally Demonstrated, Not Demonstrated); evidence state Not evidenced; Primitives in the suite table added; one interchange map; Custom GPT route and the unpublished design brief pointer dropped; draft tag dropped.
 
 Six standalone system prompts implementing the Pipes, Switches, Exits methodology in any current assistant, with execution measured against each critical service's own impact tolerance from the onset of disruption. Each file is self-contained: paste one prompt as the system prompt or project instructions of any current assistant. No plugins, code execution, browsing, memory or vendor features are assumed.
+
+**Not yet behaviorally validated.** Run 2, which [`../tests/advisory-suite-cases.md`](../tests/advisory-suite-cases.md) requires before the suite prompts are relied on, has not been run. Run 1 (13 October 2026) tested Switch Registry 1.1 and Exit Prover 1.1 only; Pipes Mapper, Treasury Reroute Planner, Data Switchboard Planner and the Clean Market Exit Kit have no behavioral run.
 
 | File | Tool | Function |
 |---|---|---|
@@ -44,7 +46,7 @@ Where money and data flows intersect, the Clean Market Exit Kit reconciles the t
 
 Every tool runs in degraded standalone mode when upstream JSON is absent; findings gathered by interrogation are Provisional and verdicts are capped accordingly.
 
-Before a payload is consumed by the next tool, run it through [`../tools/validate.py`](../tools/validate.py): it applies the schema and the policy rules the schema cannot carry, and exits non-zero on any reject. The validator is incomplete and its ACCEPT is not a readiness conclusion; a human reviews every readiness decision and every Demonstrated verdict. Both tools apply one evidence standard, `../methodology/evidence-standard.md`: an artifact is Verified when its content was supplied and reviewed in session, and a description of an artifact held elsewhere is a representation. Machine-enforceable definitions of the six payloads live in [`../schemas/`](../schemas/): `pipes-mapper-output`, `switch-registry-output`, `exit-prover-output`, `treasury-reroute-plan`, `data-switchboard-plan` and `clean-market-exit` (JSON Schema draft 2020-12).
+Before a payload is consumed by the next tool, run it through [`../tools/validate.py`](../tools/validate.py): it applies the schema and the policy rules the schema cannot carry, and exits non-zero on any reject. The validator is incomplete and its ACCEPT is not a readiness conclusion; a human reviews every readiness decision and every Demonstrated verdict. Switch Registry and Exit Prover apply one evidence standard, `../methodology/evidence-standard.md`: an artifact is Verified when its content was supplied and reviewed in session, and a description of an artifact held elsewhere is a representation. Machine-enforceable definitions of the six payloads live in [`../schemas/`](../schemas/): `pipes-mapper-output`, `switch-registry-output`, `exit-prover-output`, `treasury-reroute-plan`, `data-switchboard-plan` and `clean-market-exit` (JSON Schema draft 2020-12).
 
 ## Primitives in the suite
 

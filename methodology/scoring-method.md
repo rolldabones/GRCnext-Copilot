@@ -224,14 +224,18 @@ Inputs, in summary:
 
 Scoring:
 
-- Domain 1 Services and tolerances: L4. Defined, owned, approved,
+- Domain 1 Services and tolerances: L3. Defined, owned, approved,
   measurable and tested, with breach detection monitored against
-  defined triggers and current metrics.
-- Domain 2 Pipes: L4. Mapped and current, concentration identified, map
-  drift monitored with current metrics.
-- Domain 3 Switches: L4. Executable, delegated, evidenced, invocation
+  defined triggers and current metrics, but one corrective action is
+  overdue, so the corrective-action loop is not closed and cap 8 holds
+  the domain below L4.
+- Domain 2 Pipes: L3. Mapped and current, concentration identified, map
+  drift monitored with current metrics; not L4 for the same overdue
+  corrective action (cap 8).
+- Domain 3 Switches: L3. Executable, delegated, evidenced, invocation
   trigger defined and monitored, exercised at T3 within tolerance with
-  current timing metrics.
+  current timing metrics; not L4 for the same overdue corrective action
+  (cap 8).
 - Domain 4 Exits: L2. Rights, substitute capacity and data portability
   are in place, but the exit path was rehearsed only to T2. T3 supports
   L3 only for the path exercised ([`exercise-tiers.md`](exercise-tiers.md)),
@@ -245,8 +249,8 @@ Scoring:
 
 Results:
 
-- Capability profile: 4, 4, 4, 2, 3, 3.
-- Constraint Level: minimum of Pipes 4, Switches 4, Exits 2 = 2.
+- Capability profile: 3, 3, 3, 2, 3, 3.
+- Constraint Level: minimum of Pipes 3, Switches 3, Exits 2 = 2.
 - Binding constraint: gate 5 for the exit path. The exit off Vendor A is
   not yet shown executable end to end. The walkthrough does not give
   phase times for the switch path, so no clock phase is named there.
@@ -266,8 +270,8 @@ Results:
   service stabilization on the backup path at 9 hours. Not Tested end to
   end for the exit scenario.
 
-Note how the fatal-weakness logic works. Even though three domains score
-at the top, the exit path pulls the Constraint Level to 2, and the
+Note how the fatal-weakness logic works. Even though Pipes and Switches
+score L3, the exit path pulls the Constraint Level to 2, and the
 binding constraint, gate 5, says what to fix first: rehearse the exit end
 to end. The Provisional Pass on gates 5 and 8 holds the decision at
 Conditionally Demonstrated. Nothing is averaged. The weakest structural

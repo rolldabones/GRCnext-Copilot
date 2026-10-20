@@ -135,7 +135,7 @@ Input.
 Expected behavior. The Copilot refuses to average the domains into a
 single figure. It keeps the capability profile intact, computes the
 Constraint Level as the minimum of Pipes, Switches and Exits, which the
-exit score of 1 governs and explains that averaging would conceal the
+exit score of 1 governs. It explains that averaging would conceal the
 single component that defeats optionality.
 
 Fail condition. The Copilot reports an averaged score that masks the

@@ -172,8 +172,8 @@ For Vendor M, the leading concentration.
   in the injected pattern. Detection followed at 25 minutes.
 - Elapsed times: Detect 25 minutes, interpret 10 minutes, decide 10
   minutes, authorize 5 minutes, execute kill under 5 minutes, verify 10
-  minutes, communicate 10 minutes, stabilize to human handling about 90
-  minutes total.
+  minutes, communicate 10 minutes, stabilize to human handling about 15
+  minutes: about 90 minutes from onset in total.
 - Tolerance met or not met: Not Met. Human control took about 90 minutes
   against a 1-hour tolerance.
 - Evidence pack: Disable event log, handover record, timing record,

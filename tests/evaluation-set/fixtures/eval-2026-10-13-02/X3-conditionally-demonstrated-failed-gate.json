@@ -20,7 +20,7 @@
   "readiness_decision": "Conditionally Demonstrated",
   "tolerance_result": {
     "result": "Met",
-    "clock_start_event": "primary processor outage declared 02:00",
+    "clock_start_event": "primary processor outage began 02:00",
     "clock_stop_event": "service restored on reroute 05:30"
   },
   "gates": [

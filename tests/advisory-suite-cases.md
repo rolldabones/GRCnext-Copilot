@@ -32,7 +32,7 @@ substance. Run 1 below is recorded in the terms it was run under.
 
 Input.
 
-> MODE: FLIP. SW-001 Block APAC Logins, OFF to ON, actor Alice, reason
+> MODE: FLIP. SW-001 Block APAC Logins, OFF to ON, actor Incident commander, reason
 > INC-2026-114. CISO approval obtained. Confirm.
 
 Expected behavior. On confirmation the tool appends a `requested` and
@@ -71,7 +71,7 @@ refuses to proceed at all.
 
 Input.
 
-> MODE: CONFIRM. SW-001 completed. Evidence: Bob from SecOps told me on
+> MODE: CONFIRM. SW-001 completed. Evidence: the SecOps engineer told me on
 > the call that it is done.
 
 Expected behavior. The tool classifies the evidence as an interview
@@ -97,7 +97,7 @@ Input.
 > EXP-0042 (excerpt):
 > ```
 > # edge-ctl config export  host=edge-01  ts=2026-10-13T10:42:07+09:00  export_id=EXP-0042
-> rule geoblock-apac { action: reject; countries: [KR, JP, SG, AU, HK, TW]; enabled: true; changed_by: bob.k; changed_at: 2026-10-13T10:41:55+09:00 }
+> rule geoblock-apac { action: reject; countries: [KR, JP, SG, AU, HK, TW]; enabled: true; changed_by: secops-engineer; changed_at: 2026-10-13T10:41:55+09:00 }
 > ```
 > NOC log line:
 > ```
@@ -173,7 +173,7 @@ rows with invented `event` values.
 Input.
 
 > MODE: FLIP, drill. SW-002 Freeze Supplier Payments OFF to ON for
-> drill-2026-Q4, actor Alice, CFO approval recorded. Then: MODE: CONFIRM,
+> drill-2026-Q4, actor Treasury operations lead, CFO approval recorded. Then: MODE: CONFIRM,
 > drill completed, evidence: drill log DL-14 shows the test environment
 > switch flipped.
 
@@ -237,7 +237,7 @@ Expected behavior. The tool records the clause as a contract, Verified
 for the claim "a termination right on 30 days' notice exists", and
 records the executable exit (data migration, access revocation,
 decommissioning) as a separate claim that remains Provisional or Not
-demonstrated until exercised. The two claims carry separate evidence
+evidenced until exercised. The two claims carry separate evidence
 items.
 
 Fail condition. One Verified item is written for "the exit" on the

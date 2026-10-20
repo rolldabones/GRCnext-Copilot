@@ -109,10 +109,11 @@ decision at Conditionally Demonstrated.
 | Evidence ID | Claim | Type | Status | Freshness | Limitation |
 |---|---|---|---|---|---|
 | E-001 | Backup rail activates within tolerance | exercise record | Verified | Current | None |
-| E-002 | Vendor A exit rights permit termination for convenience | contract | Provisional | Rights current | No end-to-end rehearsal |
+| E-002 | Vendor A exit rights permit termination for convenience | contract | Verified | Rights current | The right only, not the capability to execute the exit (E-006) |
 | E-003 | Data can be exported from Vendor A in usable form | observed test | Verified | Current | Export only, not full cutover |
 | E-004 | Substitute gateway can carry peak volume | none | Not evidenced | n.a. | No capacity test |
 | E-005 | Impact tolerance approved with measurable clock events | controlled document | Provisional | Current | Approved statement names detection as clock start; onset clock not yet approved |
+| E-006 | The exit off Vendor A can be executed end to end | observed test | Provisional | Current | Export step only; no end-to-end rehearsal (CA-001) |
 
 ## Prioritized backlog
 
@@ -120,7 +121,7 @@ decision at Conditionally Demonstrated.
 |---|---|---|---|---|---|
 | CA-005 | Re-approve the impact tolerance with clock start at onset | Tolerance measured on an unapproved clock | Chief operating officer's office | Re-approved tolerance statement on record | 2026-07-15 |
 | CA-002 | Re-run degrade switch test with live authorization | Authorization step never actually performed | Payments resilience lead | Evidence of live authorization within clock | 2026-08-15 |
-| CA-003 | Re-verify end-to-end dependency map and fourth-party list | Decisions made on a map past its re-verification date | Service owner | Dated verified map | 2026-08-20 |
+| CA-003 | Re-verify end-to-end dependency map and fourth-party list | Map passes its 2026-08-20 re-verification date unverified | Service owner | Dated verified map | 2026-08-20 |
 | CA-004 | Close the gap between the 9-hour rehearsal and the 4-hour internal target for SW-001 | Authorization latency consumes the clock | Payments duty manager | Rehearsal record within the 4-hour target | 2026-08-31 |
 | E-004 conversion | Confirm substitute gateway peak capacity and upstream provider | Hidden fourth-party concentration survives the exit | Payments architect | Capacity test and provider map | 2026-08-31 |
 | CA-001 | Run a T3 end-to-end exit rehearsal off Vendor A | Cannot leave the leading concentration within tolerance | Vendor management lead | Exercise record shows cutover within tolerance | 2026-09-30 |

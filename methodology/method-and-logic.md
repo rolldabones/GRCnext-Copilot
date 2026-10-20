@@ -41,7 +41,7 @@ choice.
 Two consequences run through everything below. First, the unit of credit
 is the mechanism, not the permission. Second, a mechanism is bounded by
 its weakest engaging part, which is why the weakest of the structural
-components governs the constraint. Both come straight from the escapement
+components sets the Constraint Level. Both come straight from the escapement
 idea.
 
 ## 2. What the method measures: Global Optionality
@@ -184,8 +184,8 @@ to collapse them into one. The refusal is the point.
 **Capability, confidence and constraint are three different questions.**
 Capability is what the organization appears able to do, domain by domain.
 Confidence is how strongly the evidence supports that appearance.
-Constraint is which single structural component will give way first under
-stress. A single overall number cannot carry all three, and the act of
+Constraint is which structural domain is least mature, with the binding
+constraint naming what actually limits execution. A single overall number cannot carry all three, and the act of
 producing one destroys exactly the information an auditor needs. A polished
 design on weak evidence and a tested design on strong evidence can produce
 the same average and are not the same thing. The method shows the profile,
@@ -194,10 +194,9 @@ visible.
 
 **The Constraint Level is the escapement principle applied to scoring.**
 Constraint Level is the minimum of Pipes, Switches and Exits. A mechanism
-is bounded by its weakest engaging part. The most elaborate escapement
-fails at the one tooth that will not catch, and a service with strong Pipes
-and Switches but a described-only Exit is constrained at the Exit, because
-that is where it gives way. The minimum is not averaged with the other
+is bounded by its weakest engaging part, and a service with strong Pipes
+and Switches but a described-only Exit has its Constraint Level set by the
+Exit. The minimum is not averaged with the other
 domains and does not replace the capability profile. It sits beside it and
 names the weakest maturity domain. This is why the method retains the
 minimum rule from earlier versions but demotes it from the whole score to

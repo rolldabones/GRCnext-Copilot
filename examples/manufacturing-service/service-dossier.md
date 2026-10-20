@@ -37,7 +37,7 @@ Synthetic example. Neutral labels throughout.
   commercial function on penalty exposure.
 - Underlying assumptions: Buffer stock of raw material covers roughly 18
   hours of production at normal rate.
-- Latest result: Not Tested against a full 24-hour supplier-loss scenario.
+- Latest result: Cannot Determine for a full 24-hour supplier-loss scenario.
 
 ## 3. End-to-end dependency map
 

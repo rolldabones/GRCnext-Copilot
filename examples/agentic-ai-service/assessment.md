@@ -74,8 +74,9 @@ Not Met.
   action. Detection followed at 25 minutes (the Detect phase).
 - Clock stop: verified human control of the queue.
 - Elapsed: about 90 minutes against a 1-hour tolerance. Detection took 25
-  minutes and reviewer ramp-up to stable human handling took most of the
-  rest.
+  minutes, the longest recorded phase; interpretation, decision,
+  authorization, kill, verification and communication took about 50
+  minutes and reviewer ramp-up to stable human handling about 15.
 
 ## Gate results
 
@@ -99,7 +100,7 @@ The AI overlay resolves to one governing question: can a human assume
 control within tolerance. The answer is no, for three reasons.
 
 1. Detection latency. Monitoring took 25 minutes to surface the incorrect
-   action pattern. The clock was already a quarter gone before anyone
+   action pattern. About 40 percent of the clock was gone before anyone
    acted.
 2. Reviewer capacity. Rolling the queue back to human handling reached
    stable operation in about 90 minutes. Reviewers exist but cannot absorb

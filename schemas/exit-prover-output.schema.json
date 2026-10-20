@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/rolldabones/GRCnext-Copilot/schemas/exit-prover-output.schema.json",
   "title": "GRCnext™ Exit Prover Proof",
-  "description": "Proof emission from the Exit Prover advisory tool. A proof with gaps reported honestly is a valid Not Demonstrated. Consumed by Clean Market Exit Kit. Demonstrated requires at least one dependency, at least one Verified evidence item and no material item below Verified; otherwise the verdict is Conditionally Demonstrated or Not Demonstrated.",
+  "description": "Proof emission from the Exit Prover advisory tool. A proof with gaps reported honestly is a valid Not Demonstrated. Consumed by Clean Market Exit Kit. Under Demonstrated the schema checks at least one dependency, every dependency and obligation at Verified or Not applicable and at least one Verified evidence item; it does not check that every material evidence item is Verified, which 03-exit-prover.md s5 requires and human review retains. Otherwise the verdict is Conditionally Demonstrated or Not Demonstrated.",
   "type": "object",
   "additionalProperties": false,
   "required": [

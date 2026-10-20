@@ -1,6 +1,6 @@
 # Evaluation set
 
-**Version 2.6.0 · 18 October 2026**
+**Version 2.6.1 · 20 October 2026**
 
 **The validator is INCOMPLETE and its ACCEPT is not a readiness conclusion.** Human review of every readiness decision and every Demonstrated proof is retained; the tool checks a record against the repository's own written rules and nothing else. Its known gaps are in its docstring and in `validator-proof-2026-10-13-02.md`.
 
@@ -61,7 +61,7 @@ of is PARTIAL with the doubt stated, never rounded to PASS.
 From v2.6.0, `.github/workflows/validate.yml` runs `tools/check_fixtures.py`
 on every push and pull request: every fixture under `clean-bases/`,
 `policy-cases/`, `eval-2026-10-13-02/` and `v2.6.0/` against the verdict its
-index expects, every example's `assessment-result.json`, and the JSON
+index expects (and, for a REJECT whose index names a rule, against that rule), every example's `assessment-result.json`, and the JSON
 sample in each of the six advisory prompts. A mismatch fails the build.
 
 ## What this set is not
