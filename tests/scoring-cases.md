@@ -155,16 +155,20 @@ Expected treatment.
   A discussion-based tabletop does not establish that the capability
   could be executed under stress, and the capability here could
   reasonably be put to a controlled test.
-- Gate: severe but plausible exercise completed is Provisional Pass at
-  most, not a full Pass, because nothing was executed or measured.
+- Gate: severe but plausible exercise completed is Fail, because a
+  discussion-only tabletop of the governing scenario is not an exercise
+  of it (`templates/intake-pack.md`, gate 6: "Fail: no exercise, or
+  discussion only for the governing scenario").
 - Tolerance result: Not Tested.
 
 What this pins. The tier of the exercise gates the maturity level. T0
 and T1 do not earn L3. Only a controlled test, an end-to-end rehearsal
 or a live event supports the Exercised level, and then only with
-measured evidence. A T1 tabletop yields at most Provisional Pass on the
-exercise gate, and an assessor marks Fail where the governing scenario
-remains untested.
+measured evidence. A T1 tabletop of the governing scenario is a Fail on
+the exercise gate, as the intake pack and the manufacturing example read.
+
+Expected result amended 20 October 2026 (KST): the exercise gate moved
+from "Provisional Pass at most" to Fail, to match the intake pack.
 
 ---
 
@@ -220,7 +224,8 @@ Expected results.
 - Evidence confidence: Moderate.
 - Readiness decision: Conditionally Demonstrated, held there by the
   overdue action and the untested exit.
-- Tolerance result: Met for the tested paths, Not Tested for the exit.
+- Tolerance result: Met for the governing scenario; the exit path's fit
+  within tolerance is untested.
 
 What this pins. Capability, confidence and constraint stay separate. The
 Constraint Level does not by itself produce the readiness decision. The

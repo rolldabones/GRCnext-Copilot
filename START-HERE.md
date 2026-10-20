@@ -96,9 +96,13 @@ pip install jsonschema
 python3 tools/validate.py result.json
 ```
 
-Read the verdict line. ACCEPT means the record follows the repository's
-own rules: the schema, the eight gates, the Constraint Level arithmetic
-and the decision caps. REJECT lists each finding with the rule it breaks;
+Read the verdict line. ACCEPT means the record passes the checks the
+validator states: the schema, each of the eight gates present once, the
+Constraint Level arithmetic and decision caps 1, 2, 4 and 5 (cap 3, an
+unsupported Not Applicable, only warns). It does not check cap 6
+(organization minimum), cap 7 (Contradicted evidence) or cap 8 (exercise
+tier caps maturity), and it accepts Conditionally Demonstrated with every
+gate Unknown; a human checks those. REJECT lists each finding with the rule it breaks;
 correct the assessment, not the JSON, and emit it again. WARN findings do
 not change the verdict but need a human look.
 

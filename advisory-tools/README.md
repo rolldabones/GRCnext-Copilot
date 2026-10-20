@@ -1,12 +1,14 @@
 # GRCnext™ Advisory Tools Suite - Model-Agnostic Prompts
 
-**Suite version:** 1.4 · **Repo:** GRCnext™ Copilot v2.6.1 · **Source design:** a MindStudio design brief (not published)
+**Suite version:** 1.5 · **Repo:** GRCnext™ Copilot v2.6.2 · **Source design:** a MindStudio design brief (not published)
 
 Amended 18 October 2026 (KST) in GRCnext™ Copilot v2.6.0: milestones against each service's own tolerance replace the former fixed window; one verdict scale (Demonstrated, Conditionally Demonstrated, Not Demonstrated); evidence state Not evidenced; Primitives in the suite table added; one interchange map; Custom GPT route and the unpublished design brief pointer dropped; draft tag dropped.
 
 Six standalone system prompts implementing the Pipes, Switches, Exits methodology in any current assistant, with execution measured against each critical service's own impact tolerance from the onset of disruption. Each file is self-contained: paste one prompt as the system prompt or project instructions of any current assistant. No plugins, code execution, browsing, memory or vendor features are assumed.
 
-**Not yet behaviorally validated.** Run 2, which [`../tests/advisory-suite-cases.md`](../tests/advisory-suite-cases.md) requires before the suite prompts are relied on, has not been run. Run 1 (13 October 2026) tested Switch Registry 1.1 and Exit Prover 1.1 only; Pipes Mapper, Treasury Reroute Planner, Data Switchboard Planner and the Clean Market Exit Kit have no behavioral run.
+**Not yet behaviorally validated.** Run 2, which [`../tests/advisory-suite-cases.md`](../tests/advisory-suite-cases.md) requires before the suite prompts are relied on, has not been run. Run 1 (13 October 2026) tested Switch Registry 1.1 and Exit Prover 1.1 only; Pipes Mapper, Treasury Reroute Planner, Data Switchboard Planner and the Clean Market Exit Kit have no behavioral run. The Switch Registry 1.5 and Clean Market Exit Kit 1.2 amendments of 20 October 2026 are not accepted pending a logged run.
+
+Amended 20 October 2026 (KST) in GRCnext™ Copilot v2.6.2 (suite 1.5): Switch Registry 1.5 and Clean Market Exit Kit 1.2; validation status stated.
 
 | File | Tool | Function |
 |---|---|---|

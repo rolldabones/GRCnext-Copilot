@@ -33,7 +33,9 @@ Every material claim carries one of six states.
 - Refuted. Available evidence affirmatively disproves the claim. Record
   the disproof and the evidence that establishes it.
 - Not applicable. There is a supported reason the requirement does not
-  apply. An unsupported Not Applicable is treated as Unknown.
+  apply. An unsupported Not Applicable is not accepted: the claim is
+  recorded as Unknown / Insufficient data, the label for missing
+  information, not as a seventh state.
 
 A claim that appears unsupported by any evidence and is asserted as fact
 is additionally flagged POTENTIAL HALLUCINATION.

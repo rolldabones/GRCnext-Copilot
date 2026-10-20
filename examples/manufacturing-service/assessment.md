@@ -25,7 +25,7 @@ Synthetic example. Neutral labels. Not legal, safety or regulatory advice.
 |---|---|---|
 | Services and tolerances | 3 | Defined, owned, tolerance approved, but never tested against the governing supplier-loss scenario |
 | Pipes | 3 | Mapped, both concentrations and a fourth-party mine dependency identified, map current |
-| Switches | 3 | Safety stop is T4 and strong, but manual control is only T1 and buffer runway is untested to exhaustion |
+| Switches | 3 | Safety stop is T4 (a real event), which supports L3 for that path under cap 8; manual control is only T1 and buffer runway is untested to exhaustion, so those paths earn no L3 credit |
 | Exits | 1 | Exit is described only. No second supplier qualified, no substitute capacity today |
 | Exercises | 2 | A real safety-stop event exists, but the control-loss and supplier-loss scenarios reached only T1 |
 | Evidence and improvement | 2 | Some strong evidence, but key scenarios are untested and no retest is scheduled |
@@ -100,9 +100,9 @@ Four gates are not passed: three hard Fails (gates 5, 6 and 8) and one Unknown.
 | Evidence ID | Claim | Type | Status | Freshness | Limitation |
 |---|---|---|---|---|---|
 | E-M1 | Safe controlled stop achievable in minutes | production event | Verified | Current | Covers stop, not resumption within tolerance |
-| E-M2 | Manual control can sustain production | none | Not evidenced | n.a. | Tabletop only, never run on line |
+| E-M2 | Manual control can sustain production | interview representation | Not evidenced | n.a. | Tabletop only, never run on line |
 | E-M3 | Buffer covers about 18 hours | interview representation | Provisional | Uncertain | Never tested to exhaustion |
-| E-M4 | Alternate raw-material supplier available | none | Not evidenced | n.a. | No supplier qualified |
+| E-M4 | Alternate raw-material supplier available | interview representation | Not evidenced | n.a. | No supplier qualified |
 
 ## Prioritized backlog
 

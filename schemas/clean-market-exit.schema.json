@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/rolldabones/GRCnext-Copilot/schemas/clean-market-exit.schema.json",
   "title": "GRCnext™ Clean Market Exit Master Plan",
-  "description": "Terminal artifact of the Advisory Tools Suite, emitted by the Clean Market Exit Kit. Merges all upstream tool outputs into one master playbook from T0 (onset or decision) to final exit, with three milestones against the service's tolerance. Verdict is capped at Conditionally Demonstrated in degraded standalone mode.",
+  "description": "Terminal artifact of the Advisory Tools Suite, emitted by the Clean Market Exit Kit. Merges all upstream tool outputs into one master playbook from T0 (onset or decision) to final exit, with three milestones against the service's tolerance. In degraded standalone mode the prompt caps the verdict at Conditionally Demonstrated; the cap is advisory: neither this schema nor tools/validate.py enforces it, so a human reviewer checks it against inputs_absent.",
   "type": "object",
   "additionalProperties": false,
   "required": [

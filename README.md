@@ -2,7 +2,7 @@
 
 **An evidence-led assistant for governance, risk management and compliance assessment and design.**
 
-**Version 2.6.1 · 20 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+**Version 2.6.2 · 20 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
 
 GRCnext™ Copilot tests one thing: whether an organization holds **Global Optionality**. That is the capacity to preserve or create lawful, authorized and executable choices when a critical service, dependency, provider, jurisdiction, technology or operating assumption becomes unavailable or unacceptable.
 
@@ -38,7 +38,7 @@ How v2 differs from v1 is recorded in [`CHANGELOG.md`](CHANGELOG.md), in the ent
 
 **Eight readiness gates.** Service and owner; approved measurable tolerance; mapped dependencies; switch authority; at least one executable exit for the top concentration dependency; at least one completed severe-but-plausible exercise; evidence that the tolerance was met; corrective actions with owners and dates. A fail or unknown on any core gate blocks an unqualified "demonstrated" conclusion.
 
-**Four results plus the tolerance result.** Capability profile (all domain scores shown); Constraint Level = `min(Pipes, Switches, Exits)`, the ordinal maturity diagnostic, reported with the **binding constraint** (the clock phase or gate that actually limits execution in the governing scenario); Evidence confidence (High, Moderate, Low, Indeterminate); Readiness decision (Demonstrated, Conditionally Demonstrated, Not Demonstrated, the one verdict scale the advisory suite also uses); plus the Tolerance result (Met, Not Met, Not Tested, Cannot Determine), measured from the **onset of disruption**, not from detection.
+**Four results plus the tolerance result.** Capability profile (all domain scores shown); Constraint Level = `min(Pipes, Switches, Exits)`, the ordinal maturity diagnostic, reported with the **binding constraint** (the clock phase or gate that actually limits execution in the governing scenario); Evidence confidence (High, Moderate, Low, Indeterminate); Readiness decision (Demonstrated, Conditionally Demonstrated, Not Demonstrated, the one verdict scale the advisory suite also uses; the suite's Demonstrated, in Exit Prover and the Clean Market Exit Kit, does not itself require a tolerance result of Met: the control is the validator's M4 check, which rejects a Demonstrated proof or Kit verdict whose interim continuity is outside the tolerance and warns when the fit is not shown); plus the Tolerance result (Met, Not Met, Not Tested, Cannot Determine), measured from the **onset of disruption**, not from detection.
 
 Detail lives in [`methodology/`](methodology/).
 
@@ -158,7 +158,7 @@ GRCnext™ and the associated doctrine vocabulary (Slow AI, Informed Intent, Fin
 
 ## How to Cite
 
-> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.6.1. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
+> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.6.2. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
 
 A machine-readable citation is in [CITATION.cff](CITATION.cff).
 

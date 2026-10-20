@@ -1,6 +1,6 @@
 # Evaluation set
 
-**Version 2.6.1 · 20 October 2026**
+**Version 2.6.2 · 20 October 2026**
 
 **The validator is INCOMPLETE and its ACCEPT is not a readiness conclusion.** Human review of every readiness decision and every Demonstrated proof is retained; the tool checks a record against the repository's own written rules and nothing else. Its known gaps are in its docstring and in `validator-proof-2026-10-13-02.md`.
 

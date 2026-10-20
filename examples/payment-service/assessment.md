@@ -42,8 +42,9 @@ organization can switch around a Vendor A outage but cannot yet show it
 can leave Vendor A within tolerance.
 
 Binding constraint. For the reroute scenario it is the Authorize phase:
-3 hours of the 9-hour rehearsal, because the authorized decision-maker
-was hard to reach out of hours. For the exit scenario it is gate 5
+3 hours of the 9-hour weekday-peak rehearsal, because the authorized
+decision-maker was hard to reach during it; out-of-hours reachability was
+not exercised. For the exit scenario it is gate 5
 (executable exit for the leading concentration), held at Provisional
 Pass. The minimum names the weakest maturity domain; the binding
 constraint names what actually limits execution.
@@ -69,13 +70,15 @@ caps rule 2).
 
 ## E. Tolerance result
 
-Met for the reroute scenario.
+Met for the governing scenario (Vendor A gateway unavailable during a
+weekday peak, rerouted to the Vendor C backup rail).
 
 - Clock start (onset): the injected Vendor A outage at rehearsal start.
   Detection followed at 20 minutes (the Detect phase).
 - Clock stop: verified stabilization on the Vendor C backup rail, 9 hours
   from onset.
-- Not Tested end to end for the exit scenario.
+- The exit off Vendor A is not the governing scenario; its fit within
+  tolerance is untested (gate 5, CA-001).
 
 ## Gate results
 
@@ -84,10 +87,10 @@ Met for the reroute scenario.
 | Service and owner defined | Pass | Head of payments accountable |
 | Tolerance approved and measurable | Provisional Pass | 12 hours, approved by COO with clock start at detection; onset clock pending re-approval (CA-005) |
 | Dependencies mapped | Pass | Map verified 2026-05-20; next re-verification due 2026-08-20 (CA-003) |
-| Switch authority available | Pass | Delegated, though out-of-hours reachability was slow in rehearsal |
+| Switch authority available | Pass | Delegated, though the decision-maker was slow to reach in the weekday-peak rehearsal; out-of-hours reachability not exercised |
 | Executable exit for leading concentration | Provisional Pass | Exit exists on paper and in a T2 data-export test, not end to end |
 | Severe but plausible exercise completed | Pass | T3 reroute rehearsal 2026-05-12 |
-| Evidence shows tolerance result | Pass | For the reroute path |
+| Evidence shows tolerance result | Pass | Governing scenario (Vendor A gateway unavailable during a weekday peak): Met, 9 hours from onset against 12 |
 | Corrective actions have owners and dates | Pass | Every action has an owner and a target date; none overdue |
 
 No gate is a hard Fail. The Provisional Passes on gates 2 and 5 cap the
@@ -99,8 +102,8 @@ decision at Conditionally Demonstrated.
    unconfirmed under peak load.
 2. Fourth-party concentration: the upstream network provider behind
    Vendor A may also sit behind the substitute gateway.
-3. Authorization latency: 3 hours in rehearsal because the decision-maker
-   was hard to reach out of hours.
+3. Authorization latency: 3 hours in the weekday-peak rehearsal because
+   the decision-maker was hard to reach.
 4. Tolerance clock start approved at detection; the onset clock awaits
    re-approval.
 
@@ -111,7 +114,7 @@ decision at Conditionally Demonstrated.
 | E-001 | Backup rail activates within tolerance | exercise record | Verified | Current | None |
 | E-002 | Vendor A exit rights permit termination for convenience | contract | Verified | Rights current | The right only, not the capability to execute the exit (E-006) |
 | E-003 | Data can be exported from Vendor A in usable form | observed test | Verified | Current | Export only, not full cutover |
-| E-004 | Substitute gateway can carry peak volume | none | Not evidenced | n.a. | No capacity test |
+| E-004 | Substitute gateway can carry peak volume | interview representation | Not evidenced | n.a. | No capacity test |
 | E-005 | Impact tolerance approved with measurable clock events | controlled document | Provisional | Current | Approved statement names detection as clock start; onset clock not yet approved |
 | E-006 | The exit off Vendor A can be executed end to end | observed test | Provisional | Current | Export step only; no end-to-end rehearsal (CA-001) |
 

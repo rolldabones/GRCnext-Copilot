@@ -164,7 +164,8 @@ For Vendor A, the leading concentration dependency. See
 - Evidence pack: See [`evidence-ledger.csv`](evidence-ledger.csv) and the
   inputs in [`input-pack.md`](input-pack.md).
 - Findings: Authorization was the slowest phase at 3 hours because the
-  authorized decision-maker was hard to reach out of hours. The exit path
+  authorized decision-maker was hard to reach during the weekday-peak
+  rehearsal; out-of-hours reachability was not exercised. The exit path
   is not rehearsed end to end. The approved tolerance statement names
   detection as the clock start, so the onset clock needs re-approval
   (CA-005). The dependency map re-verification falls due on 2026-08-20

@@ -19,11 +19,14 @@ Three prompt files support deployment:
 - [`GRCnext-Copilot-compact.md`](GRCnext-Copilot-compact.md) is the short
   edition of the v2 prompt for any assistant whose instruction field
   cannot take the full prompt. It carries the full behavioral spine,
-  including the decision caps, so the Copilot behaves correctly without
-  any attached file.
+  including the decision caps, but leaves the fifteen mode definitions,
+  the Contract Exit Review order and output and the exercise-design and
+  backlog fields to the v2 prompt, which a deployment without that file
+  cannot read.
 
 The three are consistent. They differ in length and in how much reasoning
-is stated inline, not in what the Copilot does.
+is stated inline; the compact edition also leaves the parts named above to
+the v2 prompt.
 
 ## Claude
 

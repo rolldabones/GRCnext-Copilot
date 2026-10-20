@@ -128,7 +128,7 @@ tolerance, and that is where the service fails.
 | E-K1 | Kill switch halts Agent A within 5 minutes | observed test | Verified | Current | Halts agent, does not run the queue |
 | E-K2 | Human control achievable within tolerance | exercise record | Refuted | Current | Test shows about 90 minutes, outside 1 hour |
 | E-K3 | Detection surfaces incorrect actions promptly | exercise record | Provisional | Current | 25-minute latency in test |
-| E-K4 | Alternate model preserves decision quality | none | Not evidenced | n.a. | No validation run |
+| E-K4 | Alternate model preserves decision quality | interview representation | Not evidenced | n.a. | No validation run |
 
 ## Prioritized backlog
 

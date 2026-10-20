@@ -16,7 +16,7 @@
     "kind": "clock_phase",
     "name": "Authorize",
     "scenario": "Vendor A gateway unavailable during a weekday peak (reroute to the Vendor C backup rail)",
-    "basis": "Authorize took 3 hours of the 9-hour rehearsal because the authorized decision-maker was hard to reach out of hours; for the exit scenario the binding constraint is gate executable_exit_for_leading_concentration, held at Provisional Pass."
+    "basis": "Authorize took 3 hours of the 9-hour weekday-peak rehearsal because the authorized decision-maker was hard to reach during it (out-of-hours reachability was not exercised); for the exit scenario the binding constraint is gate executable_exit_for_leading_concentration, held at Provisional Pass."
   },
   "evidence_confidence": "Moderate",
   "readiness_decision": "Conditionally Demonstrated",
@@ -29,16 +29,16 @@
     {"gate": "service_and_owner_defined", "status": "Pass", "note": "Head of payments accountable"},
     {"gate": "tolerance_approved_and_measurable", "status": "Provisional Pass", "note": "12 hours, approved by COO with clock start at detection; onset clock pending re-approval (CA-005)"},
     {"gate": "dependencies_mapped", "status": "Pass", "note": "Map verified 2026-05-20; next re-verification due 2026-08-20 (CA-003)"},
-    {"gate": "switch_authority_available", "status": "Pass", "note": "Delegated, though out-of-hours reachability was slow in rehearsal"},
+    {"gate": "switch_authority_available", "status": "Pass", "note": "Delegated, though the decision-maker was slow to reach in the weekday-peak rehearsal; out-of-hours reachability not exercised"},
     {"gate": "executable_exit_for_leading_concentration", "status": "Provisional Pass", "note": "Exit exists on paper and in a T2 data-export test, not end to end"},
     {"gate": "severe_but_plausible_exercise_completed", "status": "Pass", "note": "T3 reroute rehearsal 2026-05-12"},
-    {"gate": "evidence_shows_tolerance_result", "status": "Pass", "note": "For the reroute path"},
+    {"gate": "evidence_shows_tolerance_result", "status": "Pass", "note": "Governing scenario (Vendor A gateway unavailable during a weekday peak): Met, 9 hours from onset against 12"},
     {"gate": "corrective_actions_have_owners_and_dates", "status": "Pass", "note": "Every action has an owner and a target date; none overdue"}
   ],
   "top_breakpoints": [
     "Exit from Vendor A not rehearsed end to end, and substitute capacity unconfirmed under peak load.",
     "Fourth-party concentration: the upstream network provider behind Vendor A may also sit behind the substitute gateway.",
-    "Authorization latency: 3 hours in rehearsal because the decision-maker was hard to reach out of hours.",
+    "Authorization latency: 3 hours in the weekday-peak rehearsal because the decision-maker was hard to reach.",
     "Tolerance clock start approved at detection; the onset clock awaits re-approval."
   ],
   "evidence_ledger_ref": "examples/payment-service/evidence-ledger.csv",

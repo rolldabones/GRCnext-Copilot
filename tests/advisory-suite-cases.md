@@ -309,7 +309,7 @@ date, each case's disposition and any adjudication.
 ### Run 2, required before the suite prompts are relied on
 
 Not yet run. Requirements, from the second evaluation of 13 October 2026:
-the current prompts (Switch Registry 1.4, Exit Prover 1.3, schema 2.6), the intended
+the current prompts (Switch Registry 1.5, Exit Prover 1.3, Clean Market Exit Kit 1.2, schema 2.6), the intended
 deployment configuration (the prompt as a true system prompt, not an
 opening message under another system prompt), valid synthetic fixtures
 (artifact contents in the input; suite JSON supplied where a Demonstrated verdict is

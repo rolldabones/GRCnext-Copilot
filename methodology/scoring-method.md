@@ -258,17 +258,18 @@ Results:
   the exit path lacks end-to-end execution evidence and one action is
   overdue.
 - Gates: gates 1 to 4 Pass, gate 5 Provisional Pass, exit exists with
-  rights and portability but rehearsed only to T2, gate 6 Pass for the
-  switch path, gate 7 Pass for the switch path, gate 8 Provisional Pass
+  rights and portability but rehearsed only to T2, gates 6 and 7 Pass,
+  each evaluated once against the governing scenario (the Vendor A
+  outage on the switch path), gate 8 Provisional Pass
   because of the overdue action.
 - Readiness decision: Conditionally Demonstrated. The switch path is
   Demonstrated within tolerance. The exit path and the overdue action
   hold the overall decision at Conditionally Demonstrated.
-- Tolerance result: Met for the switch scenario. Clock started at the
+- Tolerance result: Met for the governing scenario. Clock started at the
   onset of Vendor A unavailability, established from system records, not
   at its detection. Clock stopped at verified
-  service stabilization on the backup path at 9 hours. Not Tested end to
-  end for the exit scenario.
+  service stabilization on the backup path at 9 hours. The exit path is
+  not the governing scenario; its fit within tolerance is untested.
 
 Note how the fatal-weakness logic works. Even though Pipes and Switches
 score L3, the exit path pulls the Constraint Level to 2, and the
