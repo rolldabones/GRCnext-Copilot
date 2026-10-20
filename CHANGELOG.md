@@ -3,6 +3,12 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.6.1 (2026-10-20)
+
+- LICENSE: two defects against the Creative Commons legal code corrected (the space in 'ShareAlike. In'; the CC0 sentence of the closing notice). Operative terms unchanged.
+- **README, Short edition:** "Until v2.6.0 it was" now reads "Until the release of 18 October 2026 it was". Wording only; the sentence is history, and the C1 version check read its version as a masthead disagreement once the masthead moved (weekly sweep of 20 October 2026, on Michael Paik's ruling the same day).
+- README masthead, How to Cite, `tests/schema-policy-cases.md` masthead and `CITATION.cff` to v2.6.1. Schemas, fixtures and the advisory suite are unchanged.
+
 ## v2.6.0 (2026-10-18)
 
 Minor. Session T6 of the whole-account review of 15 October 2026 (doc section 6; reviewer report 08), under determination D1: one clock, one tolerance, one verdict scale, interchange contract 2.6, a first-run route and continuous integration. The method's rules change in the places listed; every changed instrument re-versions with a dated amendment note. Schema payloads written under 2.5 must be migrated (`schemas/README.md`).

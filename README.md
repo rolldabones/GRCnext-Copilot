@@ -2,7 +2,7 @@
 
 **An evidence-led assistant for governance, risk management and compliance assessment and design.**
 
-**Version 2.6.0 · 18 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+**Version 2.6.1 · 20 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
 
 GRCnext™ Copilot tests one thing: whether an organization holds **Global Optionality**. That is the capacity to preserve or create lawful, authorized and executable choices when a critical service, dependency, provider, jurisdiction, technology or operating assumption becomes unavailable or unacceptable.
 
@@ -116,7 +116,7 @@ Full instructions with data-control and memory caveats are in [`prompt/model-con
 
 **Claude (Project or Custom Instructions).** Paste [`prompt/GRCnext-Copilot-v2.md`](prompt/GRCnext-Copilot-v2.md) into the Project instructions. Project instruction limits are large enough for the full prompt, so no compaction is needed. Add the blank `templates/` and the `examples/` files as Project knowledge if you want the Copilot to reuse them; [`START-HERE.md`](START-HERE.md) is the first run.
 
-**Short edition.** [`prompt/GRCnext-Copilot-compact.md`](prompt/GRCnext-Copilot-compact.md) is the v2 prompt in short form, for an assistant with a tight instruction limit; it carries the decision caps and points to the v2 prompt for the rest. Until v2.6.0 it was `compact-custom-gpt-version.md`, written for the 8,000-character field of a custom GPT; that route closed with the retirement (sources in [RETIREMENT.md](https://github.com/rolldabones/rolldabones/blob/main/RETIREMENT.md)), and the edition no longer fits that field.
+**Short edition.** [`prompt/GRCnext-Copilot-compact.md`](prompt/GRCnext-Copilot-compact.md) is the v2 prompt in short form, for an assistant with a tight instruction limit; it carries the decision caps and points to the v2 prompt for the rest. Until the release of 18 October 2026 it was `compact-custom-gpt-version.md`, written for the 8,000-character field of a custom GPT; that route closed with the retirement (sources in [RETIREMENT.md](https://github.com/rolldabones/rolldabones/blob/main/RETIREMENT.md)), and the edition no longer fits that field.
 
 **Former production instance.** The author's GRCnext™ Copilot custom GPT ran the **v1 single-prompt configuration** until 1 October 2026, documented in [`prompt/v1-production-deployment.md`](prompt/v1-production-deployment.md) as last verified on 15 July 2026, before the conversion: the v1 instruction in the Instruction field, no Knowledge files, no conversation starters; Web Search, Canvas, Image Generation and Code Interpreter & Data Analysis enabled. The v2 configuration this repository ships was never deployed to it.
 
@@ -158,7 +158,7 @@ GRCnext™ and the associated doctrine vocabulary (Slow AI, Informed Intent, Fin
 
 ## How to Cite
 
-> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.6.0. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
+> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.6.1. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
 
 A machine-readable citation is in [CITATION.cff](CITATION.cff).
 
