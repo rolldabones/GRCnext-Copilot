@@ -2,7 +2,9 @@
 
 **An evidence-led assistant for governance, risk management and compliance assessment and design.**
 
-**Version 2.6.2 · 20 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+**Version 2.6.3 · 26 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+
+**Acceptance status ([ACCEPTANCE.md](https://github.com/rolldabones/rolldabones/blob/main/ACCEPTANCE.md), 26 October 2026, KST):** Not accepted. The main prompt has no logged run; the advisory tools' run of 13 October 2026 (tests/evaluation-set/) is not yet read against ACCEPTANCE.md and carries no acceptance. The account's status table is in [ECOSYSTEM.md](https://github.com/rolldabones/rolldabones/blob/main/ECOSYSTEM.md#instrument-status).
 
 GRCnext™ Copilot tests one thing: whether an organization holds **Global Optionality**. That is the capacity to preserve or create lawful, authorized and executable choices when a critical service, dependency, provider, jurisdiction, technology or operating assumption becomes unavailable or unacceptable.
 
@@ -158,7 +160,7 @@ GRCnext™ and the associated doctrine vocabulary (Slow AI, Informed Intent, Fin
 
 ## How to Cite
 
-> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.6.2. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
+> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.6.3. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
 
 A machine-readable citation is in [CITATION.cff](CITATION.cff).
 

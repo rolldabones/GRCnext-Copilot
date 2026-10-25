@@ -3,6 +3,10 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.6.3 (2026-10-26)
+
+Patch release. Acceptance restated as a tolerance: the tests file is now read under the account rule, `ACCEPTANCE.md` in the `rolldabones` repository, names its critical cases and records the instrument's status under that rule (not accepted: no logged run of the main prompt); the README carries the same status below its masthead. No rule in the instrument changed and no run was made; the edits are to the test record and the front door. Train A of the whole-account review of 24 October 2026 (KST); prepared with Claude, approved by Michael Paik.
+
 ## v2.6.2 (2026-10-20)
 
 Patch. Independent review of 20 October 2026; changes made with Claude, approved by Michael Paik. Corrections to examples, methodology prose, tests, tool notes and two advisory prompts' wording. No schema rule, field or schema_version changed; no scoring rule or gate changed.
