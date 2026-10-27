@@ -2,9 +2,9 @@
 
 **An evidence-led assistant for governance, risk management and compliance assessment and design.**
 
-**Version 2.6.3 · 26 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+**Version 2.7.0 · 27 October 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
 
-**Acceptance status ([ACCEPTANCE.md](https://github.com/rolldabones/rolldabones/blob/main/ACCEPTANCE.md), 26 October 2026, KST):** Not accepted. The main prompt has no logged run; the advisory tools' run of 13 October 2026 (tests/evaluation-set/) is not yet read against ACCEPTANCE.md and carries no acceptance. The account's status table is in [ECOSYSTEM.md](https://github.com/rolldabones/rolldabones/blob/main/ECOSYSTEM.md#instrument-status).
+**Acceptance status ([ACCEPTANCE.md](https://github.com/rolldabones/rolldabones/blob/main/ACCEPTANCE.md), 27 October 2026, KST):** The main prompt ([`prompt/GRCnext-Copilot-v2.md`](prompt/GRCnext-Copilot-v2.md)) is accepted with residuals on claude-opus-5-5: run 20261027-R2 passed all twelve critical cases and 13 of the 14 others, with SC2 a residual ([run record](tests/prompt-evaluation-cases.md#suite-configuration-and-status)). It is not accepted on claude-sonnet-5-5, where critical case A6 failed in the same run, and the long-form and compact editions carry no acceptance. The advisory tools' run of 13 October 2026 (tests/evaluation-set/) is not yet read against ACCEPTANCE.md and carries no acceptance. The account's status table is in [ECOSYSTEM.md](https://github.com/rolldabones/rolldabones/blob/main/ECOSYSTEM.md#instrument-status).
 
 GRCnext™ Copilot tests one thing: whether an organization holds **Global Optionality**. That is the capacity to preserve or create lawful, authorized and executable choices when a critical service, dependency, provider, jurisdiction, technology or operating assumption becomes unavailable or unacceptable.
 
@@ -94,8 +94,12 @@ GRCnext-Copilot/
 │   └── agentic-ai-service/       Agentic AI worked example
 ├── tests/
 │   ├── scoring-cases.md          Pins the rubric
-│   ├── prompt-evaluation-cases.md Behavioral tests for the Copilot
+│   ├── prompt-evaluation-cases.md Behavioral tests for the Copilot; the main prompt's suite, status and run record
 │   ├── adversarial-inputs.md      Red-team prompts and expected behavior
+│   ├── run_prompt_cases.py        Runs the 26-case suite against the API
+│   ├── score_prompt_cases.py      Cross-model scorer, read under ACCEPTANCE.md
+│   ├── prompt-fixtures/           Synthetic input for case A4
+│   ├── prompt-runs/               Transcripts, manifests and scores of each logged run
 │   ├── schema-policy-cases.md     Rules the schemas and validator enforce, with recorded runs
 │   ├── advisory-suite-cases.md    Behavioral cases for Switch Registry and Exit Prover
 │   └── evaluation-set/            Versioned run records, fixtures and emitted payloads
@@ -160,7 +164,7 @@ GRCnext™ and the associated doctrine vocabulary (Slow AI, Informed Intent, Fin
 
 ## How to Cite
 
-> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.6.3. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
+> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.7.0. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
 
 A machine-readable citation is in [CITATION.cff](CITATION.cff).
 

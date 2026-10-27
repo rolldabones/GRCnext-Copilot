@@ -1,0 +1,246 @@
+{
+  "stamp": "20261027-R1",
+  "model_requested": "claude-sonnet-5-5",
+  "max_tokens": 16000,
+  "prompt_file": "prompt/GRCnext-Copilot-v2.md",
+  "prompt_proper_sha256": "288c580084cc17a66dba3831d5797faec541337acda291fbd6146453f871186f",
+  "attachments": "none",
+  "started_kst": "2026-10-27T21:13:49+09:00",
+  "transcripts": [
+    {
+      "case": "B1",
+      "file": "20261027-R1_claude-sonnet-5-5_B1.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8861,
+      "output_tokens": 3297
+    },
+    {
+      "case": "B2",
+      "file": "20261027-R1_claude-sonnet-5-5_B2.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8886,
+      "output_tokens": 3948
+    },
+    {
+      "case": "B3",
+      "file": "20261027-R1_claude-sonnet-5-5_B3.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8884,
+      "output_tokens": 2101
+    },
+    {
+      "case": "B4",
+      "file": "20261027-R1_claude-sonnet-5-5_B4.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8861,
+      "output_tokens": 1886
+    },
+    {
+      "case": "B5",
+      "file": "20261027-R1_claude-sonnet-5-5_B5.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8858,
+      "output_tokens": 1893
+    },
+    {
+      "case": "B6",
+      "file": "20261027-R1_claude-sonnet-5-5_B6.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8887,
+      "output_tokens": 3239
+    },
+    {
+      "case": "B7",
+      "file": "20261027-R1_claude-sonnet-5-5_B7.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8926,
+      "output_tokens": 2907
+    },
+    {
+      "case": "B8",
+      "file": "20261027-R1_claude-sonnet-5-5_B8.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 10646,
+      "output_tokens": 2365
+    },
+    {
+      "case": "B9",
+      "file": "20261027-R1_claude-sonnet-5-5_B9.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "max_tokens",
+      "truncated": true,
+      "input_tokens": 10666,
+      "output_tokens": 16000
+    },
+    {
+      "case": "B10",
+      "file": "20261027-R1_claude-sonnet-5-5_B10.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "max_tokens",
+      "truncated": true,
+      "input_tokens": 10661,
+      "output_tokens": 16000
+    },
+    {
+      "case": "A1",
+      "file": "20261027-R1_claude-sonnet-5-5_A1.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 9040,
+      "output_tokens": 4196
+    },
+    {
+      "case": "A2",
+      "file": "20261027-R1_claude-sonnet-5-5_A2.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8862,
+      "output_tokens": 2016
+    },
+    {
+      "case": "A3",
+      "file": "20261027-R1_claude-sonnet-5-5_A3.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8879,
+      "output_tokens": 1189
+    },
+    {
+      "case": "A4",
+      "file": "20261027-R1_claude-sonnet-5-5_A4.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 9779,
+      "output_tokens": 7836
+    },
+    {
+      "case": "A5",
+      "file": "20261027-R1_claude-sonnet-5-5_A5.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8878,
+      "output_tokens": 1510
+    },
+    {
+      "case": "A6",
+      "file": "20261027-R1_claude-sonnet-5-5_A6.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8925,
+      "output_tokens": 3368
+    },
+    {
+      "case": "A7",
+      "file": "20261027-R1_claude-sonnet-5-5_A7.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8868,
+      "output_tokens": 2196
+    },
+    {
+      "case": "A8",
+      "file": "20261027-R1_claude-sonnet-5-5_A8.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8873,
+      "output_tokens": 898
+    },
+    {
+      "case": "A9",
+      "file": "20261027-R1_claude-sonnet-5-5_A9.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8862,
+      "output_tokens": 1768
+    },
+    {
+      "case": "SC1",
+      "file": "20261027-R1_claude-sonnet-5-5_SC1.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 9085,
+      "output_tokens": 7319
+    },
+    {
+      "case": "SC2",
+      "file": "20261027-R1_claude-sonnet-5-5_SC2.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8960,
+      "output_tokens": 3041
+    },
+    {
+      "case": "SC3",
+      "file": "20261027-R1_claude-sonnet-5-5_SC3.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8967,
+      "output_tokens": 5468
+    },
+    {
+      "case": "SC4",
+      "file": "20261027-R1_claude-sonnet-5-5_SC4.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8996,
+      "output_tokens": 3973
+    },
+    {
+      "case": "SC5",
+      "file": "20261027-R1_claude-sonnet-5-5_SC5.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8938,
+      "output_tokens": 1991
+    },
+    {
+      "case": "SC6",
+      "file": "20261027-R1_claude-sonnet-5-5_SC6.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 9107,
+      "output_tokens": 6858
+    },
+    {
+      "case": "SC7",
+      "file": "20261027-R1_claude-sonnet-5-5_SC7.md",
+      "model_returned": "claude-sonnet-5-5",
+      "stop_reason": "end_turn",
+      "truncated": false,
+      "input_tokens": 8952,
+      "output_tokens": 2864
+    }
+  ],
+  "finished_kst": "2026-10-27T21:28:01+09:00"
+}

@@ -128,7 +128,11 @@ issue split or hybrid gate states.
 4. Authority to invoke essential switches is available.
 5. At least one executable exit exists for the leading concentration
    dependency.
-6. At least one severe but plausible exercise has been completed.
+6. At least one severe but plausible exercise of the governing scenario
+   has been completed. Discussion only (T0 or T1) for the governing
+   scenario is a Fail; material actions simulated, or the scenario only
+   partly covered, is a Provisional Pass at most
+   ([`templates/intake-pack.md`](../templates/intake-pack.md), gate 6).
 7. Evidence demonstrates whether the tolerance was met.
 8. Material corrective actions have owners and target dates.
 

@@ -4,8 +4,8 @@ title: "GRCnext™ Copilot"
 authors:
   - family-names: "Paik"
     given-names: "Son-U Michael"
-version: 2.6.3
-date-released: "2026-10-26"
+version: 2.7.0
+date-released: "2026-10-27"
 license: CC-BY-NC-SA-4.0
 repository-code: "https://github.com/rolldabones/GRCnext-Copilot"
 abstract: "The optionality assessor: evidence-led scoring of Global Optionality across critical services (Pipes, Switches, Exits), with the v2 methodology, advisory tools suite, schemas and tests."

@@ -20,9 +20,18 @@ Vocabulary follows `methodology/scoring-method.md`,
 Read those first. These cases do not restate the definitions. They only
 fix the outputs.
 
+These cases are part of the main prompt's suite as SC1 to SC7; its
+configuration, status and run record are in
+[`prompt-evaluation-cases.md`](prompt-evaluation-cases.md#suite-configuration-and-status).
+Each case carries a run input and a run pass condition naming the
+mechanics a run is scored on. The cases were numbered 1 to 7 before
+27 October 2026 (KST).
+
+**Critical cases:** none.
+
 ---
 
-## Case 1: the minimum rule and the exit gate both bite
+## Case SC1: the minimum rule and the exit gate both bite
 
 A single service. Switches and Pipes are strong and tested. The exit for
 the leading concentration dependency exists on paper only.
@@ -37,6 +46,26 @@ Inputs.
   exists. No transition assistance secured, no substitute qualified, no
   rehearsal. Described only.
 - Exercises: the reroute rehearsal was T3. Evidence current.
+
+Run input, sent verbatim.
+
+```text
+Treat the facts below as the reviewed evidence record for one critical service, Service B. Give the developed assessment: the capability profile, the Constraint Level and binding constraint, the evidence confidence, the gate results, the tolerance result and the readiness decision.
+
+- Service and owner defined. Impact tolerance approved and measurable.
+- Pipes: end-to-end dependency map current, concentrations identified. Strong.
+- Switches: reroute switch delegated, tested at T3, executed within tolerance in the rehearsal. Strong.
+- Exits: a written exit plan for the leading concentration dependency exists. No transition assistance secured, no substitute qualified, no rehearsal. Described only.
+- Exercises: the reroute rehearsal was T3. Evidence current.
+```
+
+Run pass condition. PASS when the response shows the six domain scores
+individually with Exits at 1 or below, sets the Constraint Level at the
+Exits score, classifies the executable-exit gate (gate 5) as Fail,
+reaches Not Demonstrated and averages nothing. The other domain scores
+and the confidence rating are judgment within the method and are not
+pinned by the run. The expected results below remain the rubric; the run
+pins only what this condition names.
 
 Expected capability profile.
 
@@ -73,7 +102,7 @@ averaged up.
 
 ---
 
-## Case 2: provisional credit and the conversion action
+## Case SC2: provisional credit and the conversion action
 
 A single switch is claimed. The support is a draft runbook and an
 interview statement that authority is delegated. Nothing has been tested.
@@ -85,6 +114,25 @@ Inputs.
 - An owner states in interview that decision authority is delegated and
   available out of hours.
 - No execution record. No test. No signed delegation.
+
+Run input, sent verbatim.
+
+```text
+Treat the facts below as the reviewed evidence record for one critical service, Service B. Classify the switch claim, state the credit it earns and the Switches level it supports, and name the action that would verify it.
+
+- The switch action, trigger and intended operator are described in a draft runbook.
+- An owner states in interview that decision authority is delegated and available out of hours.
+- No execution record. No test. No signed delegation.
+```
+
+Run pass condition. PASS when the response classifies the switch claim
+as Provisional, labels any credit as unverified, pairs it with an
+evidence-conversion action that includes a controlled test of the switch
+and a signed delegation, names an owner and target date for that action
+or flags that they are missing, keeps Switches below L3 Exercised and
+does not treat the absence of a test as the absence of the switch. The
+expected results below remain the rubric; the run pins only what this
+condition names.
 
 Expected treatment.
 
@@ -105,7 +153,7 @@ verification.
 
 ---
 
-## Case 3: contradictory evidence blocks Demonstrated
+## Case SC3: contradictory evidence blocks Demonstrated
 
 An exit rehearsal is presented as a success within tolerance. The
 underlying records conflict with that claim.
@@ -117,6 +165,28 @@ Inputs.
 - The exercise record for the same event shows a T1 facilitated
   tabletop. No system actions were performed. The stated completion time
   is an estimate produced in discussion, not a measured elapsed time.
+
+Run input, sent verbatim.
+
+```text
+Treat the facts below as the reviewed evidence record for one critical service, Service B. Can the exit be marked Demonstrated?
+
+- A summary report states the exit was rehearsed end-to-end and completed within the approved tolerance.
+- The exercise record for the same event shows a T1 facilitated tabletop. No system actions were performed. The stated completion time is an estimate produced in discussion, not a measured elapsed time.
+```
+
+Run pass condition. PASS when the response classifies the
+within-tolerance claim as Contradicted, or as Refuted on the reading that
+the exercise record affirmatively disproves it (the prompt's own state for
+a disproved claim), does not mark the exit or the service Demonstrated,
+requires the conflict to be resolved, whether by reconciling the two
+records or by correcting the summary against the primary record, and
+requires a controlled test or end-to-end rehearsal (T2 or T3) with a
+measured elapsed time before Demonstrated is considered, and does not
+treat the tabletop estimate as a measured result. The expected results
+below remain the rubric; the run pins only what this condition names.
+Condition widened 27 October 2026 (KST) to admit Refuted, case defect
+found in run 20261027-R1.
 
 Expected treatment.
 
@@ -136,7 +206,7 @@ flattering document. A tabletop estimate is not a measured result.
 
 ---
 
-## Case 4: exercise tier gates the maturity level
+## Case SC4: exercise tier gates the maturity level
 
 The governing severe but plausible scenario has been examined only in a
 facilitated tabletop.
@@ -148,6 +218,23 @@ Inputs.
   authority.
 - Findings and notional decisions were recorded. No switch or exit was
   invoked. No timing was measured against tolerance.
+
+Run input, sent verbatim.
+
+```text
+Treat the facts below as the reviewed evidence record for one critical service, Service B. Score the Exercises domain, classify the exercise gate and give the tolerance result.
+
+- A T1 facilitated tabletop was run for the governing severe but plausible scenario.
+- Participants included the accountable owner and the relevant authority.
+- Findings and notional decisions were recorded. No switch or exit was invoked. No timing was measured against tolerance.
+- The capability could be put to a controlled test; nothing prevents one.
+```
+
+Run pass condition. PASS when the response scores Exercises at L2 or
+below (not L3), classifies the severe-but-plausible-exercise gate (gate
+6) as Fail and gives the tolerance result as Not Tested. The expected
+results below remain the rubric; the run pins only what this condition
+names.
 
 Expected treatment.
 
@@ -172,7 +259,7 @@ from "Provisional Pass at most" to Fail, to match the intake pack.
 
 ---
 
-## Case 5: the organization view is the minimum across services
+## Case SC5: the organization view is the minimum across services
 
 Three critical services have been assessed. Their individual results
 differ. The portfolio result is required.
@@ -185,10 +272,38 @@ Inputs.
 | Service M | 1 | Not Demonstrated |
 | Service K | 2 | Not Demonstrated |
 
+Run input, sent verbatim.
+
+```text
+Three critical services have been assessed. Give the organization view.
+
+| Service | Constraint Level | Readiness decision |
+| --- | --- | --- |
+| Service B | 2 | Conditionally Demonstrated |
+| Service M | 1 | Not Demonstrated |
+| Service K | 2 | Not Demonstrated |
+```
+
+Run pass condition. PASS when the response gives an organization
+readiness view of Not Demonstrated as the minimum of the three service
+positions, not an average and not the strongest, names the service or
+services that set the floor (Service M, or Service M and Service K
+jointly, since both are Not Demonstrated) and keeps the three service
+results shown beside the organization view. The expected results below
+remain the rubric; the run pins only what this condition names.
+Condition amended 27 October 2026 (KST): it no longer pins an
+organization Constraint Level, which neither the prompt nor
+`methodology/scoring-method.md` defines (case defect found in run
+20261027-R1).
+
 Expected results.
 
-- Organization Constraint Level: minimum of 2, 1 and 2, which is 1,
-  governed by Service M.
+- Organization Constraint Level: not defined by the method, which takes
+  the organization view as the minimum of the readiness positions
+  (`methodology/scoring-method.md`, cap 6). The lowest service value, 1
+  at Service M, may be reported for reference. Amended 27 October 2026
+  (KST); until then this line read "minimum of 2, 1 and 2, which is 1,
+  governed by Service M".
 - Organization readiness view: Not Demonstrated. The portfolio inherits
   the weakest service, not the average and not the strongest.
 - Reporting: the individual service results are still shown in full. The
@@ -201,7 +316,7 @@ profiles are never collapsed into the single organization number.
 
 ---
 
-## Case 6: the full profile is reported, never collapsed
+## Case SC6: the full profile is reported, never collapsed
 
 This case confirms the worked walkthrough in
 `methodology/scoring-method.md`.
@@ -212,6 +327,25 @@ Inputs.
   order.
 - One corrective action is overdue. The priority exit is designed but
   untested.
+
+Run input, sent verbatim.
+
+```text
+Treat the facts below as the reviewed evidence record for one critical service, Service B. Give the capability profile, the Constraint Level and binding constraint, the evidence confidence, the tolerance result and the readiness decision.
+
+- Domain scores, in the order of the capability model: Services and tolerances 3, Pipes 3, Switches 3, Exits 2, Exercises 3, Evidence and improvement 3.
+- The governing scenario (loss of the primary provider, handled by the reroute switch) was rehearsed end-to-end at T3: onset at 09:00, verified stabilization at 17:00, against an approved twelve-hour tolerance. Timing records are current.
+- The priority exit is designed: exit rights, transition assistance and a substitute are secured in writing. The exit has not been rehearsed.
+- One corrective action is overdue.
+```
+
+Run pass condition. PASS when the response shows all six scores
+individually as 3, 3, 3, 2, 3, 3 without averaging them or reducing them
+to one grade, sets the Constraint Level at 2, names the executable exit
+(gate 5) as the binding constraint, gives the tolerance result as Met
+for the governing scenario and reaches Conditionally Demonstrated held
+by the overdue action and the unrehearsed exit. The expected results
+below remain the rubric; the run pins only what this condition names.
 
 Expected results.
 
@@ -246,7 +380,7 @@ the profile follows; the Constraint Level stays 2.
 
 ---
 
-## Case 7: the clock starts at onset, not at detection
+## Case SC7: the clock starts at onset, not at detection
 
 The acceptance case for finding F04 of the evaluation brief.
 
@@ -255,6 +389,22 @@ Inputs.
 - A critical service with an approved impact tolerance of four hours.
 - Disruption begins at 02:00. Nobody notices until 04:00. The service is
   verified stable on an alternate path at 07:00.
+
+Run input, sent verbatim.
+
+```text
+Treat the facts below as the reviewed evidence record for one critical service, Service B. Give the clock start, the clock stop, the elapsed time, the tolerance result and the readiness decision.
+
+- Approved impact tolerance: four hours.
+- Disruption begins at 02:00. Nobody notices until 04:00. The service is verified stable on an alternate path at 07:00.
+```
+
+Run pass condition. PASS when the response starts the clock at onset
+(02:00), not at detection (04:00), stops it at verified stabilization
+(07:00), gives five hours elapsed against four, a tolerance result of
+Not Met and a readiness decision of Not Demonstrated, and does not call
+the tolerance Met on a three-hour reading. The expected results below
+remain the rubric; the run pins only what this condition names.
 
 Expected results.
 
