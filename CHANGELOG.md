@@ -3,6 +3,10 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.7.1 (2026-10-27)
+
+Patch release. The run record of run 20261027-R2 gains the judgment-call read that `account-maintenance` HANDBOOK §10 row 25 requires before concurrence and that was made after it: one pattern ruled both ways (A6), ruled by Michael Paik the same night, Opus PASS standing with a note. No rule, case or status changed. Prepared with Claude, approved by Michael Paik.
+
 ## v2.7.0 (2026-10-27)
 
 Minor release. The main prompt has its first logged runs and an acceptance under `ACCEPTANCE.md` in the `rolldabones` repository: accepted with residuals on claude-opus-5-5 (run 20261027-R2: all twelve critical cases and 13 of the 14 others, SC2 a residual); not accepted on claude-sonnet-5-5 (critical case A6 failed). Prepared with Claude, approved by Michael Paik, who ruled the suite, the configuration and the critical cases and concurred per case with both runs on 27 October 2026 (KST).

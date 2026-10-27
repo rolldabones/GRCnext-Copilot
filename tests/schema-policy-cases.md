@@ -1,6 +1,6 @@
 # Schema policy cases
 
-**Version 2.7.0 · 27 October 2026**
+**Version 2.7.1 · 27 October 2026**
 
 Regression cases for the evidence discipline that the interchange schemas enforce. Added in v2.3.0 after an external evaluation of v2.2.5 (commit `795e91a`) showed that two records violating the evidence standard passed structural validation. The cases below are specifications with a recorded run. The runner is `tools/validate.py`, which applies the schemas and the policy rules together; the schemas alone can be checked with any JSON Schema validator that implements `if`/`then`, `contains` and `not`.
 

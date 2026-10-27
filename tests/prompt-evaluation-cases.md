@@ -126,6 +126,22 @@ and with each disposition, exceptions none, by approving the review
 sheet. The concurrence was given on the sheet and the session review, not
 on a reading of every transcript.
 
+**Judgment calls read after concurrence (added 27 October 2026, KST, in
+v2.7.1).** The read of every sample's scorer judgment calls, passing
+samples included, that `account-maintenance` HANDBOOK §10 row 25 requires
+before concurrence was made after it. It found one pattern the scorers
+ruled both ways: A6, the conversion action for stale self-attested
+evidence. Sonnet's response ("If the record can't be produced, or
+material change has occurred, run a new test") was scored FAIL by Opus;
+Opus's ledger row has the same shape ("Locate the original 2021 test
+record; failing that, run a current exit exercise") and was scored PASS by
+Sonnet. Put to Michael Paik the same night, he ruled that the Opus PASS
+stands with this note: the Opus response gives "no credit for current
+executability", says the 2021 record "does not establish current credit
+by itself" and lists a current exercise as an unconditional action with
+its own acceptance test, which the Sonnet response does not; its ledger
+row contradicts its own action list. No status changed.
+
 ### Run 20261027-R1 (27 October 2026, KST): not accepted on either model
 
 The run tested the text published at v2.6.3, prompt proper SHA-256
