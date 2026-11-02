@@ -3,6 +3,11 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.7.2 (2026-11-03)
+
+- `tests/prompt-runs/README.md`, new: an index of the two logged runs of 27 October 2026, linking each manifest and score file and naming the transcripts; no transcript, score or case changed.
+- README, `tests/schema-policy-cases.md` and `CITATION.cff` to v2.7.2; acceptance unchanged. Train C of the improvement rotation (review of 24 October 2026). Prepared with Claude, approved by Michael Paik.
+
 ## v2.7.1 (2026-10-27)
 
 Patch release. The run record of run 20261027-R2 gains the judgment-call read that `account-maintenance` HANDBOOK §10 row 25 requires before concurrence and that was made after it: one pattern ruled both ways (A6), ruled by Michael Paik the same night, Opus PASS standing with a note. No rule, case or status changed. Prepared with Claude, approved by Michael Paik.
