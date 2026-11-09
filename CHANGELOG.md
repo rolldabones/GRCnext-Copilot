@@ -3,6 +3,13 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.7.3 (2026-11-09)
+
+Patch release. Train D of the improvement rotation (review of 24 October 2026). Prepared with Claude, approved by Michael Paik.
+
+- README, License: one line points to `rolldabones/LICENSING.md` (v1.0.0, new), which states once what the account's two licenses permit, that a Client's use in its own operations may fall outside NonCommercial, how to ask and why the two licenses do not mix.
+- README, `tests/schema-policy-cases.md` and `CITATION.cff` to v2.7.3; no other file changed.
+
 ## v2.7.2 (2026-11-03)
 
 - `tests/prompt-runs/README.md`, new: an index of the two logged runs of 27 October 2026, linking each manifest and score file and naming the transcripts; no transcript, score or case changed.

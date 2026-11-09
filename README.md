@@ -2,7 +2,7 @@
 
 **An evidence-led assistant for governance, risk management and compliance assessment and design.**
 
-**Version 2.7.2 · 3 November 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+**Version 2.7.3 · 9 November 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
 
 **Acceptance status ([ACCEPTANCE.md](https://github.com/rolldabones/rolldabones/blob/main/ACCEPTANCE.md), 27 October 2026, KST):** The main prompt ([`prompt/GRCnext-Copilot-v2.md`](prompt/GRCnext-Copilot-v2.md)) is accepted with residuals on claude-opus-5-5: run 20261027-R2 passed all twelve critical cases and 13 of the 14 others, with SC2 a residual ([run record](tests/prompt-evaluation-cases.md#suite-configuration-and-status)). It is not accepted on claude-sonnet-5-5, where critical case A6 failed in the same run, and the long-form and compact editions carry no acceptance. The advisory tools' run of 13 October 2026 (tests/evaluation-set/) is not yet read against ACCEPTANCE.md and carries no acceptance. The account's status table is in [ECOSYSTEM.md](https://github.com/rolldabones/rolldabones/blob/main/ECOSYSTEM.md#instrument-status).
 
@@ -162,9 +162,11 @@ This repository is part of the [rolldabones governance ecosystem](https://github
 
 GRCnext™ and the associated doctrine vocabulary (Slow AI, Informed Intent, Final Liability) originate with the author. The three doctrines are used in this repository as stated in [DOCTRINE.md](https://github.com/rolldabones/rolldabones/blob/main/DOCTRINE.md), the account's single normative statement; the glossary quotes them verbatim. See [`LICENSE`](LICENSE) for reuse terms.
 
+Commercial use, including a Client's use in its own operations, is set out in [LICENSING.md](https://github.com/rolldabones/rolldabones/blob/main/LICENSING.md).
+
 ## How to Cite
 
-> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.7.2. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
+> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.7.3. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
 
 A machine-readable citation is in [CITATION.cff](CITATION.cff).
 
