@@ -2,7 +2,9 @@
 
 **An evidence-led assistant for governance, risk management and compliance assessment and design.**
 
-**Version 2.7.3 · 9 November 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+**Version 2.7.4 · 26 November 2026 · License: [CC BY-NC-SA 4.0](LICENSE) · Changes: [CHANGELOG.md](CHANGELOG.md)**
+
+**From 26 November 2026 (v2.7.4) this repository is maintained and its prompts are frozen at their last test** ([DISPOSITION.md](https://github.com/rolldabones/rolldabones/blob/main/DISPOSITION.md)). The method and its documentation are corrected if they are wrong. No prompt changes without a run logged that day under [ACCEPTANCE.md](https://github.com/rolldabones/rolldabones/blob/main/ACCEPTANCE.md), and no run is scheduled.
 
 **Acceptance status ([ACCEPTANCE.md](https://github.com/rolldabones/rolldabones/blob/main/ACCEPTANCE.md), 27 October 2026, KST):** The main prompt ([`prompt/GRCnext-Copilot-v2.md`](prompt/GRCnext-Copilot-v2.md)) is accepted with residuals on claude-opus-5-5: run 20261027-R2 passed all twelve critical cases and 13 of the 14 others, with SC2 a residual ([run record](tests/prompt-evaluation-cases.md#suite-configuration-and-status)). It is not accepted on claude-sonnet-5-5, where critical case A6 failed in the same run, and the long-form and compact editions carry no acceptance. The advisory tools' run of 13 October 2026 (tests/evaluation-set/) is not yet read against ACCEPTANCE.md and carries no acceptance. The account's status table is in [ECOSYSTEM.md](https://github.com/rolldabones/rolldabones/blob/main/ECOSYSTEM.md#instrument-status).
 
@@ -150,11 +152,13 @@ GRCnext™ received its first public exposition in the essay [*Made to Hold*](ht
 
 This repository is part of the [rolldabones governance ecosystem](https://github.com/rolldabones/rolldabones/blob/main/ECOSYSTEM.md), classified in Layer 2 (assessment and decision tools). Nearest neighbors:
 
-- [grc](https://github.com/rolldabones/grc) - the OCEG-spine working method for governance, risk management and compliance; the five GRCnext™ primitives are defined here, not there
-- [RedCap-00](https://github.com/rolldabones/RedCap-00) - the 72-hour operational-optionality self-check this method generalizes
-- [RedCap-01](https://github.com/rolldabones/RedCap-01) - the objective-to-risk alignment diagnostic upstream of optionality design
-- [Contract-Mechanism-Review-Assistant](https://github.com/rolldabones/Contract-Mechanism-Review-Assistant) - the contract reader that feeds the Contract Exit Review mode
-- [AI-Impact-Assessment-Tool](https://github.com/rolldabones/AI-Impact-Assessment-Tool) - the pre-deployment gate whose kill-switch and decommission requirements are Switches and Exits here
+- [grc](https://github.com/rolldabones/grc) (archived edition) - the OCEG-spine working method for governance, risk management and compliance; the five GRCnext™ primitives are defined here, not there
+- [RedCap-00](https://github.com/rolldabones/RedCap-00) (archived edition) - the 72-hour operational-optionality self-check this method generalizes
+- [RedCap-01](https://github.com/rolldabones/RedCap-01) (archived edition) - the objective-to-risk alignment diagnostic upstream of optionality design
+- [Contract-Mechanism-Review-Assistant](https://github.com/rolldabones/Contract-Mechanism-Review-Assistant) (archived edition) - the contract reader that feeds the Contract Exit Review mode
+- [AI-Impact-Assessment-Tool](https://github.com/rolldabones/AI-Impact-Assessment-Tool) (archived edition) - the pre-deployment gate whose kill-switch and decommission requirements are Switches and Exits here
+
+Entries marked archived edition are dated editions that receive no corrections; [DISPOSITION.md](https://github.com/rolldabones/rolldabones/blob/main/DISPOSITION.md) lists them.
 
 ---
 
@@ -166,7 +170,7 @@ Commercial use, including a Client's use in its own operations, is set out in [L
 
 ## How to Cite
 
-> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.7.3. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
+> Paik, Son-U Michael. *GRCnext™ Copilot*, v2.7.4. GRC Solutions Korea, 2026. https://github.com/rolldabones/GRCnext-Copilot
 
 A machine-readable citation is in [CITATION.cff](CITATION.cff).
 

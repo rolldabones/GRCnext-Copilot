@@ -3,6 +3,14 @@
 All notable changes to GRCnext™ Copilot are recorded here. Dates use the
 Asia/Seoul time zone (UTC+9).
 
+## v2.7.4 (2026-11-26)
+
+Patch release: the repository's standing from 26 November 2026, and pointers. On Michael Paik's rulings of 26 November 2026, recorded in DISPOSITION.md in the profile repository: thirteen repositories of the account were archived that day as dated editions. Prepared with Claude, approved by Michael Paik.
+
+- **README:** a statement under the masthead that the repository is maintained and that its prompts are frozen at their last test: the method and its documentation are corrected if wrong, and no prompt changes without a run logged that day. No prompt, schema, tool or test case changes, and the acceptance status reads as it did; `tests/schema-policy-cases.md` moves only in its masthead version, which follows the README.
+- **Part of the ecosystem:** the 5 archived neighbors are marked "archived edition", with one sentence pointing to DISPOSITION.md.
+- README and `CITATION.cff` to v2.7.4. No file is added, removed, renamed or moved.
+
 ## v2.7.3 (2026-11-09)
 
 Patch release. Train D of the improvement rotation (review of 24 October 2026). Prepared with Claude, approved by Michael Paik.
